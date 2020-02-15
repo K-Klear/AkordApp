@@ -1,0 +1,59 @@
+local estimatedTime = 9
+local dots = 0
+local years = false
+
+
+function init(self)
+	msg.post(".", "disable")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start") then
+		msg.post(".", "enable")
+		timer.delay(1, false, updateBar)
+		timer.delay(0.4, true, dotsF)
+	end
+end
+
+function updateBar(self, handle, time_elapsed)
+	local node = gui.get_node("estimate")
+	newDelay = math.random() * (2.4 - 0.6) + 0.6
+	timer.delay(newDelay, false, updateBar)
+	if years == false then
+		estimatedTime = estimatedTime + math.random(4, 58)
+		if estimatedTime >= 365 then
+			years = true
+			estimatedTime = 1
+		end
+	else
+		estimatedTime = estimatedTime + math.random(1, 8)
+	end
+	
+
+	if years == false then
+		gui.set_text(node, "Estimated time left: "..estimatedTime.." days (0.00 TB of 14.7 ZB)")
+	else
+		if estimatedTime == 1 then
+			gui.set_text(node, "Estimated time left: "..estimatedTime.." year (0.00 TB of 14.7 ZB)")
+		else
+			gui.set_text(node, "Estimated time left: "..estimatedTime.." years (0.00 TB of 14.7 ZB)")
+		end
+	end
+end
+
+function dotsF(self, handle, time_elapsed)
+	local node = gui.get_node("downloading")
+	if dots == 0 then
+		gui.set_text(node, "Downloading")
+		dots = 1
+	elseif dots == 1 then
+		gui.set_text(node, "Downloading.")
+		dots = 2
+	elseif dots == 2 then
+		gui.set_text(node, "Downloading..")
+		dots = 3
+	elseif dots == 3 then
+		gui.set_text(node, "Downloading...")
+		dots = 0
+	end
+end

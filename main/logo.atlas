@@ -1,0 +1,12 @@
+images {
+  image: "/main/Triangle1.png"
+}
+images {
+  image: "/main/Triangle2.png"
+}
+images {
+  image: "/main/logotext.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
