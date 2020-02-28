@@ -1,0 +1,7 @@
+local cover = 0.0001
+
+function update(self, dt)
+	--cover = cover + (0.01 * cover)
+	cover = cover + 0.001
+	sprite.set_constant("#sprite", "cover", vmath.vector4(cover, coverY, 0, 0))
+end
