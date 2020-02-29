@@ -1,7 +1,7 @@
 name: "sprite"
 tags: "tile"
 vertex_program: "/builtins/materials/sprite.vp"
-fragment_program: "/shaders/noise.fp"
+fragment_program: "/assets/shaders/noise.fp"
 vertex_space: VERTEX_SPACE_WORLD
 vertex_constants {
   name: "view_proj"
