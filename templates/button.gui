@@ -1,7 +1,7 @@
 script: ""
 fonts {
-  name: "default_font"
-  font: "/assets/fonts/default_font.font"
+  name: "default_font_large"
+  font: "/assets/fonts/default_font_large.font"
 }
 textures {
   name: "UI"
@@ -81,9 +81,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
-    z: 2.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -101,7 +101,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Button text!"
-  font: "default_font"
+  font: "default_font_large"
   id: "text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

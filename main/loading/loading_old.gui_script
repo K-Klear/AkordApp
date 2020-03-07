@@ -33,7 +33,7 @@ local function update_bar()
 end
 
 function init(self)
-	msg.post(".", "acquire_input_focus")
+	--msg.post(".", "acquire_input_focus")
 	nodes = {
 		bar = {
 			bar_1 = gui.get_node("bar_1"),
