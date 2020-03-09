@@ -1,10 +1,7 @@
-local path = sys.get_application_path()
-local engine = sys.get_engine_info()
 local system = sys.get_sys_info()
---sys.open_url("http://www.hamba.cz/")
 
-local SET = require("main/settings")
-local UI = require("main/ui")
+local SET = require("main/modules/settings")
+local UI = require("main/modules/ui")
 
 if system.system_name == "Windows" or system.system_name == "HTML5" then
 	SET.is_desktop = true
@@ -13,7 +10,7 @@ end
 local nodes, co
 
 local function write(node, text, speed)
-	speed = speed / 2
+	speed = speed * 0.75
 	local length, current_letter, text_timer = string.len(text), 1
 	text_timer = timer.delay(speed, true, function()
 		gui.set_text(node, gui.get_text(node)..string.sub(text, current_letter, current_letter))
@@ -59,17 +56,37 @@ function init(self)
 		},
 		white = gui.get_node("fade_white")
 	}
-	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..engine.version.." \n\nInicializace ............................................................. hotovo!\nVytvářím satelitní uplink ...................... hotovo!\nPřipojuji se k mainframe AkordCorpu ..................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refereshDaemon\nf_getLang"
+	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..sys.get_engine_info().version.." \n\nInicializace ............................................................. hotovo!\nVytvářím satelitní uplink ...................... hotovo!\nPřipojuji se k mainframe AkordCorpu ..................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refereshDaemon\nf_getLang"
 
 	gui.set_enabled(nodes.info.background, false)
 	gui.set_enabled(nodes.dialog.background, false)
 	gui.set_enabled(nodes.logo.left, false)
 	gui.set_enabled(nodes.logo.right, false)
 	gui.set_enabled(nodes.logo.text, false)
+
+	local function start_app()
+		new_line();	new_line();	new_line()
+		write(nodes.console, "\n\n\nProbíhá spuštění", 0.05)
+		wait(0.3)
+		gui.animate(nodes.white, "color.w", 1, gui.EASING_INCUBIC, 2.5)
+		wait(2.5)
+		gui.set_enabled(nodes.logo.left, true)
+		gui.set_enabled(nodes.logo.right, true)
+		gui.animate(nodes.logo.left, "position.x", 450, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.right, "position.x", 650, gui.EASING_OUTSINE, 2)
+		wait(1.5)
+		gui.set_enabled(nodes.logo.text, true)
+		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INBOUNCE, 2, 0, function()
+			msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
+			msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
+			msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
+		end)
+	end
 	
 	co = coroutine.create(function()
+		if SET.debug then start_app() end
 		write(nodes.console, "AkordApp version "..sys.get_config("project.version").."      \n", 0.05)
-		write(nodes.console, "Engine version "..engine.version.." \n", 0.05)
+		write(nodes.console, "Engine version "..sys.get_engine_info().version.." \n", 0.05)
 		wait(0.3)
 		write(nodes.console, "\nInitializing ...", 0.02)
 		write(nodes.console, ".....", 0.1)
@@ -122,7 +139,15 @@ function init(self)
 		gui.set_color(nodes.console, vmath.vector4(1, 0.5, 0.7, 1))
 		wait(0.3)
 		gui.set_color(nodes.console, vmath.vector4(1, 1, 1, 1))
-		write(nodes.console, "   ZAŘÍZENÍ ["..system.system_name.." "..system.device_model.."]", 0.05)
+		local system_text = ""
+		if system.system_name == "Windows" then
+			system_text = system.system_name
+		elseif syste.system_name == "HTML5" then
+			system_text = system.user_agent
+		else
+			system_text = system.system_name.." "..system.device_model
+		end
+		write(nodes.console, "   ZAŘÍZENÍ ["..system_text.."]", 0.05)
 		new_line()
 		write(nodes.console, "\nNEPODPORUJE NĚKTERÉ FUNKCE APLIKACE", 0.05)
 		wait(0.3)
@@ -135,20 +160,7 @@ function init(self)
 		gui.set_enabled(nodes.dialog.background, true)
 		UI.load_template({"AR_checkbox", "AR_info", "soma_checkbox", "soma_info", "fourd_checkbox", "fourd_info", "ads_checkbox", "ads_info"})
 		coroutine.yield(co)
-		new_line();	new_line();	new_line()
-		write(nodes.console, "\n\n\nProbíhá spouštění", 0.05)
-		wait(0.3)
-		gui.animate(nodes.white, "color.w", 1, gui.EASING_INCUBIC, 2.5)
-		wait(2.5)
-		gui.set_enabled(nodes.logo.left, true)
-		gui.set_enabled(nodes.logo.right, true)
-		gui.animate(nodes.logo.left, "position.x", 450, gui.EASING_OUTSINE, 2)
-		gui.animate(nodes.logo.right, "position.x", 650, gui.EASING_OUTSINE, 2)
-		wait(1.5)
-		gui.set_enabled(nodes.logo.text, true)
-		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INBOUNCE, 2)
-		wait(6)
-		os.exit()
+		start_app()
 	end)
 	coroutine.resume(co)
 end
