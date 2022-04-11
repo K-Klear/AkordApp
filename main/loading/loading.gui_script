@@ -1,7 +1,7 @@
 local system = sys.get_sys_info()
 
-local SET = require("main/modules/settings")
-local UI = require("main/modules/ui")
+local SET = require("modules/settings")
+local UI = require("modules/ui")
 
 if system.system_name == "Windows" or system.system_name == "HTML5" then
 	SET.is_desktop = true
@@ -26,8 +26,8 @@ local function wait(time)
 end
 
 local function new_line()
-	gui.animate(nodes.console, "position.y", gui.get_position(nodes.console).y + 39, gui.EASING_INOUTBOUNCE, 0.25, 0, function() coroutine.resume(co) end)
-	coroutine.yield(co)
+	--gui.animate(nodes.console, "position.y", gui.get_position(nodes.console).y + 39, gui.EASING_INOUTBOUNCE, 0.25, 0, function() coroutine.resume(co) end)
+	--coroutine.yield(co)
 end
 
 function init(self)
@@ -72,8 +72,8 @@ function init(self)
 		wait(2.5)
 		gui.set_enabled(nodes.logo.left, true)
 		gui.set_enabled(nodes.logo.right, true)
-		gui.animate(nodes.logo.left, "position.x", 450, gui.EASING_OUTSINE, 2)
-		gui.animate(nodes.logo.right, "position.x", 650, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.left, "position.x", 220, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.right, "position.x", 420, gui.EASING_OUTSINE, 2)
 		wait(1.5)
 		gui.set_enabled(nodes.logo.text, true)
 		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INBOUNCE, 2, 0, function()
@@ -84,127 +84,126 @@ function init(self)
 	end
 	
 	co = coroutine.create(function()
-		if SET.debug then start_app() end
-		write(nodes.console, "AkordApp version "..sys.get_config("project.version").."      \n", 0.05)
-		write(nodes.console, "Engine version "..sys.get_engine_info().version.." \n", 0.05)
-		wait(0.3)
-		write(nodes.console, "\nInitializing ...", 0.02)
-		write(nodes.console, ".....", 0.1)
-		write(nodes.console, "...", 0.7)
-		write(nodes.console, "..", 0.9)
-		write(nodes.console, "................", 0.03)
-		write(nodes.console, "...........", 0.005)
-		write(nodes.console, ".............", 0.0)
-		gui.set_text(nodes.console, gui.get_text(nodes.console).."........ done!")
-		wait(0.3)
-		write(nodes.console, "\nEstablishing satellite uplink ", 0.05)
-		write(nodes.console, "......................", 0.085)
-		write(nodes.console, " done!", 0.001)
-		wait(0.3)
-		write(nodes.console, "\nConnecting to AkordCorp mainframe ", 0.05)
-		write(nodes.console, ".....................", 0.1)
-		write(nodes.console, " done!", 0.001)
-		wait(0.3)
-		write(nodes.console, "\nf_loadDefaults", 0.05)
-		write(nodes.console, "\nf_sysCheck", 0.01)
-		write(nodes.console, "\nf_ASecInit", 0.01)
-		write(nodes.console, "\nf_0Auth", 0.01)
-		write(nodes.console, "\nf_refereshDaemon", 0.01)
-		write(nodes.console, "\nf_getLang", 0.02)
-		wait(0.1)
-		gui.set_text(nodes.console, "")
-		wait(0.1)
-		gui.set_text(nodes.console, full_text)
-		write(nodes.console, "\nf_timeSync", 0.01)
-		write(nodes.console, "\nf_deviceDriver", 0.01)
-		write(nodes.console, "\nf_load0", 0.01)
-		write(nodes.console, "\nf_load1", 0.01)
-		new_line()
-		write(nodes.console, "\nf_load3", 0.01)
-		new_line()
-		write(nodes.console, "\nf_neuralNet", 0.01)
-		new_line();	new_line()
-		write(nodes.console, "\n\nStahuji zásuvné moduly", 0.05)
-		write(nodes.console, ".....................", 0.1)
-		new_line();	new_line()
-		write(nodes.console, "\n\nCHYBA!", 0.1)
-		gui.set_color(nodes.console, vmath.vector4(1, 0.5, 0.7, 1))
-		wait(0.3)
-		gui.set_color(nodes.console, vmath.vector4(1, 1, 1, 1))
-		wait(0.3)
-		gui.set_color(nodes.console, vmath.vector4(1, 0.5, 0.7, 1))
-		wait(0.3)
-		gui.set_color(nodes.console, vmath.vector4(1, 1, 1, 1))
-		wait(0.3)
-		gui.set_color(nodes.console, vmath.vector4(1, 0.5, 0.7, 1))
-		wait(0.3)
-		gui.set_color(nodes.console, vmath.vector4(1, 1, 1, 1))
-		local system_text = ""
-		if system.system_name == "Windows" then
-			system_text = system.system_name
-		elseif system.system_name == "HTML5" then
-			system_text = system.user_agent
+		if SET.debug then
+			msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
+			msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
+			msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
+		elseif SET.skip_loading then
+			local click_text = "klepněte"
+			if SET.is_desktop then click_text = "klikněte" end
+			write(nodes.console, "\n\n(Pro pokračování "..click_text.." kamkoliv)", 0.05)
+			msg.post(".", "acquire_input_focus")
+			coroutine.yield(co)
+			gui.set_enabled(nodes.dialog.background, true)
+			UI.load_template({"AR_info", "soma_info", "fourd_info", "ads_info"})
+			coroutine.yield(co)
+			start_app()
 		else
-			system_text = system.system_name.." "..system.device_model
+			write(nodes.console, "AkordApp version "..sys.get_config("project.version").."      \n", 0.05)
+			write(nodes.console, "Engine version "..sys.get_engine_info().version.." \n", 0.05)
+			wait(0.3)
+			write(nodes.console, "\nInitializing ...", 0.02)
+			write(nodes.console, ".....", 0.1)
+			write(nodes.console, "...", 0.7)
+			write(nodes.console, "..", 0.9)
+			write(nodes.console, "................", 0.03)
+			write(nodes.console, "...........", 0.005)
+			write(nodes.console, ".............", 0.0)
+			gui.set_text(nodes.console, gui.get_text(nodes.console).."........ done!")
+			wait(0.3)
+			write(nodes.console, "\nEstablishing satellite uplink ", 0.05)
+			write(nodes.console, "......................", 0.085)
+			write(nodes.console, " done!", 0.001)
+			wait(0.3)
+			write(nodes.console, "\nConnecting to AkordCorp mainframe ", 0.05)
+			write(nodes.console, ".....................", 0.1)
+			write(nodes.console, " done!", 0.001)
+			wait(0.3)
+			write(nodes.console, "\nf_loadDefaults", 0.05)
+			write(nodes.console, "\nf_sysCheck", 0.01)
+			write(nodes.console, "\nf_ASecInit", 0.01)
+			write(nodes.console, "\nf_0Auth", 0.01)
+			write(nodes.console, "\nf_refereshDaemon", 0.01)
+			write(nodes.console, "\nf_getLang", 0.02)
+			wait(0.1)
+			gui.set_text(nodes.console, "")
+			wait(0.1)
+			gui.set_text(nodes.console, full_text)
+			write(nodes.console, "\nf_timeSync", 0.01)
+			write(nodes.console, "\nf_deviceDriver", 0.01)
+			write(nodes.console, "\nf_load0", 0.01)
+			write(nodes.console, "\nf_load1", 0.01)
+			new_line()
+			write(nodes.console, "\nf_load3", 0.01)
+			new_line()
+			write(nodes.console, "\nf_neuralNet", 0.01)
+			new_line();	new_line()
+			write(nodes.console, "\n\nStahuji zásuvné moduly", 0.05)
+			write(nodes.console, ".....................", 0.1)
+			new_line();	new_line()
+			write(nodes.console, "\n\nCHYBA!", 0.1)
+			gui.set_color(nodes.console, UI.COLOUR_ERROR)
+			wait(0.3)
+			gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
+			wait(0.3)
+			gui.set_color(nodes.console, UI.COLOUR_ERROR)
+			wait(0.3)
+			gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
+			wait(0.3)
+			gui.set_color(nodes.console, UI.COLOUR_ERROR)
+			wait(0.3)
+			gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
+			local system_text = ""
+			if system.system_name == "Windows" then
+				system_text = system.system_name
+			elseif system.system_name == "HTML5" then
+				system_text = system.user_agent
+			else
+				system_text = system.system_name.." "..system.device_model
+			end
+			write(nodes.console, "   ZAŘÍZENÍ ["..system_text.."]", 0.05)
+			new_line()
+			write(nodes.console, "\nNEPODPORUJE NĚKTERÉ FUNKCE APLIKACE", 0.05)
+			wait(0.3)
+			new_line();	new_line()
+			local click_text = "klepněte"
+			if SET.is_desktop then click_text = "klikněte" end
+			write(nodes.console, "\n\n(Pro pokračování "..click_text.." kamkoliv)", 0.05)
+			msg.post(".", "acquire_input_focus")
+			coroutine.yield(co)
+			gui.set_enabled(nodes.dialog.background, true)
+			UI.load_template({"AR_info", "soma_info", "fourd_info", "ads_info"})
+			coroutine.yield(co)
+			start_app()
 		end
-		write(nodes.console, "   ZAŘÍZENÍ ["..system_text.."]", 0.05)
-		new_line()
-		write(nodes.console, "\nNEPODPORUJE NĚKTERÉ FUNKCE APLIKACE", 0.05)
-		wait(0.3)
-		new_line();	new_line()
-		local click_text = "klepněte"
-		if SET.is_desktop then click_text = "klikněte" end
-		write(nodes.console, "\n\n(Pro pokračování "..click_text.." kamkoliv)", 0.05)
-		msg.post(".", "acquire_input_focus")
-		coroutine.yield(co)
-		gui.set_enabled(nodes.dialog.background, true)
-		UI.load_template({"AR_checkbox", "AR_info", "soma_checkbox", "soma_info", "fourd_checkbox", "fourd_info", "ads_checkbox", "ads_info"})
-		coroutine.yield(co)
-		start_app()
 	end)
 	coroutine.resume(co)
 end
 
-local boxes = {
-	AR_checkbox = {text = "AR_text", size = "AR_size"},
-	soma_checkbox = {text = "soma_text", size = "soma_size"},
-	fourd_checkbox = {text = "fourd_text", size = "fourd_size"},
-	ads_checkbox = {text = "ads_text", size = "ads_size"}
-}
+local plugins = {AR_info = true, soma_info = true, fourd_info = true, ads_info = true}
+local info_open
 
 local function check_modules()
-	for key, val in pairs(boxes) do
-		if not val.is_off then
-			gui.set_color(gui.get_node("accept/text"), vmath.vector4(0.2, 0.2, 0.2, 1))
+	for key, val in pairs(plugins) do
+		if val then
+			gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DISABLED)
 			UI.unload_template("accept")
 			return false
 		end
 	end
 	UI.load_template({"accept"})
-	gui.set_color(gui.get_node("accept/text"), vmath.vector4(1, 1, 1, 1))
+	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DEFAULT)
 	return true
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("template_clicked") then
-		if message.type == hash("checkbox") then
-			if message.state then
-				gui.set_color(nodes.dialog[boxes[message.template].text], vmath.vector4(1, 1, 1, 1))
-				gui.set_color(nodes.dialog[boxes[message.template].size], vmath.vector4(0.6, 0.6, 0.6, 0.6))
-				boxes[message.template].is_off = false
-			else
-				gui.set_color(nodes.dialog[boxes[message.template].text], vmath.vector4(0.5, 0.5, 0.5, 0.5))
-				gui.set_color(nodes.dialog[boxes[message.template].size], vmath.vector4(0.2, 0.2, 0.2, 0.2))
-				boxes[message.template].is_off = true
-			end
-			check_modules()
-
-		elseif message.type == hash("button") then
+		if message.type == hash("button") then
 			local info = {
-				AR_info = {box = "AR_checkbox", title = "Podpora AR implantátů", text = "Umožňuje aplikaci přímý přístup k okcipitální a temporální oblasti Vašeho mozku.\n\n- Audio/vizuální integrace\n- Asistence při nákupech produktů AkordCorpu\n- Záruka soukromí\n- Blokování reklamních ploch konkurenčních společností\n\nProsím zapojte svůj kraniální implantát pomocí ASB kabelu nebo pomocí technologie BlackTooth."},
-				soma_info = {box = "soma_checkbox", title = "Somatická data", text = "Obohatí zážitek z Aplikace AkordApp o čichové, chuťové a další vjemy.\n\n- Simulace čistého obvzduší\n- Snadné rozhodování při nákupu jídel či lepidel značky AkordCorp\n- Psychosugestivní feromony\n- Intenzivní stimulace nocireceptorů\n\nProsím navlékněte si oblek Sense4U nebo zapněte AR integraci."},
-				fourd_info = {box = "fourd_checkbox", title = "4D videa a obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro shlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
-				ads_info = {box = "ads_checkbox", title = "Personalizované reklamy", text = "Psychologické profilování za pomocí špičkových algoritmů pro maximální zážitek z naší reklamní činnosti.\n\n- Přenechte starosti ohledně výběru produktů nám\n- Nechte si poradit od var_favourite_celebrity\n- Až o 83 % menší pocit stresu\n- Automatické platby dříve, než se rozhodnete nakupovat\n\nProsím připojte bankovní účet se zůstatkem alespoň 500 kreditů."},
+				AR_info = {lbl_size = "AR_size", lbl_text = "AR_text", title = "Podpora AR implantátů", text = "Umožňuje aplikaci přímý přístup k okcipitální a temporální oblasti Vašeho mozku.\n\n- Audio/vizuální integrace\n- Asistence při nákupech produktů AkordCorpu\n- Záruka soukromí\n- Blokování reklamních ploch konkurenčních společností\n\nProsím zapojte svůj kraniální implantát pomocí ASB kabelu nebo pomocí technologie BlackTooth."},
+				soma_info = {lbl_size = "soma_size", lbl_text = "soma_text", title = "Somatická data", text = "Obohatí zážitek z Aplikace AkordApp o čichové, chuťové a další vjemy.\n\n- Simulace čistého obvzduší\n- Snadné rozhodování při nákupu jídel či lepidel značky AkordCorp\n- Psychosugestivní feromony\n- Intenzivní stimulace nocireceptorů\n\nProsím navlékněte si oblek Sense4U nebo zapněte AR integraci."},
+				fourd_info = {lbl_size = "fourd_size", lbl_text = "fourd_text", title = "4D videa a obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro shlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
+				ads_info = {lbl_size = "ads_size", lbl_text = "ads_text", title = "Personalizované reklamy", text = "Psychologické profilování za pomocí špičkových algoritmů pro maximální zážitek z naší reklamní činnosti.\n\n- Přenechte starosti ohledně výběru produktů nám\n- Nechte si poradit od var_favourite_celebrity\n- Až o 83 % menší pocit stresu\n- Automatické platby dříve, než se rozhodnete nakupovat\n\nProsím připojte bankovní účet se zůstatkem alespoň 500 kreditů."},
 			}
 			if info[message.template] then
 				UI.unload_template()
@@ -213,23 +212,16 @@ function on_message(self, message_id, message, sender)
 				gui.set_enabled(nodes.info.background, true)
 				UI.load_template("info_cancel")
 				sound.play("/sound#ui_open")
-				self.info = info[message.template].box
+				info_open = message.template
 			elseif message.template == "info_cancel" then
 				sound.play("/sound#ui_close")
 				UI.unload_template()
-				UI.load_template({"AR_checkbox", "AR_info", "soma_checkbox", "soma_info", "fourd_checkbox", "fourd_info", "ads_checkbox", "ads_info"})
+				UI.load_template({"AR_info", "soma_info", "fourd_info", "ads_info"})
 				gui.set_enabled(nodes.info.background, false)
-				gui.set_color(nodes.dialog[boxes[self.info].text], vmath.vector4(0.5, 0.5, 0.5, 0.5))
-				gui.set_color(nodes.dialog[boxes[self.info].size], vmath.vector4(0.2, 0.2, 0.2, 0.2))
-				boxes[self.info].is_off = true
-				for key, val in ipairs(UI.active) do
-					if val.template == self.info then
-						val.state = false
-						gui.play_flipbook(gui.get_node(val.template.."/checkbox"), "check_false")
-						break
-					end
-				end
-				self.info = nil
+				gui.set_color(nodes.dialog[info[info_open].lbl_text], vmath.vector4(0.5, 0.5, 0.5, 0.5))
+				gui.set_color(nodes.dialog[info[info_open].lbl_size], vmath.vector4(0.2, 0.2, 0.2, 0.2))
+				plugins[info_open] = false
+				info_open = nil
 				check_modules()
 			elseif message.template == "accept" then
 				msg.post(".", "release_input_focus")

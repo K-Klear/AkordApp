@@ -19,8 +19,8 @@ background_color {
 }
 nodes {
   position {
-    x: 22.0
-    y: 635.0
+    x: 0.0
+    y: 1106.0
     z: 0.0
     w: 1.0
   }
@@ -37,8 +37,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 640.0
+    y: 1116.0
     z: 0.0
     w: 1.0
   }
@@ -69,7 +69,7 @@ nodes {
     w: 1.0
   }
   adjust_mode: ADJUST_MODE_FIT
-  line_break: false
+  line_break: true
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -78,11 +78,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 580.0
-    y: 320.0
+    x: 320.0
+    y: 568.0
     z: 1.0
     w: 1.0
   }
@@ -99,8 +100,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 1000.0
-    y: 600.0
+    x: 620.0
+    y: 1116.0
     z: 0.0
     w: 1.0
   }
@@ -132,11 +133,12 @@ nodes {
   alpha: 0.85
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: 250.0
+    y: 445.0
     z: 0.0
     w: 1.0
   }
@@ -166,7 +168,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "N\303\241sleduj\303\255c\303\255 z\303\241suvn\303\251 moduly ne\305\241lo spustit!"
+  text: "N\303\241sleduj\303\255c\303\255 z\303\241suvn\303\251 moduly\n"
+  "nelze spustit"
   font: "default_font_large"
   id: "dialog_title"
   xanchor: XANCHOR_NONE
@@ -195,11 +198,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -470.0
-    y: 180.0
+    x: -274.0
+    y: 335.0
     z: 0.0
     w: 1.0
   }
@@ -258,11 +262,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -450.0
-    y: 150.0
+    x: -254.0
+    y: 305.0
     z: 0.0
     w: 1.0
   }
@@ -321,106 +326,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -150.0
-    y: 90.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "AR_checkbox"
-  parent: "dialog_background"
-  layer: ""
-  inherit_alpha: false
-  alpha: 1.0
-  template: "/templates/checkbox.gui"
-  template_node_child: false
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 64.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_true"
-  id: "AR_checkbox/checkbox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "AR_checkbox"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: -20.0
-    y: 60.0
+    x: 178.0
+    y: 317.0
     z: 0.0
     w: 1.0
   }
@@ -456,11 +367,12 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
-    x: -350.0
-    y: 29.0
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -509,12 +421,12 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 1
   overridden_fields: 3
   overridden_fields: 9
   overridden_fields: 38
   template_node_child: true
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
@@ -580,11 +492,12 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 0.0
-    y: 180.0
+    x: -266.0
+    y: 201.0
     z: 0.0
     w: 1.0
   }
@@ -643,11 +556,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 20.0
-    y: 150.0
+    x: -246.0
+    y: 171.0
     z: 0.0
     w: 1.0
   }
@@ -706,106 +620,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 401.0
-    y: 90.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "soma_checkbox"
-  parent: "dialog_background"
-  layer: ""
-  inherit_alpha: false
-  alpha: 1.0
-  template: "/templates/checkbox.gui"
-  template_node_child: false
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 64.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_true"
-  id: "soma_checkbox/checkbox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "soma_checkbox"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 450.0
-    y: 60.0
+    x: 171.0
+    y: 183.0
     z: 0.0
     w: 1.0
   }
@@ -841,11 +661,12 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
-    x: -350.0
-    y: 29.0
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -894,12 +715,11 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 1
-  overridden_fields: 3
   overridden_fields: 9
   overridden_fields: 38
   template_node_child: true
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
@@ -965,11 +785,12 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -470.0
-    y: 10.0
+    x: -273.0
+    y: 92.0
     z: 0.0
     w: 1.0
   }
@@ -1028,11 +849,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -450.0
-    y: -20.0
+    x: -253.0
+    y: 62.0
     z: 0.0
     w: 1.0
   }
@@ -1091,106 +913,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -150.0
-    y: -80.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "fourd_checkbox"
-  parent: "dialog_background"
-  layer: ""
-  inherit_alpha: false
-  alpha: 1.0
-  template: "/templates/checkbox.gui"
-  template_node_child: false
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 64.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_true"
-  id: "fourd_checkbox/checkbox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "fourd_checkbox"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: -20.0
-    y: -110.0
+    x: 172.0
+    y: 75.0
     z: 0.0
     w: 1.0
   }
@@ -1226,11 +954,12 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
-    x: -350.0
-    y: 29.0
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -1279,12 +1008,11 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 1
-  overridden_fields: 3
   overridden_fields: 9
   overridden_fields: 38
   template_node_child: true
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
@@ -1350,11 +1078,12 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 0.0
-    y: 10.0
+    x: -277.0
+    y: -42.0
     z: 0.0
     w: 1.0
   }
@@ -1413,11 +1142,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 20.0
-    y: -20.0
+    x: -257.0
+    y: -72.0
     z: 0.0
     w: 1.0
   }
@@ -1476,106 +1206,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 398.0
-    y: -80.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "ads_checkbox"
-  parent: "dialog_background"
-  layer: ""
-  inherit_alpha: false
-  alpha: 1.0
-  template: "/templates/checkbox.gui"
-  template_node_child: false
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 64.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_true"
-  id: "ads_checkbox/checkbox"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "ads_checkbox"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: true
-  size_mode: SIZE_MODE_AUTO
-}
-nodes {
-  position {
-    x: 450.0
-    y: -110.0
+    x: 172.0
+    y: -59.0
     z: 0.0
     w: 1.0
   }
@@ -1611,11 +1247,12 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
-    x: -350.0
-    y: 29.0
+    x: 0.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -1664,12 +1301,11 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 1
-  overridden_fields: 3
   overridden_fields: 9
   overridden_fields: 38
   template_node_child: true
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
@@ -1735,11 +1371,12 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: -217.0
+    y: -335.0
     z: 0.0
     w: 1.0
   }
@@ -1775,6 +1412,7 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
@@ -1796,8 +1434,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 192.0
-    y: 96.0
+    x: 300.0
+    y: 180.0
     z: 0.0
     w: 1.0
   }
@@ -1828,8 +1466,10 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
+  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
 }
 nodes {
   position {
@@ -1845,8 +1485,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 2.0
+    y: 2.0
     z: 1.0
     w: 1.0
   }
@@ -1864,7 +1504,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "P\305\231ijmout"
+  text: "Spustit\n"
+  "aplikaci"
   font: "default_font_large"
   id: "accept/text"
   xanchor: XANCHOR_NONE
@@ -1890,16 +1531,18 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
+  overridden_fields: 3
   overridden_fields: 5
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 580.0
-    y: 320.0
+    x: 320.0
+    y: 568.0
     z: 1.0
     w: 1.0
   }
@@ -1916,8 +1559,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 700.0
-    y: 400.0
+    x: 600.0
+    y: 650.0
     z: 0.0
     w: 1.0
   }
@@ -1946,14 +1589,15 @@ nodes {
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 0.95
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: 170.0
+    y: 283.0
     z: 0.0
     w: 1.0
   }
@@ -2012,11 +1656,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: -328.0
-    y: 140.0
+    x: -272.0
+    y: 232.0
     z: 0.0
     w: 1.0
   }
@@ -2027,13 +1672,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 1100.0
+    x: 540.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -2082,172 +1727,12 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-}
-nodes {
-  position {
-    x: 84.0
-    y: -150.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "info_accept"
-  parent: "info_background"
-  layer: ""
-  inherit_alpha: false
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 96.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
-  id: "info_accept/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "info_accept"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.2
-    y: 0.2
-    z: 0.2
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "OK"
-  font: "default_font_large"
-  id: "info_accept/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "info_accept/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 5
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-}
-nodes {
-  position {
-    x: -87.0
-    y: -150.0
+    y: -269.0
     z: 0.0
     w: 1.0
   }
@@ -2283,11 +1768,12 @@ nodes {
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
+  custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: 0.0
+    y: 17.0
     z: 0.0
     w: 1.0
   }
@@ -2304,7 +1790,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 160.0
+    x: 220.0
     y: 64.0
     z: 0.0
     w: 1.0
@@ -2336,9 +1822,11 @@ nodes {
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
+  overridden_fields: 1
   overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
 }
 nodes {
   position {
@@ -2373,7 +1861,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "ZRU\305\240IT"
+  text: "DEAKTIVOVAT"
   font: "default_font_large"
   id: "info_cancel/text"
   xanchor: XANCHOR_NONE
@@ -2404,11 +1892,12 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 nodes {
   position {
-    x: 594.0
-    y: 302.0
+    x: 320.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
@@ -2419,14 +1908,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 10.0
-    y: 10.0
-    z: 10.0
+    x: 2.0
+    y: 2.0
+    z: 2.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 640.0
+    y: 1136.0
     z: 0.0
     w: 1.0
   }
@@ -2457,12 +1946,13 @@ nodes {
   clipping_inverted: false
   alpha: 0.0
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
 }
 nodes {
   position {
     x: -200.0
-    y: 450.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
@@ -2512,11 +2002,12 @@ nodes {
   alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
-    x: 1300.0
-    y: 450.0
+    x: 840.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
@@ -2566,11 +2057,12 @@ nodes {
   alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
 }
 nodes {
   position {
-    x: 568.0
-    y: 215.0
+    x: 320.0
+    y: 333.0
     z: 0.0
     w: 1.0
   }
@@ -2628,6 +2120,7 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

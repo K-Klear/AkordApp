@@ -1,0 +1,34 @@
+local scan_time = 4
+local scan_timer
+
+function init(self)
+	msg.post("#scanner_sprite", hash("disable"))
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("get_ready") then
+		go.cancel_animations("#scanner_sprite", "scan_line")
+		if scan_timer then
+			timer.cancel(scan_timer)
+			scan_timer = nil
+		end
+		msg.post("#scanner_sprite", hash("enable"))
+		go.set("#scanner_sprite", "scan_line", vmath.vector4(1, -0.1, 0, 0))
+	elseif message_id == hash("scan") then
+		go.animate("#scanner_sprite", "scan_line.y", go.PLAYBACK_ONCE_PINGPONG, 1, go.EASING_LINEAR, scan_time, 0, function()
+			msg.post("go#main_menu", hash("scan_completed"))
+		end)
+		scan_timer = timer.delay(scan_time / 2, false, function()
+			go.set("#scanner_sprite", "scan_line.x", 0)
+		end)
+	elseif message_id == hash("hide") then
+		go.cancel_animations("#scanner_sprite", "scan_line")
+		if scan_timer then
+			timer.cancel(scan_timer)
+			scan_timer = nil
+		end
+		msg.post("#scanner_sprite", hash("disable"))
+		--go.set(".", "position.z", 10)
+		go.set("#scanner_sprite", "scan_line", vmath.vector4(1, -0.1, 0, 0))
+	end
+end

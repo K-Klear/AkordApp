@@ -1,6 +1,7 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#proxy_loading", "load")
+	msg.post("@render:", hash("use_fixed_fit_projection"))
 end
 
 

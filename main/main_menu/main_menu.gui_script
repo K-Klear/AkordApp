@@ -1,6 +1,6 @@
-local SET = require("main/modules/settings")
-local UI = require("main/modules/ui")
-local TEXT = require("main/modules/text")
+local SET = require("modules/settings")
+local UI = require("modules/ui")
+local TEXT = require("modules/text")
 
 local nodes
 
@@ -13,8 +13,9 @@ EULA
 
 --]]
 
+MAIN_MENU_BUTTONS = {"about", "employ", "wanted", "eula", "login"}
 
-
+local scanner_enabled, scan_in_progress, scan_initiated
 
 function init(self)
 	nodes = {
@@ -25,32 +26,38 @@ function init(self)
 		},
 		menu = {
 			about = gui.get_node("about/button_box"),
-			news = gui.get_node("news/button_box"),
+			employ = gui.get_node("employ/button_box"),
 			wanted = gui.get_node("wanted/button_box"),
+			login = gui.get_node("login/button_box")
 		},
 		about = {
 			dialog = gui.get_node("dialog_about"),
 			text = gui.get_node("about_text")
 		},
-		news = {
-			dialog = gui.get_node("dialog_news")
+		employ = {
+			dialog = gui.get_node("dialog_employ")
 		},
 		eula = {
 			dialog = gui.get_node("dialog_eula")
+		},
+		login = {
+			dialog = gui.get_node("dialog_login"),
+			name_field = gui.get_node("login_name_field")
 		}
 	}
 	gui.set_enabled(nodes.about.dialog, false)
-	gui.set_enabled(nodes.news.dialog, false)
+	gui.set_enabled(nodes.employ.dialog, false)
 	gui.set_enabled(nodes.eula.dialog, false)
-	gui.animate(nodes.logo.left, "position", vmath.vector3(25, 613, 0), go.EASING_OUTCUBIC, 1)
-	gui.animate(nodes.logo.right, "position", vmath.vector3(50, 613, 0), go.EASING_OUTCUBIC, 1)
+	gui.set_enabled(nodes.login.dialog, false)
+	gui.animate(nodes.logo.left, "position", vmath.vector3(15, 1090, 0), go.EASING_OUTCUBIC, 1)
+	gui.animate(nodes.logo.right, "position", vmath.vector3(40, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.left, "scale", vmath.vector3(0.25, 0.25, 0.25), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.right, "scale", vmath.vector3(0.25, 0.25, 0.25), go.EASING_OUTCUBIC, 1, 0, function()
 		TEXT.write(nodes.logo.text, "AkordCorp", 0.1)
 		for key, val in pairs(nodes.menu) do
 			gui.animate(val, "color.w", 1, gui.EASING_INCUBIC, 1)
 		end
-		UI.load_template({"about", "news", "wanted", "eula"})
+		UI.load_template(MAIN_MENU_BUTTONS)
 		msg.post(".", "acquire_input_focus")
 	end)
 end
@@ -67,17 +74,23 @@ function on_message(self, message_id, message, sender)
 			elseif message.template == "about_ok" then
 				UI.unload_template()
 				gui.set_enabled(nodes.about.dialog, false)
-				UI.load_template({"about", "news", "wanted", "eula"})
-			elseif message.template == "news" then
+				UI.load_template(MAIN_MENU_BUTTONS)
+			elseif message.template == "employ" then
 				UI.unload_template()
-				gui.set_enabled(nodes.news.dialog, true)
-				UI.load_template({"news_ok"})
-			elseif message.template == "news_ok" then
+				gui.set_enabled(nodes.employ.dialog, true)
+				msg.post("scanner#scanner", hash("get_ready"))
+				scanner_enabled = true
+				UI.load_template({"employ_ok"})
+			elseif message.template == "employ_ok" then
 				UI.unload_template()
-				gui.set_enabled(nodes.news.dialog, false)
-				UI.load_template({"about", "news", "wanted", "eula"})
+				gui.set_enabled(nodes.employ.dialog, false)
+				UI.load_template(MAIN_MENU_BUTTONS)
+				scan_initiated = false
+				scan_in_progress = false
+				scanner_enabled = false
+				msg.post("scanner#scanner", hash("hide"))
 			elseif message.template == "wanted" then
-				sys.open_url("http://www.hamba.cz")
+				--sys.open_url("http://www.hamba.cz")
 			elseif message.template == "eula" then
 				UI.unload_template()
 				gui.set_enabled(nodes.eula.dialog, true)
@@ -85,9 +98,32 @@ function on_message(self, message_id, message, sender)
 			elseif message.template == "eula_accept_1" or message.template == "eula_accept_2" then
 				UI.unload_template()
 				gui.set_enabled(nodes.eula.dialog, false)
-				UI.load_template({"about", "news", "wanted", "eula"})
+				UI.load_template(MAIN_MENU_BUTTONS)
+			elseif message.template == "login" then
+				UI.unload_template()
+				gui.set_enabled(nodes.login.dialog, true)
+				UI.load_template({"login_close", "login_employ", "login_name_field_button"})
+			elseif message.template == "login_name_field_button" then
+				UI.enable_text_field(nodes.login.name_field, true, 24, "(Zadejte jméno)")
+			elseif message.template == "login_employ" then
+				UI.unload_template()
+				gui.set_enabled(nodes.login.dialog, false)
+				UI.reset_text_field(nodes.login.name_field)
+				gui.set_enabled(nodes.employ.dialog, true)
+				UI.load_template({"employ_ok"})
+				msg.post("scanner#scanner", hash("get_ready"))
+				scanner_enabled = true
+			elseif message.template == "login_close" then
+				UI.unload_template()
+				gui.set_enabled(nodes.login.dialog, false)
+				UI.load_template(MAIN_MENU_BUTTONS)
+				UI.reset_text_field(nodes.login.name_field)
 			end
 		end
+	elseif message_id == hash("scan_completed") then
+		scan_initiated = false
+		scan_in_progress = false
+		scanner_enabled = false
 	end
 end
 
@@ -99,18 +135,31 @@ function on_input(self, action_id, action)
 				if gui.pick_node(node, action.x, action.y) then
 					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
 				end
-			--[[
-			elseif val.type == hash("checkbox") then
-				local node = gui.get_node(val.template.."/checkbox")
-				if gui.pick_node(node, action.x, action.y) then
-					local states = {[true] = {sound = "/sound#ui_close", image = "check_false"}, [false] = {sound = "/sound#ui_open", image = "check_true"}}
-					sound.play(states[val.state].sound)
-					gui.play_flipbook(node, states[val.state].image)
-					val.state = not val.state
-					msg.post("#", hash("template_clicked"), {state = val.state, template = val.template, type = val.type})
-				end
-			--]]
 			end
 		end
+		UI.check_text_field(action.x, action.y)
+	elseif action_id == hash("text") then
+		UI.enter_text(action.text)
+	elseif action_id == hash("key_backspace") and (action.pressed or action.repeated) then
+		UI.backspace()
+	end
+	if scanner_enabled then
+		if action_id == hash("touch") and gui.pick_node(gui.get_node("employ_scanner"), action.x, action.y) then
+			if action.pressed then
+				msg.post("scanner#scanner", hash("scan"))
+				scan_initiated = true
+			end
+			scan_in_progress = true
+		end
+	end
+end
+
+function update(self, dt)
+	if scanner_enabled then
+		if scan_initiated and not scan_in_progress then
+			msg.post("scanner#scanner", hash("get_ready"))
+			scan_initiated = false
+		end
+		scan_in_progress = false
 	end
 end
