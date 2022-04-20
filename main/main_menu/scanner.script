@@ -1,4 +1,4 @@
-local scan_time = 4
+local scan_time = 5
 local scan_timer
 
 function init(self)

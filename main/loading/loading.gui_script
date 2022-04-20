@@ -10,7 +10,7 @@ end
 local nodes, co
 
 local function write(node, text, speed)
-	speed = speed * 0.75
+	speed = speed * 0.15
 	local length, current_letter, text_timer = string.len(text), 1
 	text_timer = timer.delay(speed, true, function()
 		gui.set_text(node, gui.get_text(node)..string.sub(text, current_letter, current_letter))

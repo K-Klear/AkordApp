@@ -7,9 +7,10 @@ void main()
 {
     lowp vec4 tex = texture2D(texture_sampler, var_texcoord0.xy);
     tex.y = 1.0 - abs(scan_line.y - var_texcoord0.y) * 60.0;
+    lowp float print_colour;
     lowp float scan_mag = scan_line.y * scan_line.x + (1.0 - scan_line.x);
-    lowp float print_colour = (scan_mag - var_texcoord0.y);
+    print_colour = (scan_mag - var_texcoord0.y);
     tex.x = tex.x / print_colour;
     tex.z = tex.z * print_colour;
-    gl_FragColor = tex;
+    gl_FragColor = tex;// * var_color;
 }

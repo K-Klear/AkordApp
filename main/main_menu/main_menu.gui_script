@@ -4,77 +4,242 @@ local TEXT = require("modules/text")
 
 local nodes
 
---[[
+MAIN_MENU_BUTTONS = {"events", "employ", "people", "eula", "login"}
 
-O AkordCorpu
-Most Wanted
-Zprávy
-EULA
-
---]]
-
-MAIN_MENU_BUTTONS = {"about", "employ", "wanted", "eula", "login"}
+local MENU_OPEN_TIME = 0.4
 
 local scanner_enabled, scan_in_progress, scan_initiated
 
+local PANEL = {main = {}, events = {}, people = {}, eula = {}}--, employ = {}, login = {}}
+local current_dialogs = {}
+
+local function open_dialog(dialog, transition, time, props)
+	time = time or MENU_OPEN_TIME
+	local base = PANEL[dialog].base
+	gui.set_enabled(base, true)
+	UI.unload_template()
+	table.insert(current_dialogs, dialog)
+	local function enable_panel()
+		UI.load_template(PANEL[dialog].BUTTON_LIST)
+	end
+	if transition == hash("fade_id") then
+		gui.set_alpha(base, 0)
+		gui.animate(base, "color.w", 1, go.EASING_OUTSINE, time, 0, enable_panel)
+	elseif transition == hash("expand_from_button") then
+		gui.set_alpha(base, 0)
+		gui.animate(base, "color.w", 1, go.EASING_OUTSINE, time / 4)
+		local previous_position = gui.get_position(base)
+		gui.set_position(base, gui.get_position(props.button))
+		local size_btn = gui.get_size(props.button)
+		local size_base = gui.get_size(base)
+		local scale = vmath.vector3(size_btn.x / size_base.x, size_btn.y / size_base.y, 1)
+		gui.set_scale(base, scale)
+		gui.animate(base, "position", previous_position, go.EASING_OUTSINE, time)
+		gui.animate(base, "scale", vmath.vector3(1), go.EASING_OUTSINE, time, 0, enable_panel)
+
+		--gui.animate(base, "scale.x", 1, go.EASING_OUTSINE, time * 0.5)
+		--gui.animate(base, "scale.y", 1, go.EASING_OUTSINE, time * 0.75, time * 0.25, enable_panel)
+		--gui.animate(base, "position", previous_position, go.EASING_OUTSINE, time * 0.75, time * 0.25)
+	end
+end
+
+local function reactivate_dialog()
+	gui.set_enabled(PANEL[current_dialogs[#current_dialogs]].base, false)
+	table.remove(current_dialogs, #current_dialogs)
+	UI.load_template(PANEL[current_dialogs[#current_dialogs]].BUTTON_LIST)
+end
+
+local function close_dialog(transition, time, props)
+	time = time or MENU_OPEN_TIME
+	dialog = current_dialogs[#current_dialogs]
+	local base = PANEL[dialog].base
+	UI.unload_template()
+	local function disable_panel()
+		gui.set_enabled(base, false)
+		reactivate_dialog()
+	end
+	if transition == hash("contract") then
+		gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
+		gui.animate(base, "scale", 0, gui.EASING_OUTSINE, time, 0, disable_panel)
+	elseif transition == hash("contract_to_button") then
+		local previous_position = gui.get_position(base)
+		local size_btn = gui.get_size(props.button)
+		local size_base = gui.get_size(base)
+		local scale = vmath.vector3(size_btn.x / size_base.x, size_btn.y / size_base.y, 1)
+		gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
+		gui.animate(base, "scale", scale, gui.EASING_OUTSINE, time)
+		gui.animate(base, "position", gui.get_position(props.button), gui.EASING_OUTSINE, time, 0, function()
+			disable_panel()
+			gui.set_position(base, previous_position)
+			gui.set_scale(base, vmath.vector3(1))
+		end)
+	end
+end
+
+
 function init(self)
+
+	PANEL.main = {
+		base = gui.get_node("panel_main"),
+		btn_events = gui.get_node("events/button_box"),
+		btn_employ = gui.get_node("employ/button_box"),
+		btn_people = gui.get_node("people/button_box"),
+		btn_login = gui.get_node("login/button_box"),
+		btn_eula = gui.get_node("eula/button_box"),
+
+		BUTTON_LIST = {"events", "employ", "people", "eula", "login"},
+		input_eval = PANEL.main.input_eval
+	}
+
+	PANEL.events = {
+		base = gui.get_node("dialog_events"),
+		text = gui.get_node("events_text"),
+
+		BUTTON_LIST = {"events_ok", "eula"},
+		input_eval = PANEL.events.input_eval
+	}
+
+	PANEL.people = {
+		base = gui.get_node("dialog_people"),
+		name = gui.get_node("people_name"),
+		alias = gui.get_node("people_alias"),
+		text = gui.get_node("people_text"),
+		portrait = gui.get_node("people_portrait"),
+		portrait_2 = gui.get_node("people_portrait_2"),
+
+		BUTTON_LIST = {"people_ok", "people_verkant", "people_arkadij", "people_holkogramy", "people_fhill", "people_agatha",
+		"people_jack", "people_claudia", "people_emmett", "people_zanziro", "eula"},
+		input_eval = PANEL.people.input_eval
+	}
+
+	PANEL.eula = {
+		base = gui.get_node("dialog_eula"),
+
+		BUTTON_LIST = {"eula_accept_1", "eula_accept_2"},
+		input_eval = PANEL.eula.input_eval
+	}
+	
 	nodes = {
 		logo = {
 			left = gui.get_node("logo_left"),
 			right = gui.get_node("logo_right"),
 			text = gui.get_node("logo_text")
 		},
-		menu = {
-			about = gui.get_node("about/button_box"),
-			employ = gui.get_node("employ/button_box"),
-			wanted = gui.get_node("wanted/button_box"),
-			login = gui.get_node("login/button_box")
-		},
-		about = {
-			dialog = gui.get_node("dialog_about"),
-			text = gui.get_node("about_text")
-		},
 		employ = {
 			dialog = gui.get_node("dialog_employ")
-		},
-		eula = {
-			dialog = gui.get_node("dialog_eula")
 		},
 		login = {
 			dialog = gui.get_node("dialog_login"),
 			name_field = gui.get_node("login_name_field")
 		}
 	}
-	gui.set_enabled(nodes.about.dialog, false)
+	for key, val in pairs(PANEL) do
+		gui.set_enabled(val.base, false)
+	end
 	gui.set_enabled(nodes.employ.dialog, false)
-	gui.set_enabled(nodes.eula.dialog, false)
 	gui.set_enabled(nodes.login.dialog, false)
 	gui.animate(nodes.logo.left, "position", vmath.vector3(15, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.right, "position", vmath.vector3(40, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.left, "scale", vmath.vector3(0.25, 0.25, 0.25), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.right, "scale", vmath.vector3(0.25, 0.25, 0.25), go.EASING_OUTCUBIC, 1, 0, function()
 		TEXT.write(nodes.logo.text, "AkordCorp", 0.1)
-		for key, val in pairs(nodes.menu) do
-			gui.animate(val, "color.w", 1, gui.EASING_INCUBIC, 1)
-		end
-		UI.load_template(MAIN_MENU_BUTTONS)
+		timer.delay(0.5, false, function()
+			open_dialog("main", hash("fade_id"), 1)
+		end)
 		msg.post(".", "acquire_input_focus")
 	end)
+end
+
+local person_text_timer, person_name_timer, person_alias_timer
+
+timer.cancel_better = function(handle)
+	if handle then
+		return timer.cancel(handle)
+	end
+end
+
+local function display_person(person)
+	person = person or "verkant"
+	local DATA = TEXT.people_data[person]
+	gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
+	if DATA.portrait_2 then
+		gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+		gui.set_enabled(PANEL.people.portrait_2, true)
+	else
+		gui.set_enabled(PANEL.people.portrait_2, false)
+	end
+	local text = DATA.name.."\n\n"..DATA.actor.."\n\n"..DATA.text
+	timer.cancel_better(person_name_timer)
+	timer.cancel_better(person_alias_timer)
+	timer.cancel_better(person_text_timer)
+	person_name_timer = TEXT.write(PANEL.people.name, DATA.name, 0.2, true)
+	person_alias_timer = TEXT.write(PANEL.people.alias, DATA.actor, 0.1, true)
+	person_text_timer = TEXT.write(PANEL.people.text, DATA.text, 0.03, true)
+	--gui.set_text(PANEL.people.text, text)
+end
+
+function PANEL.main.input_eval(button)
+	if button == "events" then
+		local text = "Po mnohaleté práci tisíců zaměstanců AkordCorpu po celém světě je naší ctí odhalit plod naší práce.\n\n"
+		text = text.."Vybraným hostům bude Projekt X představen na exkluzivní kyberprostorové prezentaci.\n\n"
+		text = text.."Nejste mezi nimi? Nevadí! Vše potřebné se můžete dozvědět i na svou zvláštních akcích, které se budou konat"
+		text = text.." ve fyzickém prostoru, a to konkréně v prostorech Přírodovědecké fakulty UK v Praze.\n\n"
+		text = text.."První termín - 17. 6. 2022\nDruhý termín - 19. 6. 2022\n"
+		gui.set_text(PANEL.events.text, text)
+		open_dialog("events", hash("expand_from_button"), nil, {button = PANEL.main.btn_events})
+	elseif button == "people" then
+		display_person("verkant")
+		open_dialog("people", hash("expand_from_button"), nil, {button = PANEL.main.btn_people})
+	elseif button == "eula" then
+		open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
+	end
+end
+
+function PANEL.events.input_eval(button)
+	if button == "events_ok" then
+		close_dialog(hash("contract"))
+	elseif button == "eula" then
+		open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
+	end
+end
+
+function PANEL.people.input_eval(button)
+	if button == "people_ok" then
+		close_dialog(hash("contract"))
+	elseif button == "people_verkant" then
+		display_person("verkant")
+	elseif button == "people_arkadij" then
+		display_person("arkadij")
+	elseif button == "people_holkogramy" then
+		display_person("holkogramy")
+	elseif button == "people_fhill" then
+		display_person("fhill")
+	elseif button == "people_agatha" then
+		display_person("agatha")
+	elseif button == "people_jack" then
+		display_person("jack")
+	elseif button == "people_claudia" then
+		display_person("claudia")
+	elseif button == "people_emmett" then
+		display_person("emmett")
+	elseif button == "people_zanziro" then
+		display_person("zanziro")
+	elseif button == "eula" then
+		open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
+	end
+end
+
+function PANEL.eula.input_eval()
+	close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_eula})
 end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("template_clicked") then
 		if message.type == hash("button") then
-			if message.template == "about" then
-				local messages = {"AkordCorp je a bude.", "Vy jste budoucností AkordCorpu.", "AkordCorp ví všechno líp.", "AkordCorp je život", "Pijte Perličku!"}
-				UI.unload_template()
-				gui.set_text(nodes.about.text, messages[math.random(1, #messages)])
-				gui.set_enabled(nodes.about.dialog, true)
-				UI.load_template({"about_ok"})
-			elseif message.template == "about_ok" then
-				UI.unload_template()
-				gui.set_enabled(nodes.about.dialog, false)
-				UI.load_template(MAIN_MENU_BUTTONS)
+			PANEL[current_dialogs[#current_dialogs]].input_eval(message.template)
+
+			--[[
+
 			elseif message.template == "employ" then
 				UI.unload_template()
 				gui.set_enabled(nodes.employ.dialog, true)
@@ -89,16 +254,7 @@ function on_message(self, message_id, message, sender)
 				scan_in_progress = false
 				scanner_enabled = false
 				msg.post("scanner#scanner", hash("hide"))
-			elseif message.template == "wanted" then
-				--sys.open_url("http://www.hamba.cz")
-			elseif message.template == "eula" then
-				UI.unload_template()
-				gui.set_enabled(nodes.eula.dialog, true)
-				UI.load_template({"eula_accept_1", "eula_accept_2"})
-			elseif message.template == "eula_accept_1" or message.template == "eula_accept_2" then
-				UI.unload_template()
-				gui.set_enabled(nodes.eula.dialog, false)
-				UI.load_template(MAIN_MENU_BUTTONS)
+			
 			elseif message.template == "login" then
 				UI.unload_template()
 				gui.set_enabled(nodes.login.dialog, true)
@@ -119,6 +275,7 @@ function on_message(self, message_id, message, sender)
 				UI.load_template(MAIN_MENU_BUTTONS)
 				UI.reset_text_field(nodes.login.name_field)
 			end
+			--]]
 		end
 	elseif message_id == hash("scan_completed") then
 		scan_initiated = false
