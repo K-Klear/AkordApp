@@ -1,6 +1,6 @@
 local SET = {}
 
-SET.debug = true
+SET.debug = false
 SET.skip_loading = false
 
 return SET

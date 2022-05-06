@@ -3,6 +3,10 @@ fonts {
   name: "default_font_large"
   font: "/assets/fonts/terminal.font"
 }
+fonts {
+  name: "console"
+  font: "/assets/fonts/console.font"
+}
 textures {
   name: "loading"
   texture: "/assets/images/loading/loading.atlas"
@@ -51,7 +55,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: ""
-  font: "default_font_large"
+  font: "console"
   id: "console"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -266,7 +270,7 @@ nodes {
 }
 nodes {
   position {
-    x: -254.0
+    x: -255.0
     y: 305.0
     z: 0.0
     w: 1.0
@@ -330,8 +334,8 @@ nodes {
 }
 nodes {
   position {
-    x: 178.0
-    y: 317.0
+    x: 172.0
+    y: 315.0
     z: 0.0
     w: 1.0
   }
@@ -496,8 +500,8 @@ nodes {
 }
 nodes {
   position {
-    x: -266.0
-    y: 201.0
+    x: -274.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }
@@ -560,8 +564,8 @@ nodes {
 }
 nodes {
   position {
-    x: -246.0
-    y: 171.0
+    x: -255.0
+    y: 170.0
     z: 0.0
     w: 1.0
   }
@@ -624,8 +628,8 @@ nodes {
 }
 nodes {
   position {
-    x: 171.0
-    y: 183.0
+    x: 172.0
+    y: 180.0
     z: 0.0
     w: 1.0
   }
@@ -789,8 +793,8 @@ nodes {
 }
 nodes {
   position {
-    x: -273.0
-    y: 92.0
+    x: -274.0
+    y: 65.0
     z: 0.0
     w: 1.0
   }
@@ -853,8 +857,8 @@ nodes {
 }
 nodes {
   position {
-    x: -253.0
-    y: 62.0
+    x: -255.0
+    y: 35.0
     z: 0.0
     w: 1.0
   }
@@ -918,7 +922,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 75.0
+    y: 45.0
     z: 0.0
     w: 1.0
   }
@@ -1082,8 +1086,8 @@ nodes {
 }
 nodes {
   position {
-    x: -277.0
-    y: -42.0
+    x: -274.0
+    y: -70.0
     z: 0.0
     w: 1.0
   }
@@ -1146,8 +1150,8 @@ nodes {
 }
 nodes {
   position {
-    x: -257.0
-    y: -72.0
+    x: -255.0
+    y: -100.0
     z: 0.0
     w: 1.0
   }
@@ -1211,7 +1215,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: -59.0
+    y: -90.0
     z: 0.0
     w: 1.0
   }
@@ -1790,7 +1794,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 220.0
+    x: 240.0
     y: 64.0
     z: 0.0
     w: 1.0

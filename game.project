@@ -11,12 +11,18 @@ height = 1136
 
 [android]
 input_method = HiddenInputField
-package = com.defold.example.basic3d
+package = com.hamba.akord_app
+app_icon_36x36 = /assets/app_icons/icon_36.png
+app_icon_48x48 = /assets/app_icons/icon_48.png
+app_icon_72x72 = /assets/app_icons/icon_72.png
+app_icon_96x96 = /assets/app_icons/icon_96.png
+app_icon_144x144 = /assets/app_icons/icon_144.png
+app_icon_192x192 = /assets/app_icons/icon_192.png
 
 [project]
 dependencies = 
 title = AkordApp
-version = 0.02
+version = 1.021
 
 [physics]
 type = 3D
@@ -30,4 +36,11 @@ bundle_identifier = com.defold.example.basic3d
 [input]
 game_binding = /builtins/input/all.input_bindingc
 repeat_interval = 0.05
+
+[html5]
+cssfile = /dark_theme.css
+show_fullscreen_button = 0
+show_made_with_defold = 0
+show_console_banner = 0
+splash_image = /assets/app_icons/splash.png
 

@@ -3,9 +3,20 @@ local system = sys.get_sys_info()
 local SET = require("modules/settings")
 local UI = require("modules/ui")
 
-if system.system_name == "Windows" or system.system_name == "HTML5" then
+if system.system_name == "HTML5" then
+	local js = "(typeof window.orientation !== 'undefined') || (navigator.userAgent.indexOf('IEMobile') !== -1);"
+	if html5.run(js) == "true" then
+		SET.is_desktop = false
+	else
+		SET.is_desktop = true
+	end
+elseif system.system_name == "Windows" then
 	SET.is_desktop = true
 end
+
+--if system.system_name == "Windows" or system.system_name == "HTML5" then
+--	SET.is_desktop = true
+--end
 
 local nodes, co
 
@@ -56,14 +67,15 @@ function init(self)
 		},
 		white = gui.get_node("fade_white")
 	}
-	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..sys.get_engine_info().version.." \n\nInicializace ............................................................. hotovo!\nVytvářím satelitní uplink ...................... hotovo!\nPřipojuji se k mainframe AkordCorpu ..................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refreshDaemon\nf_getLang"
+	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..sys.get_engine_info().version.." \n\nInicializace .............................................................. hotovo!\nVytvářím satelitní uplink ................................. hotovo!\nSpojení s mainframe AkordCorpu ...................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refreshDaemon\nf_getLang"
 
 	gui.set_enabled(nodes.info.background, false)
 	gui.set_enabled(nodes.dialog.background, false)
 	gui.set_enabled(nodes.logo.left, false)
 	gui.set_enabled(nodes.logo.right, false)
 	gui.set_enabled(nodes.logo.text, false)
-
+	gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
+	
 	local function start_app()
 		new_line();	new_line();	new_line()
 		write(nodes.console, "\n\n\nProbíhá spuštění", 0.05)
@@ -107,12 +119,12 @@ function init(self)
 			write(nodes.console, "...", 0.7)
 			write(nodes.console, "..", 0.9)
 			write(nodes.console, "................", 0.03)
-			write(nodes.console, "...........", 0.005)
+			write(nodes.console, "............", 0.005)
 			write(nodes.console, ".............", 0.0)
-			gui.set_text(nodes.console, gui.get_text(nodes.console).."........ done!")
+			gui.set_text(nodes.console, gui.get_text(nodes.console).."............. done!")
 			wait(0.3)
 			write(nodes.console, "\nEstablishing satellite uplink ", 0.05)
-			write(nodes.console, "......................", 0.085)
+			write(nodes.console, "..............................", 0.085)
 			write(nodes.console, " done!", 0.001)
 			wait(0.3)
 			write(nodes.console, "\nConnecting to AkordCorp mainframe ", 0.05)
@@ -139,7 +151,8 @@ function init(self)
 			write(nodes.console, "\nf_neuralNet", 0.01)
 			new_line();	new_line()
 			write(nodes.console, "\n\nStahuji zásuvné moduly", 0.05)
-			write(nodes.console, ".....................", 0.1)
+			write(nodes.console, "..................", 0.1)
+			write(nodes.console, "...", 2.5)
 			new_line();	new_line()
 			write(nodes.console, "\n\nCHYBA!", 0.1)
 			gui.set_color(nodes.console, UI.COLOUR_ERROR)
@@ -192,7 +205,7 @@ local function check_modules()
 		end
 	end
 	UI.load_template({"accept"})
-	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DEFAULT)
+	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_WHITE)
 	return true
 end
 
