@@ -233,8 +233,8 @@ function PANEL.main.input_eval(button)
 	if button == "events" then
 		local text = "Po mnohaleté práci tisíců zaměstanců AkordCorpu po celém světě je naší ctí odhalit plod naší práce.\n\n"
 		text = text.."Vybraným hostům bude Projekt X představen na exkluzivní kyberprostorové prezentaci.\n\n"
-		text = text.."Nejste mezi nimi? Nevadí! Vše potřebné se můžete dozvědět i na svou zvláštních akcích, které se budou konat"
-		text = text.." ve fyzickém prostoru, a to konkréně v prostorech Přírodovědecké fakulty UK v Praze.\n\n"
+		text = text.."Nejste mezi nimi? Nevadí! Vše potřebné se můžete dozvědět i na zvláštních akcích, které se budou konat"
+		text = text.." ve fyzickém prostoru, a to konkrétně v prostorech Přírodovědecké fakulty UK v Praze.\n\n"
 		text = text.."První termín - 17. 6. 2022\nDruhý termín - 19. 6. 2022\n"
 		gui.set_text(PANEL.events.text, text)
 		open_dialog("events", hash("expand_from_button"), nil, {button = PANEL.main.btn_events})

@@ -44,19 +44,19 @@ TEXT.people_data = {
 		portrait = "zanziro",
 		name = "Žanžiro",
 		actor = "N/A",
-		text = "Nebezpečný terorista, expert v boji s energetickým nano-mečem. Podle neověřených zpráv utrpěl při své poslední akci zranění neslučitelná s životem."
+		text = "Nebezpečný terorista, expert v boji s energetickým nano-mečem. Podle neověřených zpráv utrpěl při své poslední akci zranění neslučitelná se životem."
 	},
 	verkant = {
 		portrait = "verkant",
 		name = "Verkant Suillus III",
 		actor = "Dušan Janovský",
-		text = "Majitel AkordCorpu, vizionář, ztělesnění úspěchu. Obdařet géniem pro podnikání a výborným zdravotním stavem, Verkant Suillus jistě povede lidstvo a AkordCorp ke světlým zítřkům."
+		text = "Majitel AkordCorpu, vizionář, ztělesnění úspěchu. Obdařen géniem pro podnikání a výborným zdravotním stavem, Verkant Suillus jistě povede lidstvo a AkordCorp ke světlým zítřkům."
 	},
 	arkadij = {
 		portrait = "arkadij",
 		name = "Arkadij",
 		actor = "Pavel Pipek",
-		text = "Šéf bezpečnostní agentury A-Sec. Vyzbrojen špičkovým bojovým výcvikem a nejlepším vybavením jaké lze pořídit, Arkadij je první linií obrany AkordCorpu před nepřáteli všeho druhu."
+		text = "Šéf bezpečnostní agentury A-Sec. Vyzbrojen špičkovým bojovým výcvikem a nejlepším vybavením, jaké lze pořídit, Arkadij je první linií obrany AkordCorpu před nepřáteli všeho druhu."
 	},
 	holkogramy = {
 		portrait = "holkogram_1",
