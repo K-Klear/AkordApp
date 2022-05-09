@@ -1,4 +1,4 @@
-local scan_time = 5
+local UI = require("modules/ui")
 local scan_timer
 
 function init(self)
@@ -15,11 +15,12 @@ function on_message(self, message_id, message, sender)
 		msg.post("#scanner_sprite", hash("enable"))
 		go.set("#scanner_sprite", "scan_line", vmath.vector4(1, -0.1, 0, 0))
 	elseif message_id == hash("scan") then
-		go.animate("#scanner_sprite", "scan_line.y", go.PLAYBACK_ONCE_PINGPONG, 1, go.EASING_LINEAR, scan_time, 0, function()
-			msg.post("go#main_menu", hash("scan_completed"))
+		go.animate("#scanner_sprite", "scan_line.y", go.PLAYBACK_ONCE_PINGPONG, 1, go.EASING_LINEAR, UI.SCAN_TIME, 0, function()
+			msg.post("go#main_menu", hash("scan_evaluated"))
 		end)
-		scan_timer = timer.delay(scan_time / 2, false, function()
+		scan_timer = timer.delay(UI.SCAN_TIME / 2, false, function()
 			go.set("#scanner_sprite", "scan_line.x", 0)
+			msg.post("go#main_menu", hash("scan_completed"))
 		end)
 	elseif message_id == hash("hide") then
 		go.cancel_animations("#scanner_sprite", "scan_line")
@@ -28,7 +29,6 @@ function on_message(self, message_id, message, sender)
 			scan_timer = nil
 		end
 		msg.post("#scanner_sprite", hash("disable"))
-		--go.set(".", "position.z", 10)
 		go.set("#scanner_sprite", "scan_line", vmath.vector4(1, -0.1, 0, 0))
 	end
 end

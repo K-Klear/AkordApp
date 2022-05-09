@@ -38,7 +38,7 @@ TEXT.people_data = {
 		portrait_2 = "torrent",
 		name = "Jack Torrent",
 		actor = "Vojtěch Kynčl\nFilip Ryant",
-		text = "Specialista na kyberinfiltraci a sociální inženýrství, poslední dobou zdánlivě neaktivní. Přiložen obrázek jeho avataru v kyberprostoru."
+		text = "Specialista na kyberinfiltraci a sociální inženýrství, poslední dobou zdánlivě neaktivní. Přiložen obrázek avataru které používá v kyberprostoru."
 	},
 	zanziro = {
 		portrait = "zanziro",
@@ -70,7 +70,14 @@ TEXT.people_data = {
 		name = "Richard K. Fhill",
 		actor = "Alex Fedosov",
 		text = "Jeden z milionů zaměstnanců AkordCorpu na zemi i jinde, zaměstnanec J3N-M450 s úsměvem na tváři pracuje dnem i nocí, abyste si mohli užít Vaše oblíbené produkty AkordCorpu."
+	},
+	zuzka = {
+		portrait = "zuzka",
+		name = "Zuzka",
+		actor = "Zuzana Kubínová",
+		text = "Zuzka!"
 	}
 }
+		
 
 return TEXT

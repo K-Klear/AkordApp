@@ -109,7 +109,7 @@ function update(self)
     render.set_projection(proj)
     render.set_view(self.view)
     render.draw(self.scanner_pred, {frustum = frustum})
-    
+
     render.disable_state(render.STATE_STENCIL_TEST)
 end
 

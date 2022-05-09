@@ -1,10 +1,15 @@
 local UI = {active = {}}
 
-UI.COLOUR_DEFAULT = vmath.vector4(1)
+UI.COLOUR_DEFAULT = vmath.vector4(0.05, 0.45, 0.05, 1)
 UI.COLOUR_DISABLED = vmath.vector4(0.2, 0.2, 0.2, 1)
-UI.COLOUR_ERROR = vmath.vector4(1, 0.2, 0.4, 1)
+UI.COLOUR_ERROR = vmath.vector4(0.35, 0.75, 0.15, 1)
+UI.COLOUR_WHITE = vmath.vector4(1)
+UI.COLOUR_BLACK = vmath.vector4(0, 0, 0, 1)
+
+UI.SCAN_TIME = 5
 
 function UI.load_template(template)
+	local node
 	if type(template) == "table" then
 		for key, val in ipairs(template) do
 			UI.load_template(val)
@@ -14,11 +19,19 @@ function UI.load_template(template)
 	local state, type = true
 	if pcall(gui.get_node, template.."/checkbox") then
 		type = hash("checkbox")
-		state = gui.get_flipbook(gui.get_node(template.."/checkbox")) == hash("check_true")
+		node = gui.get_node(template.."/checkbox")
+		state = gui.get_flipbook(node) == hash("check_true")
 	elseif pcall(gui.get_node, template.."/button_box") then
+		node = gui.get_node(template.."/button_box")
 		type = hash("button")
+	elseif pcall(gui.get_node, template.."/button_black") then
+		node = gui.get_node(template.."/button_black")
+		type = hash("button_black")
+	elseif pcall(gui.get_node, template.."/button_white") then
+		node = gui.get_node(template.."/button_white")
+		type = hash("button_white")
 	end
-	table.insert(UI.active, {template = template, type = type, state = state})
+	table.insert(UI.active, {template = template, type = type, state = state, node = node})
 end
 
 function UI.unload_template(template)
