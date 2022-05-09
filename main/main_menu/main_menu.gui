@@ -1505,7 +1505,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "events_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1515,10 +1515,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2930,7 +2930,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "employ_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2940,10 +2940,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3380,7 +3380,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3390,10 +3390,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3543,7 +3543,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_verkant/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3553,10 +3553,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3707,7 +3707,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_arkadij/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3717,10 +3717,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3871,7 +3871,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_holkogramy/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3881,10 +3881,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4035,7 +4035,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_fhill/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4045,10 +4045,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4199,7 +4199,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_agatha/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4209,10 +4209,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4363,7 +4363,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_jack/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4373,10 +4373,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4527,7 +4527,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_emmett/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4537,10 +4537,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4691,7 +4691,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_claudia/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4701,10 +4701,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4855,7 +4855,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_zuzka/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4865,10 +4865,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5019,7 +5019,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "people_zanziro/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5029,10 +5029,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5702,7 +5702,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "credits_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5712,10 +5712,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5865,7 +5865,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "credits_cast/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5875,10 +5875,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6339,7 +6339,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "exit_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6349,10 +6349,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6503,7 +6503,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "exit_back/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6513,10 +6513,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6852,7 +6852,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "eula_accept_1/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6862,10 +6862,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -7016,7 +7016,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black"
+  texture: "UI/button_black_2"
   id: "eula_accept_2/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7026,10 +7026,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 20.0
+    y: 20.0
+    z: 20.0
+    w: 20.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
