@@ -45,6 +45,17 @@ animations {
   flip_horizontal: 0
   flip_vertical: 0
 }
+animations {
+  id: "button_white_pressed"
+  images {
+    image: "/assets/UI/button_black.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 5
+  flip_horizontal: 0
+  flip_vertical: 0
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

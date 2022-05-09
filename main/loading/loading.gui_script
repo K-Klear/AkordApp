@@ -10,23 +10,14 @@ if system.system_name == "HTML5" then
 	else
 		SET.is_desktop = true
 	end
-<<<<<<< HEAD
 	SET.is_html5 = true
-=======
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 elseif system.system_name == "Windows" then
 	SET.is_desktop = true
 end
 
-<<<<<<< HEAD
 if SET.force_mobile then
 	SET.is_desktop = false
 end
-=======
---if system.system_name == "Windows" or system.system_name == "HTML5" then
---	SET.is_desktop = true
---end
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 
 local nodes, co
 

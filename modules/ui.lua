@@ -9,7 +9,7 @@ UI.COLOUR_BLACK = vmath.vector4(0, 0, 0, 1)
 UI.SCAN_TIME = 5
 
 function UI.load_template(template)
-	local node
+	local node, node_text
 	if type(template) == "table" then
 		for key, val in ipairs(template) do
 			UI.load_template(val)
@@ -25,15 +25,10 @@ function UI.load_template(template)
 		node = gui.get_node(template.."/button_box")
 		type = hash("button")
 	elseif pcall(gui.get_node, template.."/button_black") then
-<<<<<<< HEAD
 		node = gui.get_node(template.."/button_black")
 		type = hash("button_black")
 	elseif pcall(gui.get_node, template.."/button_white") then
 		node = gui.get_node(template.."/button_white")
-=======
-		type = hash("button_black")
-	elseif pcall(gui.get_node, template.."/button_white") then
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 		type = hash("button_white")
 	end
 	table.insert(UI.active, {template = template, type = type, state = state, node = node})

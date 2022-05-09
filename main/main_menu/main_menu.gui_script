@@ -2,11 +2,7 @@ local SET = require("modules/settings")
 local UI = require("modules/ui")
 local TEXT = require("modules/text")
 
-<<<<<<< HEAD
 local nodes, hover
-=======
-local nodes
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 
 local MENU_OPEN_TIME = 0.4
 local BUTTON_FLASH_TIME = 0.2
@@ -17,12 +13,49 @@ local scanner_enabled, scan_in_progress, scan_initiated
 local PANEL = {main = {}, events = {}, people = {}, eula = {}, credits = {}, employ = {}, exit = {}}--, login = {}}
 local current_dialogs = {}
 
+local button_settings = {
+	[hash("button")] = {
+		suffix = "/button_box",
+		base_anim = "button_black",
+		base_text_colour = vmath.vector4(1),
+		--hover_anim = "button_white",
+		hover_text_colour = vmath.vector4(0, 0, 0, 1),
+		flash = "button_black_pressed"
+	},
+	[hash("button_white")] = {
+		suffix = "/button_white",
+		base_anim = "button_white",
+		base_text_colour = vmath.vector4(0, 0, 0, 1),
+		hover_anim = "button_black",
+		hover_text_colour = vmath.vector4(1),
+		flash = "button_white_pressed"
+	},
+	[hash("button_black")] = {
+		suffix = "/button_black",
+		base_anim = "button_black",
+		base_text_colour = vmath.vector4(1),
+		hover_anim = "button_white",
+		hover_text_colour = vmath.vector4(0, 0, 0, 1),
+		flash = "button_black_pressed"
+	}
+}
+
+local function remove_hover()
+	if hover and button_settings[UI.active[hover].type].hover_anim then
+		local button = UI.active[hover]
+		gui.play_flipbook(button.node, button_settings[button.type].base_anim)
+		local text_node = gui.get_node(button.template.."/text")
+		gui.set_color(text_node, button_settings[button.type].base_text_colour)
+		hover = nil
+	end
+end
+
 local function open_dialog(dialog, transition, time, props)
 	time = time or MENU_OPEN_TIME
 	local base = PANEL[dialog].base
 	gui.set_enabled(base, true)
+	remove_hover()
 	UI.unload_template()
-	hover = nil
 	table.insert(current_dialogs, dialog)
 	local function enable_panel()
 		UI.load_template(PANEL[dialog].BUTTON_LIST)
@@ -59,8 +92,8 @@ local function close_dialog(transition, time, props, next_dialog)
 	next_dialog = next_dialog or function() end
 	dialog = current_dialogs[#current_dialogs]
 	local base = PANEL[dialog].base
+	remove_hover()
 	UI.unload_template()
-	hover = nil
 	local function disable_panel()
 		gui.set_enabled(base, false)
 		reactivate_dialog()
@@ -131,11 +164,7 @@ function init(self)
 		BUTTON_LIST = {"credits_ok", "eula", "credits_cast"},
 		input_eval = PANEL.credits.input_eval
 	}
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 	PANEL.exit = {
 		base = gui.get_node("dialog_exit"),
 
@@ -340,10 +369,30 @@ function on_message(self, message_id, message, sender)
 			INPUT_ENABLED = true
 			PANEL[current_dialogs[#current_dialogs]].input_eval(message.template)
 		end
+
+		local button_data = UI.active[message.button]
+		local type = button_data.type
 		
-		if message.type == hash("button") then
+		if type == hash("button") then
 			start_eval()
-		elseif message.type == hash("button_white") then
+		else
+			if SET.is_desktop then
+				start_eval()
+			else
+				INPUT_ENABLED = false
+				local node_text = gui.get_node(message.template.."/text")
+				gui.set_color(node_text, button_settings[type].hover_text_colour)
+				gui.play_flipbook(button_data.node, button_settings[type].flash)
+				timer.delay(BUTTON_FLASH_TIME, false, function()
+					gui.set_color(node_text, button_settings[type].base_text_colour)
+					gui.play_flipbook(button_data.node, button_settings[type].base_anim)
+					start_eval()
+				end)
+			end
+		end
+		--[[
+
+		elseif button_data.type == hash("button_white") then
 			INPUT_ENABLED = false
 			local node = gui.get_node(message.template.."/button_white")
 			local node_text = gui.get_node(message.template.."/text")
@@ -351,18 +400,19 @@ function on_message(self, message_id, message, sender)
 			gui.set_color(node_text, UI.COLOUR_BLACK)
 			gui.animate(node, "color", UI.COLOUR_BLACK, go.EASING_LINEAR, BUTTON_FLASH_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
 			gui.animate(node_text, "color", UI.COLOUR_WHITE, go.EASING_LINEAR, BUTTON_FLASH_TIME, 0, start_eval, gui.PLAYBACK_ONCE_PINGPONG)
-		elseif message.type == hash("button_black") then
+		elseif button_data.type == hash("button_black") then
 			INPUT_ENABLED = false
 			local node = gui.get_node(message.template.."/button_black")
 			local node_text = gui.get_node(message.template.."/text")
 			gui.set_color(node_text, UI.COLOUR_BLACK)
-			gui.play_flipbook(node, "button_black_pressed", function()
+			gui.play_flipbook(node, "button_black_pressed")
+			timer.delay(BUTTON_FLASH_TIME, false, function()
 				gui.set_color(node_text, UI.COLOUR_WHITE)
 				gui.play_flipbook(node, "button_black")
 				start_eval()
 			end)
 
-			--[[
+			
 			elseif message.template == "employ" then
 				UI.unload_template()
 				gui.set_enabled(nodes.employ.dialog, true)
@@ -398,8 +448,8 @@ function on_message(self, message_id, message, sender)
 				UI.load_template(MAIN_MENU_BUTTONS)
 				UI.reset_text_field(nodes.login.name_field)
 			end
-			--]]
 		end
+		--]]
 	elseif message_id == hash("scan_completed") then
 		TEXT.write(PANEL.employ.title, "Zpracovávám...", UI.SCAN_TIME / 30, true)
 		INPUT_ENABLED = false
@@ -413,63 +463,45 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
-	local button_suffix = {
-		[hash("button")] = "/button_box",
-		[hash("button_white")] = "/button_white",
-		[hash("button_black")] = "/button_black"
-	}
-	
-	if action_id == hash("touch") and action.pressed then
-		for key, val in ipairs(UI.active) do
-<<<<<<< HEAD
-			local node = gui.get_node(val.template..button_suffix[val.type])
-			if gui.pick_node(node, action.x, action.y) then
-				msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
-				break
-=======
-			if val.type == hash("button") then
-				local node = gui.get_node(val.template.."/button_box")
-				if gui.pick_node(node, action.x, action.y) then
-					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
+	if action_id == hash("touch") then
+		if (SET.is_desktop and action.released) or (not SET.is_desktop and action.pressed) then
+			for key, val in ipairs(UI.active) do
+				--local node = gui.get_node(val.template..button_settings[val.type].suffix)
+				if gui.pick_node(val.node, action.x, action.y) then
+					msg.post("#", hash("template_clicked"), {template = val.template, button = key})
+					break
 				end
-			elseif val.type == hash("button_white") then
-				local node = gui.get_node(val.template.."/button_white")
-				if gui.pick_node(node, action.x, action.y) then
-					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
-				end
-			elseif val.type == hash("button_black") then
-				local node = gui.get_node(val.template.."/button_black")
-				if gui.pick_node(node, action.x, action.y) then
-					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
-				end
->>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 			end
+			UI.check_text_field(action.x, action.y)
 		end
-		UI.check_text_field(action.x, action.y)
+	--[[
 	elseif action_id == hash("text") then
 		UI.enter_text(action.text)
 	elseif action_id == hash("key_backspace") and (action.pressed or action.repeated) then
 		UI.backspace()
+	--]]
 	elseif not action_id and SET.is_desktop then
 		local new_hover
 		for key, val in ipairs(UI.active) do
-			local node = gui.get_node(val.template..button_suffix[val.type])
+			local node = gui.get_node(val.template..button_settings[val.type].suffix)
 			if gui.pick_node(node, action.x, action.y) then
 				new_hover = key
-				--msg.post("#", hash("template_hover"), {template = val.template, type = val.type})
 				break
 			end
 		end
 		if new_hover then
-			if hover then
-				gui.play_flipbook(UI.active[hover].node, "button_black")
+			if not (hover == new_hover) then
+				remove_hover()
+				hover = new_hover
+				local hover_anim = button_settings[UI.active[hover].type].hover_anim
+				if hover_anim then
+					gui.play_flipbook(UI.active[hover].node, hover_anim)
+					local text_node = gui.get_node(UI.active[hover].template.."/text")
+					gui.set_color(text_node, button_settings[UI.active[hover].type].hover_text_colour)
+				end
 			end
-			hover = new_hover
-			gui.play_flipbook(UI.active[hover].node, "button_white")
 		else
-			if hover then
-				gui.play_flipbook(UI.active[hover].node, "button_black")
-			end
+			remove_hover()
 		end
 	end
 	if scanner_enabled then
