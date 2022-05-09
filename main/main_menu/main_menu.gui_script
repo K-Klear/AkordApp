@@ -2,7 +2,11 @@ local SET = require("modules/settings")
 local UI = require("modules/ui")
 local TEXT = require("modules/text")
 
+<<<<<<< HEAD
 local nodes, hover
+=======
+local nodes
+>>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 
 local MENU_OPEN_TIME = 0.4
 local BUTTON_FLASH_TIME = 0.2
@@ -127,7 +131,11 @@ function init(self)
 		BUTTON_LIST = {"credits_ok", "eula", "credits_cast"},
 		input_eval = PANEL.credits.input_eval
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 	PANEL.exit = {
 		base = gui.get_node("dialog_exit"),
 
@@ -413,10 +421,28 @@ function on_input(self, action_id, action)
 	
 	if action_id == hash("touch") and action.pressed then
 		for key, val in ipairs(UI.active) do
+<<<<<<< HEAD
 			local node = gui.get_node(val.template..button_suffix[val.type])
 			if gui.pick_node(node, action.x, action.y) then
 				msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
 				break
+=======
+			if val.type == hash("button") then
+				local node = gui.get_node(val.template.."/button_box")
+				if gui.pick_node(node, action.x, action.y) then
+					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
+				end
+			elseif val.type == hash("button_white") then
+				local node = gui.get_node(val.template.."/button_white")
+				if gui.pick_node(node, action.x, action.y) then
+					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
+				end
+			elseif val.type == hash("button_black") then
+				local node = gui.get_node(val.template.."/button_black")
+				if gui.pick_node(node, action.x, action.y) then
+					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
+				end
+>>>>>>> 6accf2889367d7b4880314fa769dfe96e3e25d53
 			end
 		end
 		UI.check_text_field(action.x, action.y)
