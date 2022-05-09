@@ -172,10 +172,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -338,10 +338,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -503,10 +503,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -667,10 +667,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1002,10 +1002,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1170,10 +1170,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1281,7 +1281,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_events"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1290,10 +1290,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1515,10 +1515,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1794,7 +1794,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_white"
+  texture: "UI/panel"
   id: "dialog_login"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1803,10 +1803,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2769,7 +2769,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_employ"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2778,10 +2778,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2940,10 +2940,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3108,7 +3108,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_people"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3117,10 +3117,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3390,10 +3390,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3553,10 +3553,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3717,10 +3717,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3881,10 +3881,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4045,10 +4045,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4209,10 +4209,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4373,10 +4373,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4537,10 +4537,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4701,10 +4701,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4865,10 +4865,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5029,10 +5029,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5463,7 +5463,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_credits"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5472,10 +5472,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5712,10 +5712,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5875,10 +5875,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6179,7 +6179,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_exit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6188,10 +6188,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6349,10 +6349,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6513,10 +6513,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6626,7 +6626,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel"
   id: "dialog_eula"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6635,10 +6635,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -6862,10 +6862,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -7026,10 +7026,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 12.0
+    y: 12.0
+    z: 12.0
+    w: 12.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true

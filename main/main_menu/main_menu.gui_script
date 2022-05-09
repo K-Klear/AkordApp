@@ -1,6 +1,7 @@
 local SET = require("modules/settings")
 local UI = require("modules/ui")
 local TEXT = require("modules/text")
+local SND = require("modules/sound")
 
 local nodes, hover
 
@@ -107,7 +108,7 @@ local function close_dialog(transition, time, props, next_dialog)
 		local size_btn = gui.get_size(props.button)
 		local size_base = gui.get_size(base)
 		local scale = vmath.vector3(size_btn.x / size_base.x, size_btn.y / size_base.y, 1)
-		gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
+		--gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
 		gui.animate(base, "scale", scale, gui.EASING_OUTSINE, time)
 		gui.animate(base, "position", gui.get_position(props.button), gui.EASING_OUTSINE, time, 0, function()
 			disable_panel()
@@ -288,7 +289,8 @@ end
 
 function PANEL.events.input_eval(button)
 	if button == "events_ok" then
-		close_dialog(hash("contract"))
+		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_events})
+		--close_dialog(hash("contract"))
 	elseif button == "events_map" then
 		local web_url = "https://www.google.com/maps/place/P%C5%99%C3%ADrodov%C4%9Bdeck%C3%A1+fakulta+UK/@50.0677658,14.4220166,17z/data=!4m5!3m4!1s0x470b948a8298e12d:0xc34671cecfa94ef1!8m2!3d50.0689086!4d14.4245388"
 		sys.open_url(web_url, {target = "_blank"})
@@ -299,7 +301,7 @@ end
 
 function PANEL.people.input_eval(button)
 	if button == "people_ok" then
-		close_dialog(hash("contract"))
+		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_people})
 	elseif button == "people_verkant" then
 		display_person("verkant")
 	elseif button == "people_arkadij" then
@@ -372,6 +374,8 @@ function on_message(self, message_id, message, sender)
 
 		local button_data = UI.active[message.button]
 		local type = button_data.type
+
+		SND.play("#beep")
 		
 		if type == hash("button") then
 			start_eval()
@@ -491,6 +495,7 @@ function on_input(self, action_id, action)
 		end
 		if new_hover then
 			if not (hover == new_hover) then
+				SND.play("#hover")
 				remove_hover()
 				hover = new_hover
 				local hover_anim = button_settings[UI.active[hover].type].hover_anim

@@ -34,6 +34,10 @@ images {
   image: "/assets/images/defold_logo.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/UI/panel.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "button_black_pressed"
   images {
