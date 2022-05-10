@@ -58,6 +58,14 @@ images {
   image: "/assets/UI/button_white_hover_2.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/UI/panel_green.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/UI/panel_minimal.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "button_black_pressed"
   images {

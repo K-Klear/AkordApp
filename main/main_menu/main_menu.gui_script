@@ -72,6 +72,11 @@ local function remove_hover()
 end
 
 local function open_dialog(dialog, transition, time, props)
+	if dialog == "main" then
+
+	else
+		SND.play("#open")
+	end
 	time = time or MENU_OPEN_TIME
 	local base = PANEL[dialog].base
 	gui.set_enabled(base, true)
@@ -138,6 +143,22 @@ local function close_dialog(transition, time, props, next_dialog)
 	end
 end
 
+local function switch_theme()
+	local themes = {
+		{
+			panel = "panel"
+		},
+		{
+			panel = "panel_green"
+		},
+		{
+			panel = "panel_minimal"
+		},
+	}
+	for key, val in pairs(PANEL) do
+		gui.play_flipbook(val.base, themes[SET.theme].panel)
+	end
+end
 
 function init(self)
 
@@ -410,15 +431,17 @@ function on_message(self, message_id, message, sender)
 				INPUT_ENABLED = false
 				local text_node = gui.get_node(message.template.."/text")
 				--gui.set_color(text_node, button_settings[type].hover_text_colour)
-				gui.play_flipbook(button_data.node, button_settings[type].flash)
+				gui.play_flipbook(button_data.node, button_settings[type].down)
 				local text_pos
 				if button_settings[type].press_offset then
 					gui.set_position(text_node, EMPTY_VECTOR)
 					gui.animate(text_node, "position", button_settings[type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
 				end
-				timer.delay(BUTTON_FLASH_TIME, false, function()
+				timer.delay(BUTTON_PRESS_TIME, false, function()
 					--gui.set_color(text_node, button_settings[type].base_text_colour)
-					gui.play_flipbook(button_data.node, button_settings[type].base_anim)
+					gui.play_flipbook(button_data.node, button_settings[type].up, function()
+						gui.play_flipbook(button_data.node, button_settings[type].base_anim)
+					end)
 					gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
 					--gui.set_position(text_node, EMPTY_VECTOR)
 					start_eval()
@@ -557,6 +580,10 @@ function on_input(self, action_id, action)
 	if action_id == hash("key_f12") and action.pressed and SET.debug then
 		SET.is_desktop = not SET.is_desktop
 		print("Desktop:", SET.is_desktop)
+	elseif action_id == hash("key_f11") and action.pressed and SET.debug then
+		SET.theme = SET.theme + 1
+		if SET.theme > 3 then SET.theme = 1 end
+		switch_theme()
 	end
 	if scanner_enabled then
 		if action_id == hash("touch") and gui.pick_node(gui.get_node("employ_scanner"), action.x, action.y) then
