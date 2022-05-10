@@ -1290,15 +1290,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1306,7 +1306,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 444.0
+    y: 440.0
     z: 0.0
     w: 1.0
   }
@@ -1358,7 +1358,7 @@ nodes {
   line_break: false
   parent: "dialog_events"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1369,7 +1369,7 @@ nodes {
 }
 nodes {
   position {
-    x: -280.0
+    x: -271.0
     y: 396.0
     z: 0.0
     w: 1.0
@@ -1387,7 +1387,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 1100.0
+    x: 1080.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -1422,7 +1422,7 @@ nodes {
   line_break: true
   parent: "dialog_events"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1466,7 +1466,7 @@ nodes {
   id: "events_ok"
   parent: "dialog_events"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -1629,7 +1629,7 @@ nodes {
   id: "events_map"
   parent: "dialog_events"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
@@ -1803,15 +1803,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1871,7 +1871,7 @@ nodes {
   line_break: false
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1935,7 +1935,7 @@ nodes {
   line_break: true
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1999,7 +1999,7 @@ nodes {
   line_break: true
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -2043,7 +2043,7 @@ nodes {
   id: "login_ok"
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
@@ -2209,7 +2209,7 @@ nodes {
   id: "login_employ"
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
@@ -2376,7 +2376,7 @@ nodes {
   id: "login_close"
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button.gui"
   template_node_child: false
@@ -2727,7 +2727,7 @@ nodes {
   line_break: true
   parent: "dialog_login"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -2778,15 +2778,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -2794,7 +2794,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 376.0
+    y: 367.0
     z: 0.0
     w: 1.0
   }
@@ -2847,7 +2847,7 @@ nodes {
   line_break: false
   parent: "dialog_employ"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -2891,7 +2891,7 @@ nodes {
   id: "employ_ok"
   parent: "dialog_employ"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -3117,23 +3117,23 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
   position {
-    x: -222.0
-    y: 411.0
+    x: -216.0
+    y: 405.0
     z: 0.0
     w: 1.0
   }
@@ -3241,7 +3241,7 @@ nodes {
   line_break: false
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -3252,8 +3252,8 @@ nodes {
 }
 nodes {
   position {
-    x: 222.0
-    y: 411.0
+    x: 216.0
+    y: 405.0
     z: 0.0
     w: 1.0
   }
@@ -3309,7 +3309,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -433.0
+    y: -426.0
     z: 0.0
     w: 1.0
   }
@@ -3341,7 +3341,7 @@ nodes {
   id: "people_ok"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -3471,7 +3471,7 @@ nodes {
 }
 nodes {
   position {
-    x: -150.0
+    x: -135.0
     y: -19.0
     z: 0.0
     w: 1.0
@@ -3504,7 +3504,7 @@ nodes {
   id: "people_verkant"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -3635,7 +3635,7 @@ nodes {
 }
 nodes {
   position {
-    x: 150.0
+    x: 135.0
     y: -19.0
     z: 0.0
     w: 1.0
@@ -3668,7 +3668,7 @@ nodes {
   id: "people_arkadij"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -3799,7 +3799,7 @@ nodes {
 }
 nodes {
   position {
-    x: -150.0
+    x: -135.0
     y: -99.0
     z: 0.0
     w: 1.0
@@ -3832,7 +3832,7 @@ nodes {
   id: "people_holkogramy"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -3963,7 +3963,7 @@ nodes {
 }
 nodes {
   position {
-    x: 150.0
+    x: 135.0
     y: -99.0
     z: 0.0
     w: 1.0
@@ -3996,7 +3996,7 @@ nodes {
   id: "people_fhill"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4127,7 +4127,7 @@ nodes {
 }
 nodes {
   position {
-    x: -150.0
+    x: -135.0
     y: -179.0
     z: 0.0
     w: 1.0
@@ -4160,7 +4160,7 @@ nodes {
   id: "people_agatha"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4291,7 +4291,7 @@ nodes {
 }
 nodes {
   position {
-    x: 150.0
+    x: 135.0
     y: -179.0
     z: 0.0
     w: 1.0
@@ -4324,7 +4324,7 @@ nodes {
   id: "people_jack"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4455,7 +4455,7 @@ nodes {
 }
 nodes {
   position {
-    x: -150.0
+    x: -135.0
     y: -259.0
     z: 0.0
     w: 1.0
@@ -4488,7 +4488,7 @@ nodes {
   id: "people_emmett"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4619,7 +4619,7 @@ nodes {
 }
 nodes {
   position {
-    x: 150.0
+    x: 135.0
     y: -259.0
     z: 0.0
     w: 1.0
@@ -4652,7 +4652,7 @@ nodes {
   id: "people_claudia"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4783,7 +4783,7 @@ nodes {
 }
 nodes {
   position {
-    x: -150.0
+    x: -135.0
     y: -339.0
     z: 0.0
     w: 1.0
@@ -4816,7 +4816,7 @@ nodes {
   id: "people_zuzka"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -4947,7 +4947,7 @@ nodes {
 }
 nodes {
   position {
-    x: 150.0
+    x: 135.0
     y: -339.0
     z: 0.0
     w: 1.0
@@ -4980,7 +4980,7 @@ nodes {
   id: "people_zanziro"
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -5164,7 +5164,7 @@ nodes {
   line_break: false
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5175,7 +5175,7 @@ nodes {
 }
 nodes {
   position {
-    x: -278.0
+    x: -271.0
     y: 338.0
     z: 0.0
     w: 1.0
@@ -5228,7 +5228,7 @@ nodes {
   line_break: false
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5239,7 +5239,7 @@ nodes {
 }
 nodes {
   position {
-    x: -279.0
+    x: -272.0
     y: 317.0
     z: 0.0
     w: 1.0
@@ -5293,7 +5293,7 @@ nodes {
   line_break: false
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5304,7 +5304,7 @@ nodes {
 }
 nodes {
   position {
-    x: -278.0
+    x: -271.0
     y: 220.0
     z: 0.0
     w: 1.0
@@ -5357,7 +5357,7 @@ nodes {
   line_break: false
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5368,7 +5368,7 @@ nodes {
 }
 nodes {
   position {
-    x: -279.0
+    x: -272.0
     y: 199.0
     z: 0.0
     w: 1.0
@@ -5386,7 +5386,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 550.0
+    x: 540.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -5421,7 +5421,7 @@ nodes {
   line_break: true
   parent: "dialog_people"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5472,15 +5472,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -5488,7 +5488,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 451.0
+    y: 445.0
     z: 0.0
     w: 1.0
   }
@@ -5540,7 +5540,7 @@ nodes {
   line_break: false
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5551,7 +5551,7 @@ nodes {
 }
 nodes {
   position {
-    x: -280.0
+    x: -269.0
     y: 409.0
     z: 0.0
     w: 1.0
@@ -5569,7 +5569,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 950.0
+    x: 900.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -5619,7 +5619,7 @@ nodes {
   line_break: true
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -5631,7 +5631,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -433.0
+    y: -421.0
     z: 0.0
     w: 1.0
   }
@@ -5663,7 +5663,7 @@ nodes {
   id: "credits_ok"
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -5826,7 +5826,7 @@ nodes {
   id: "credits_cast"
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   template: "/templates/button_black.gui"
   template_node_child: false
@@ -5958,7 +5958,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -59.0
+    y: -75.0
     z: 0.0
     w: 1.0
   }
@@ -6010,7 +6010,7 @@ nodes {
   line_break: false
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -6021,8 +6021,8 @@ nodes {
 }
 nodes {
   position {
-    x: -280.0
-    y: -95.0
+    x: -269.0
+    y: -105.0
     z: 0.0
     w: 1.0
   }
@@ -6039,7 +6039,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 950.0
+    x: 900.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -6081,7 +6081,7 @@ nodes {
   line_break: true
   parent: "dialog_credits"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -6188,15 +6188,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -6204,7 +6204,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 51.0
+    y: 44.0
     z: 0.0
     w: 1.0
   }
@@ -6234,7 +6234,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Opravdu chcete ukon\304\215it aplikaci?"
+  text: "Opravdu chcete aplikaci ukon\304\215it?"
   font: "terminal"
   id: "exit_title"
   xanchor: XANCHOR_NONE
@@ -6268,7 +6268,7 @@ nodes {
 nodes {
   position {
     x: 100.0
-    y: -42.0
+    y: -26.0
     z: 0.0
     w: 1.0
   }
@@ -6432,7 +6432,7 @@ nodes {
 nodes {
   position {
     x: -100.0
-    y: -42.0
+    y: -26.0
     z: 0.0
     w: 1.0
   }
@@ -6635,15 +6635,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
-  alpha: 0.9
+  alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -6651,7 +6651,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 170.0
+    y: 152.0
     z: 0.0
     w: 1.0
   }
@@ -6714,8 +6714,8 @@ nodes {
 }
 nodes {
   position {
-    x: -263.0
-    y: 133.0
+    x: -250.0
+    y: 121.0
     z: 0.0
     w: 1.0
   }
@@ -6732,7 +6732,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 850.0
+    x: 830.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -6781,7 +6781,7 @@ nodes {
 nodes {
   position {
     x: 100.0
-    y: -150.0
+    y: -126.0
     z: 0.0
     w: 1.0
   }
@@ -6945,7 +6945,7 @@ nodes {
 nodes {
   position {
     x: -100.0
-    y: -150.0
+    y: -126.0
     z: 0.0
     w: 1.0
   }

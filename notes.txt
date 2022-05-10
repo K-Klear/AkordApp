@@ -1,3 +1,9 @@
+Co fakt nechci zapomenout:
+- F12 přepíná desktop/mobil verzi
+- opravit velikosti fontů
+- smazat nepotřebnej čudlík
+- vypnout debug
+
 License:
 
 Zvuky ???

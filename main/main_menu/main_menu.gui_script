@@ -7,9 +7,12 @@ local nodes, hover
 
 local MENU_OPEN_TIME = 0.4
 local BUTTON_FLASH_TIME = 0.2
+local BUTTON_PRESS_TIME = 0.05
 local INPUT_ENABLED = true
+local EMPTY_VECTOR = vmath.vector3()
 
 local scanner_enabled, scan_in_progress, scan_initiated
+local mouse_held
 
 local PANEL = {main = {}, events = {}, people = {}, eula = {}, credits = {}, employ = {}, exit = {}}--, login = {}}
 local current_dialogs = {}
@@ -21,33 +24,49 @@ local button_settings = {
 		base_text_colour = vmath.vector4(1),
 		--hover_anim = "button_white",
 		hover_text_colour = vmath.vector4(0, 0, 0, 1),
-		flash = "button_black_pressed"
+		press_offset = vmath.vector3(0),
+		flash = "button_black_pressed",
+		down = "button_black_down",
+		up = "button_black_up"
 	},
 	[hash("button_white")] = {
 		suffix = "/button_white",
 		base_anim = "button_white",
 		base_text_colour = vmath.vector4(0, 0, 0, 1),
-		hover_anim = "button_black",
-		hover_text_colour = vmath.vector4(1),
-		flash = "button_white_pressed"
+		hover_anim = "button_white_hover_2",
+		hover_text_colour = vmath.vector4(0, 0, 0, 1),
+		press_offset = vmath.vector3(0),
+		flash = "button_white_hover_2",
+		down = "button_white_hover_2",
+		up = "button_white_hover_2"
 	},
 	[hash("button_black")] = {
 		suffix = "/button_black",
 		base_anim = "button_black_2",
 		base_text_colour = vmath.vector4(1),
-		hover_anim = "button_white",
-		hover_text_colour = vmath.vector4(1),
+		hover_anim = "button_black_hover_2",
+		hover_text_colour = vmath.vector4(1),--0, 0, 0, 1),
 		press_offset = vmath.vector3(6, -6, 0),
-		flash = "button_black_2_pressed"
+		flash = "button_black_2_pressed_hover",
+		down = "button_black_down",
+		up = "button_black_up"
 	}
 }
 
 local function remove_hover()
 	if hover and button_settings[UI.active[hover].type].hover_anim then
 		local button = UI.active[hover]
-		gui.play_flipbook(button.node, button_settings[button.type].base_anim)
+		if mouse_held then
+			gui.play_flipbook(button.node, button_settings[button.type].up, function()
+				gui.play_flipbook(button.node, button_settings[button.type].base_anim)
+			end)
+		else
+			gui.play_flipbook(button.node, button_settings[button.type].base_anim)
+		end
 		local text_node = gui.get_node(button.template.."/text")
 		gui.set_color(text_node, button_settings[button.type].base_text_colour)
+		gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+		--gui.set_position(text_node, EMPTY_VECTOR)
 		hover = nil
 	end
 end
@@ -64,18 +83,18 @@ local function open_dialog(dialog, transition, time, props)
 	end
 	if transition == hash("fade_in") then
 		gui.set_alpha(base, 0)
-		gui.animate(base, "color.w", 1, go.EASING_OUTSINE, time, 0, enable_panel)
+		gui.animate(base, "color.w", 1, go.EASING_INSINE, time, 0, enable_panel)
 	elseif transition == hash("expand_from_button") then
 		gui.set_alpha(base, 0)
-		gui.animate(base, "color.w", 1, go.EASING_OUTSINE, time / 4)
+		gui.animate(base, "color.w", 1, go.EASING_INSINE, time / 2)
 		local previous_position = gui.get_position(base)
 		gui.set_position(base, gui.get_position(props.button))
 		local size_btn = gui.get_size(props.button)
 		local size_base = gui.get_size(base)
 		local scale = vmath.vector3(size_btn.x / size_base.x, size_btn.y / size_base.y, 1)
 		gui.set_scale(base, scale)
-		gui.animate(base, "position", previous_position, go.EASING_OUTSINE, time)
-		gui.animate(base, "scale", vmath.vector3(1), go.EASING_OUTSINE, time, 0, enable_panel)
+		gui.animate(base, "position", previous_position, go.EASING_INEXPO, time)
+		gui.animate(base, "scale", vmath.vector3(1), go.EASING_INEXPO, time, 0, enable_panel)
 
 		--gui.animate(base, "scale.x", 1, go.EASING_OUTSINE, time * 0.5)
 		--gui.animate(base, "scale.y", 1, go.EASING_OUTSINE, time * 0.75, time * 0.25, enable_panel)
@@ -109,9 +128,9 @@ local function close_dialog(transition, time, props, next_dialog)
 		local size_btn = gui.get_size(props.button)
 		local size_base = gui.get_size(base)
 		local scale = vmath.vector3(size_btn.x / size_base.x, size_btn.y / size_base.y, 1)
-		--gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
-		gui.animate(base, "scale", scale, gui.EASING_OUTSINE, time)
-		gui.animate(base, "position", gui.get_position(props.button), gui.EASING_OUTSINE, time, 0, function()
+		gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
+		gui.animate(base, "scale", scale, gui.EASING_OUTEXPO, time)
+		gui.animate(base, "position", gui.get_position(props.button), gui.EASING_OUTEXPO, time, 0, function()
 			disable_panel()
 			gui.set_position(base, previous_position)
 			gui.set_scale(base, vmath.vector3(1))
@@ -382,23 +401,26 @@ function on_message(self, message_id, message, sender)
 			start_eval()
 		else
 			if SET.is_desktop then
+				gui.play_flipbook(button_data.node, button_settings[type].up)
+				local text_node = gui.get_node(button_data.template.."/text")
+				gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+				--gui.set_position(text_node, EMPTY_VECTOR)
 				start_eval()
 			else
 				INPUT_ENABLED = false
-				local node_text = gui.get_node(message.template.."/text")
-				gui.set_color(node_text, button_settings[type].hover_text_colour)
+				local text_node = gui.get_node(message.template.."/text")
+				--gui.set_color(text_node, button_settings[type].hover_text_colour)
 				gui.play_flipbook(button_data.node, button_settings[type].flash)
 				local text_pos
 				if button_settings[type].press_offset then
-					text_pos = gui.get_position(node_text)
-					gui.set_position(node_text, text_pos + button_settings[type].press_offset)
+					gui.set_position(text_node, EMPTY_VECTOR)
+					gui.animate(text_node, "position", button_settings[type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
 				end
 				timer.delay(BUTTON_FLASH_TIME, false, function()
-					gui.set_color(node_text, button_settings[type].base_text_colour)
+					--gui.set_color(text_node, button_settings[type].base_text_colour)
 					gui.play_flipbook(button_data.node, button_settings[type].base_anim)
-					if text_pos then
-						gui.set_position(node_text, text_pos)
-					end
+					gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+					--gui.set_position(text_node, EMPTY_VECTOR)
 					start_eval()
 				end)
 			end
@@ -476,6 +498,7 @@ function on_message(self, message_id, message, sender)
 end
 
 function on_input(self, action_id, action)
+	mouse_held = action.pressed or (mouse_held and not action.released)
 	if action_id == hash("touch") then
 		if (SET.is_desktop and action.released) or (not SET.is_desktop and action.pressed) then
 			for key, val in ipairs(UI.active) do
@@ -485,13 +508,22 @@ function on_input(self, action_id, action)
 				end
 			end
 			UI.check_text_field(action.x, action.y)
+		--elseif SET.is_desktop and not action.released then
+		elseif SET.is_desktop and action.pressed then
+			for key, val in ipairs(UI.active) do
+				if gui.pick_node(val.node, action.x, action.y) then
+					gui.play_flipbook(val.node, button_settings[val.type].down)
+					local text_node = gui.get_node(val.template.."/text")
+					gui.set_color(text_node, button_settings[val.type].base_text_colour)
+					if button_settings[val.type].press_offset then
+						gui.set_position(text_node, EMPTY_VECTOR)
+						gui.animate(text_node, "position", button_settings[val.type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+						--gui.set_position(text_node, button_settings[val.type].press_offset)
+					end
+					break
+				end
+			end
 		end
-	--[[
-	elseif action_id == hash("text") then
-		UI.enter_text(action.text)
-	elseif action_id == hash("key_backspace") and (action.pressed or action.repeated) then
-		UI.backspace()
-	--]]
 	elseif not action_id and SET.is_desktop then
 		local new_hover
 		for key, val in ipairs(UI.active) do
@@ -508,14 +540,23 @@ function on_input(self, action_id, action)
 				hover = new_hover
 				local hover_anim = button_settings[UI.active[hover].type].hover_anim
 				if hover_anim then
-					gui.play_flipbook(UI.active[hover].node, hover_anim)
 					local text_node = gui.get_node(UI.active[hover].template.."/text")
 					gui.set_color(text_node, button_settings[UI.active[hover].type].hover_text_colour)
+					if mouse_held then
+						gui.play_flipbook(UI.active[hover].node, button_settings[UI.active[hover].type].down)
+						gui.animate(text_node, "position", button_settings[UI.active[hover].type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+					else
+						gui.play_flipbook(UI.active[hover].node, hover_anim)
+					end
 				end
 			end
 		else
 			remove_hover()
 		end
+	end
+	if action_id == hash("key_f12") and action.pressed and SET.debug then
+		SET.is_desktop = not SET.is_desktop
+		print("Desktop:", SET.is_desktop)
 	end
 	if scanner_enabled then
 		if action_id == hash("touch") and gui.pick_node(gui.get_node("employ_scanner"), action.x, action.y) then
