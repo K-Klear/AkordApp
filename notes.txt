@@ -1,8 +1,19 @@
 Co fakt nechci zapomenout:
 - F12 přepíná desktop/mobil verzi
-- opravit velikosti fontů
-- smazat nepotřebnej čudlík
 - vypnout debug
+
+Nehotová práce:
+- Checknout zvuky v loadingu
+- ...a obecně zvuky co ještě chyběj
+- Finalizovat texty
+- Naanimovat žanžirův šum?
+- Vymyslet jméno a text Zuzce
+- Zelený tlačítka
+- Login "under construction"
+- Možná naimplementovat scanner sítnice?
+- Logo je furt prozatimní
+- ZMĚNIT VERZI PROGRAMU NA NĚCO MENŠÍHO NEŽ JE 1.0, AŤ JE KAM STOUPAT
+
 
 License:
 

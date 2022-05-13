@@ -1,11 +1,11 @@
 script: ""
 fonts {
-  name: "default_font_large"
-  font: "/assets/fonts/default_font_large.font"
+  name: "menu_button_black"
+  font: "/assets/fonts/final/menu_button_black.font"
 }
 textures {
   name: "UI"
-  texture: "/assets/UI/UI.atlas"
+  texture: "/assets/images/UI.atlas"
 }
 background_color {
   x: 0.0
@@ -102,7 +102,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Button text!"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

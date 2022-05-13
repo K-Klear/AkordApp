@@ -1,19 +1,31 @@
 script: "/main/loading/loading.gui_script"
 fonts {
-  name: "default_font_large"
-  font: "/assets/fonts/terminal.font"
+  name: "console"
+  font: "/assets/fonts/final/console.font"
 }
 fonts {
-  name: "console"
-  font: "/assets/fonts/console.font"
+  name: "logo_welcome"
+  font: "/assets/fonts/final/logo_welcome.font"
+}
+fonts {
+  name: "loading_text"
+  font: "/assets/fonts/final/loading_text.font"
+}
+fonts {
+  name: "loading_title"
+  font: "/assets/fonts/final/loading_title.font"
+}
+fonts {
+  name: "loading_text_small"
+  font: "/assets/fonts/final/loading_text_small.font"
 }
 textures {
-  name: "loading"
-  texture: "/assets/images/loading/loading.atlas"
+  name: "images"
+  texture: "/assets/images/images.atlas"
 }
 textures {
   name: "UI"
-  texture: "/assets/UI/UI.atlas"
+  texture: "/assets/images/UI.atlas"
 }
 background_color {
   x: 0.0
@@ -105,7 +117,7 @@ nodes {
   }
   size {
     x: 620.0
-    y: 1116.0
+    y: 800.0
     z: 0.0
     w: 1.0
   }
@@ -117,7 +129,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel_console"
   id: "dialog_background"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -126,10 +138,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -142,7 +154,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 445.0
+    y: 301.0
     z: 0.0
     w: 1.0
   }
@@ -153,8 +165,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.2
-    y: 1.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -172,9 +184,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "N\303\241sleduj\303\255c\303\255 z\303\241suvn\303\251 moduly\n"
-  "nelze spustit"
-  font: "default_font_large"
+  text: "N\303\241sleduj\303\255c\303\255 z\303\241suvn\303\251\n"
+  "moduly nelze spustit"
+  font: "loading_title"
   id: "dialog_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -207,7 +219,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: 335.0
+    y: 149.0
     z: 0.0
     w: 1.0
   }
@@ -238,7 +250,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Podpora AR implant\303\241t\305\257"
-  font: "default_font_large"
+  font: "loading_text"
   id: "lbl_AR_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -271,7 +283,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: 305.0
+    y: 119.0
     z: 0.0
     w: 1.0
   }
@@ -282,9 +294,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.75
-    y: 0.75
-    z: 0.75
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -302,7 +314,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Velikost: 3.2 ZB"
-  font: "default_font_large"
+  font: "loading_text_small"
   id: "lbl_AR_size"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -335,7 +347,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 315.0
+    y: 149.0
     z: 0.0
     w: 1.0
   }
@@ -369,7 +381,7 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_info.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -393,8 +405,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 210.0
+    y: 52.0
     z: 0.0
     w: 1.0
   }
@@ -406,7 +418,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/info"
+  texture: "UI/panel_console"
   id: "AR_info/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -416,20 +428,17 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 9
-  overridden_fields: 38
   template_node_child: true
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
@@ -465,8 +474,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "default_font_large"
+  text: "V\303\255ce informac\303\255"
+  font: "loading_text"
   id: "AR_info/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -491,8 +500,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -501,7 +508,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: 200.0
+    y: 49.0
     z: 0.0
     w: 1.0
   }
@@ -532,7 +539,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Somatick\303\241 data"
-  font: "default_font_large"
+  font: "loading_text"
   id: "lbl_soma_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -565,7 +572,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: 170.0
+    y: 19.0
     z: 0.0
     w: 1.0
   }
@@ -576,9 +583,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.75
-    y: 0.75
-    z: 0.75
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -596,7 +603,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Velikost: 5.4 ZB"
-  font: "default_font_large"
+  font: "loading_text_small"
   id: "lbl_soma_size"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -629,7 +636,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 180.0
+    y: 49.0
     z: 0.0
     w: 1.0
   }
@@ -663,7 +670,7 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_info.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -687,8 +694,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 210.0
+    y: 52.0
     z: 0.0
     w: 1.0
   }
@@ -700,7 +707,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/info"
+  texture: "UI/panel_console"
   id: "soma_info/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -710,19 +717,17 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 9
-  overridden_fields: 38
   template_node_child: true
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
@@ -740,8 +745,8 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 0.5
-    z: 0.5
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -758,8 +763,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "default_font_large"
+  text: "V\303\255ce informac\303\255"
+  font: "loading_text"
   id: "soma_info/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -784,8 +789,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -794,7 +797,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: 65.0
+    y: -51.0
     z: 0.0
     w: 1.0
   }
@@ -825,7 +828,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "4D videa a obr\303\241zky"
-  font: "default_font_large"
+  font: "loading_text"
   id: "lbl_4d_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -858,7 +861,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: 35.0
+    y: -81.0
     z: 0.0
     w: 1.0
   }
@@ -869,9 +872,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.75
-    y: 0.75
-    z: 0.75
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -889,7 +892,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Velikost: 4.0 ZB"
-  font: "default_font_large"
+  font: "loading_text_small"
   id: "lbl_4d_size"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -922,7 +925,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 45.0
+    y: -51.0
     z: 0.0
     w: 1.0
   }
@@ -956,7 +959,7 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_info.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -980,8 +983,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 210.0
+    y: 52.0
     z: 0.0
     w: 1.0
   }
@@ -993,7 +996,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/info"
+  texture: "UI/panel_console"
   id: "fourd_info/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1003,19 +1006,17 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 9
-  overridden_fields: 38
   template_node_child: true
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
@@ -1033,8 +1034,8 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 0.5
-    z: 0.5
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -1051,8 +1052,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "default_font_large"
+  text: "V\303\255ce informac\303\255"
+  font: "loading_text"
   id: "fourd_info/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1077,8 +1078,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -1087,7 +1086,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: -70.0
+    y: -151.0
     z: 0.0
     w: 1.0
   }
@@ -1117,8 +1116,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Personalizovan\303\251 reklamy"
-  font: "default_font_large"
+  text: "Personalizovan\303\251\n"
+  "reklamy"
+  font: "loading_text"
   id: "lbl_ads_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1151,7 +1151,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: -100.0
+    y: -197.0
     z: 0.0
     w: 1.0
   }
@@ -1162,9 +1162,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.75
-    y: 0.75
-    z: 0.75
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -1182,7 +1182,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Velikost: 28.3 ZB"
-  font: "default_font_large"
+  font: "loading_text_small"
   id: "lbl_ads_size"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1215,7 +1215,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: -90.0
+    y: -151.0
     z: 0.0
     w: 1.0
   }
@@ -1249,7 +1249,7 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_info.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -1273,8 +1273,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 64.0
-    y: 64.0
+    x: 210.0
+    y: 52.0
     z: 0.0
     w: 1.0
   }
@@ -1286,7 +1286,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/info"
+  texture: "UI/panel_console"
   id: "ads_info/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1296,19 +1296,17 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 9
-  overridden_fields: 38
   template_node_child: true
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
@@ -1326,8 +1324,8 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 0.5
-    z: 0.5
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -1344,8 +1342,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "default_font_large"
+  text: "V\303\255ce informac\303\255"
+  font: "loading_text"
   id: "ads_info/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1370,8 +1368,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -1380,7 +1376,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -335.0
+    y: -306.0
     z: 0.0
     w: 1.0
   }
@@ -1414,7 +1410,7 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_accept.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -1438,8 +1434,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 300.0
-    y: 180.0
+    x: 240.0
+    y: 120.0
     z: 0.0
     w: 1.0
   }
@@ -1451,7 +1447,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel_console"
   id: "accept/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1461,16 +1457,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1489,8 +1484,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -1501,16 +1496,16 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.2
-    y: 0.2
-    z: 0.2
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Spustit\n"
   "aplikaci"
-  font: "default_font_large"
+  font: "loading_title"
   id: "accept/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1535,9 +1530,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -1564,7 +1556,7 @@ nodes {
   }
   size {
     x: 600.0
-    y: 650.0
+    y: 700.0
     z: 0.0
     w: 1.0
   }
@@ -1576,7 +1568,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel_console"
   id: "info_background"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1585,10 +1577,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1601,7 +1593,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 283.0
+    y: 329.0
     z: 0.0
     w: 1.0
   }
@@ -1612,8 +1604,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.2
-    y: 1.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -1632,11 +1624,11 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "4D videa a obr\303\241zky"
-  font: "default_font_large"
+  font: "loading_title"
   id: "info_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_N
   outline {
     x: 1.0
     y: 1.0
@@ -1658,14 +1650,14 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
-  text_leading: 1.0
+  text_leading: 0.8
   text_tracking: 0.0
   custom_type: 0
 }
 nodes {
   position {
     x: -272.0
-    y: 232.0
+    y: 207.0
     z: 0.0
     w: 1.0
   }
@@ -1703,7 +1695,7 @@ nodes {
   "- Automatick\303\251 platby d\305\231\303\255ve, ne\305\276 se rozhodnete nakupovat\n"
   "\n"
   "Pros\303\255m p\305\231ipojte bankovn\303\255 \303\272\304\215et se z\305\257statkem alespo\305\210 500 credit\305\257."
-  font: "default_font_large"
+  font: "loading_text"
   id: "info_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1736,7 +1728,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -269.0
+    y: -277.0
     z: 0.0
     w: 1.0
   }
@@ -1770,14 +1762,14 @@ nodes {
   layer: ""
   inherit_alpha: false
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_loading_accept.gui"
   template_node_child: false
   custom_type: 0
 }
 nodes {
   position {
     x: 0.0
-    y: 17.0
+    y: 0.0
     z: 0.0
     w: 1.0
   }
@@ -1794,8 +1786,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 240.0
-    y: 64.0
+    x: 440.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -1807,7 +1799,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/check_false"
+  texture: "UI/panel_console"
   id: "info_cancel/button_box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1817,16 +1809,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
+    x: 4.0
+    y: 4.0
+    z: 4.0
+    w: 4.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 1
   overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
@@ -1866,7 +1857,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "DEAKTIVOVAT"
-  font: "default_font_large"
+  font: "loading_title"
   id: "info_cancel/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1891,8 +1882,8 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 5
   overridden_fields: 8
+  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -1967,26 +1958,26 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
+    x: 0.5
+    y: 0.5
     z: 2.0
     w: 1.0
   }
   size {
-    x: 100.0
-    y: 143.0
+    x: 396.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.5019608
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "loading/Triangle1"
+  texture: "images/Triangle1_white"
   id: "logo_left"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2022,26 +2013,26 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
+    x: 0.5
+    y: 0.5
     z: 2.0
     w: 1.0
   }
   size {
-    x: 100.0
-    y: 143.0
+    x: 396.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.5019608
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "loading/Triangle2"
+  texture: "images/Triangle2_white"
   id: "logo_right"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2077,9 +2068,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
-    z: 2.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -2089,7 +2080,7 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 0.5019608
     y: 0.0
     z: 0.0
     w: 1.0
@@ -2097,7 +2088,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "V\303\255tejte v AkordCorpu!"
-  font: "default_font_large"
+  font: "logo_welcome"
   id: "logo_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE

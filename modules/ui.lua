@@ -17,13 +17,12 @@ function UI.load_template(template)
 		return
 	end
 	local state, type = true
-	if pcall(gui.get_node, template.."/checkbox") then
-		type = hash("checkbox")
-		node = gui.get_node(template.."/checkbox")
-		state = gui.get_flipbook(node) == hash("check_true")
-	elseif pcall(gui.get_node, template.."/button_box") then
+	if pcall(gui.get_node, template.."/button_box") then
 		node = gui.get_node(template.."/button_box")
 		type = hash("button")
+	elseif pcall(gui.get_node, template.."/button_map") then
+		node = gui.get_node(template.."/button_map")
+		type = hash("button_map")
 	elseif pcall(gui.get_node, template.."/button_black") then
 		node = gui.get_node(template.."/button_black")
 		type = hash("button_black")

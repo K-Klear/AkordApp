@@ -27,7 +27,10 @@ local function write(node, text, speed)
 	text_timer = timer.delay(speed, true, function()
 		gui.set_text(node, gui.get_text(node)..string.sub(text, current_letter, current_letter))
 		current_letter = current_letter + 1
-		if current_letter > length then timer.cancel(text_timer); coroutine.resume(co) end
+		if current_letter > length then
+			timer.cancel(text_timer)
+			coroutine.resume(co)
+		end
 	end)
 	coroutine.yield(co)
 end
@@ -76,6 +79,7 @@ function init(self)
 	gui.set_enabled(nodes.logo.right, false)
 	gui.set_enabled(nodes.logo.text, false)
 	gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
+	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DISABLED)
 	
 	local function start_app()
 		new_line();	new_line();	new_line()
@@ -97,6 +101,7 @@ function init(self)
 	end
 	
 	co = coroutine.create(function()
+		profiler.enable_ui(SET.profiler)
 		if SET.debug then
 			msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
 			msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
@@ -214,10 +219,10 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("template_clicked") then
 		if message.type == hash("button") then
 			local info = {
-				AR_info = {lbl_size = "AR_size", lbl_text = "AR_text", title = "Podpora AR implantátů", text = "Umožňuje aplikaci přímý přístup k okcipitální a temporální oblasti Vašeho mozku.\n\n- Audio/vizuální integrace\n- Asistence při nákupech produktů AkordCorpu\n- Záruka soukromí\n- Blokování reklamních ploch konkurenčních společností\n\nProsím zapojte svůj kraniální implantát pomocí ASB kabelu nebo pomocí technologie BlackTooth."},
-				soma_info = {lbl_size = "soma_size", lbl_text = "soma_text", title = "Somatická data", text = "Obohatí zážitek z Aplikace AkordApp o čichové, chuťové a další vjemy.\n\n- Simulace čistého obvzduší\n- Snadné rozhodování při nákupu jídel či lepidel značky AkordCorp\n- Psychosugestivní feromony\n- Intenzivní stimulace nocireceptorů\n\nProsím navlékněte si oblek Sense4U nebo zapněte AR integraci."},
-				fourd_info = {lbl_size = "fourd_size", lbl_text = "fourd_text", title = "4D videa a obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro shlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
-				ads_info = {lbl_size = "ads_size", lbl_text = "ads_text", title = "Personalizované reklamy", text = "Psychologické profilování za pomocí špičkových algoritmů pro maximální zážitek z naší reklamní činnosti.\n\n- Přenechte starosti ohledně výběru produktů nám\n- Nechte si poradit od var_favourite_celebrity\n- Až o 83 % menší pocit stresu\n- Automatické platby dříve, než se rozhodnete nakupovat\n\nProsím připojte bankovní účet se zůstatkem alespoň 500 kreditů."},
+				AR_info = {lbl_size = "AR_size", lbl_text = "AR_text", title = "Podpora\nAR implantátů", text = "Umožňuje aplikaci přímý přístup k okcipitální a temporální oblasti Vašeho mozku.\n\n- Audio/vizuální integrace\n- Asistence při nákupech produktů AkordCorpu\n- Záruka soukromí\n- Blokování reklamních ploch konkurenčních společností\n\nProsím zapojte svůj kraniální implantát pomocí WSB kabelu nebo pomocí technologie BlackTooth."},
+				soma_info = {lbl_size = "soma_size", lbl_text = "soma_text", title = "Somatická\ndata", text = "Obohatí zážitek z Aplikace AkordApp o čichové, chuťové a další vjemy.\n\n- Simulace čistého obvzduší\n- Snadné rozhodování při nákupu jídel či lepidel značky AkordCorp\n- Psychosugestivní feromony\n- Intenzivní stimulace nocireceptorů\n\nProsím navlékněte si oblek Sense4U nebo zapněte AR integraci."},
+				fourd_info = {lbl_size = "fourd_size", lbl_text = "fourd_text", title = "4D videa\na obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro shlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
+				ads_info = {lbl_size = "ads_size", lbl_text = "ads_text", title = "Personalizované\nreklamy", text = "Psychologické profilování za pomocí špičkových algoritmů pro maximální zážitek z naší reklamní činnosti.\n\n- Přenechte starosti ohledně výběru produktů nám\n- Nechte si poradit od var_favourite_celebrity\n- Až o 83 % menší pocit stresu\n- Automatické platby dříve, než se rozhodnete nakupovat\n\nProsím připojte bankovní účet se zůstatkem alespoň 500 kreditů."},
 			}
 			if info[message.template] then
 				UI.unload_template()
@@ -225,10 +230,10 @@ function on_message(self, message_id, message, sender)
 				gui.set_text(nodes.info.text, info[message.template].text)
 				gui.set_enabled(nodes.info.background, true)
 				UI.load_template("info_cancel")
-				sound.play("/sound#ui_open")
+				sound.play("#ui_open")
 				info_open = message.template
 			elseif message.template == "info_cancel" then
-				sound.play("/sound#ui_close")
+				sound.play("#ui_close")
 				UI.unload_template()
 				UI.load_template({"AR_info", "soma_info", "fourd_info", "ads_info"})
 				gui.set_enabled(nodes.info.background, false)
@@ -255,20 +260,9 @@ function on_input(self, action_id, action)
 			self.dialog = true
 		else
 			for key, val in ipairs(UI.active) do
-				if val.type == hash("checkbox") then
-					local node = gui.get_node(val.template.."/checkbox")
-					if gui.pick_node(node, action.x, action.y) then
-						local states = {[true] = {sound = "/sound#ui_close", image = "check_false"}, [false] = {sound = "/sound#ui_open", image = "check_true"}}
-						sound.play(states[val.state].sound)
-						gui.play_flipbook(node, states[val.state].image)
-						val.state = not val.state
-						msg.post("#", hash("template_clicked"), {state = val.state, template = val.template, type = val.type})
-					end
-				elseif val.type == hash("button") then
-					local node = gui.get_node(val.template.."/button_box")
-					if gui.pick_node(node, action.x, action.y) then
-						msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
-					end
+				local node = gui.get_node(val.template.."/button_box")
+				if gui.pick_node(node, action.x, action.y) then
+					msg.post("#", hash("template_clicked"), {template = val.template, type = val.type})
 				end
 			end
 		end

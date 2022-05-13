@@ -1,27 +1,23 @@
 script: "/main/main_menu/main_menu.gui_script"
 fonts {
-  name: "terminal"
-  font: "/assets/fonts/terminal.font"
+  name: "logo_welcome"
+  font: "/assets/fonts/final/logo_welcome.font"
 }
 fonts {
-  name: "system_font"
-  font: "/assets/fonts/default_font_large.font"
+  name: "menu_title"
+  font: "/assets/fonts/final/menu_title.font"
 }
 fonts {
-  name: "terminal_medium"
-  font: "/assets/fonts/terminal_medium.font"
-}
-fonts {
-  name: "terminal_small"
-  font: "/assets/fonts/terminal_small.font"
+  name: "menu_text"
+  font: "/assets/fonts/final/menu_text.font"
 }
 textures {
-  name: "loading"
-  texture: "/assets/images/loading/loading.atlas"
+  name: "images"
+  texture: "/assets/images/images.atlas"
 }
 textures {
   name: "UI"
-  texture: "/assets/UI/UI.atlas"
+  texture: "/assets/images/UI.atlas"
 }
 textures {
   name: "portraits"
@@ -125,7 +121,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_main.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -165,24 +161,22 @@ nodes {
   texture: "UI/button_white"
   id: "events/button_white"
   xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_TOP
+  yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "events"
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 4
-  overridden_fields: 13
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -201,8 +195,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -222,7 +216,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "NADCH\303\201ZEJ\303\215C\303\215\n"
   "UD\303\201LOSTI"
-  font: "default_font_large"
+  font: "main_menu_button"
   id: "events/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -247,7 +241,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -291,7 +284,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_main.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -338,16 +331,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -366,8 +358,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -387,7 +379,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "D\305\256LE\305\275IT\303\211\n"
   "OSOBY"
-  font: "default_font_large"
+  font: "main_menu_button"
   id: "people/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -412,7 +404,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -456,7 +447,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_main.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -503,16 +494,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -531,8 +521,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -551,7 +541,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "O PROGRAMU"
-  font: "default_font_large"
+  font: "main_menu_button"
   id: "credits/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -576,7 +566,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -620,7 +609,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_main.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -667,16 +656,15 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
-  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -695,8 +683,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -716,7 +704,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "UKON\304\214IT\n"
   "APLIKACI"
-  font: "default_font_large"
+  font: "main_menu_button"
   id: "exit/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -741,7 +729,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -750,178 +737,8 @@ nodes {
 }
 nodes {
   position {
-    x: 1637.0
-    y: -728.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "employ"
-  parent: "panel_main"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 350.0
-    y: 128.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_white"
-  id: "employ/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_TOP
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "employ"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 1
-  overridden_fields: 4
-  overridden_fields: 9
-  overridden_fields: 13
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.6
-    y: 0.6
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "VOLN\303\201\n"
-  "M\303\215STA"
-  font: "default_font_large"
-  id: "employ/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "employ/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
-  overridden_fields: 10
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 508.66
-    y: 44.0
+    x: 513.66
+    y: 59.0
     z: 0.0
     w: 1.0
   }
@@ -955,7 +772,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_small.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -979,8 +796,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 250.0
-    y: 80.0
+    x: 230.0
+    y: 96.0
     z: 0.0
     w: 1.0
   }
@@ -994,26 +811,24 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/button_white"
   id: "eula/button_white"
-  xanchor: XANCHOR_RIGHT
-  yanchor: YANCHOR_BOTTOM
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "eula"
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
   overridden_fields: 4
-  overridden_fields: 12
-  overridden_fields: 13
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1032,8 +847,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.4
-    y: 0.4
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -1053,7 +868,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "Z\303\241sady ochrany\n"
   "osobn\303\255ch \303\272daj\305\257"
-  font: "default_font_large"
+  font: "main_menu_button_small"
   id: "eula/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1074,13 +889,11 @@ nodes {
   line_break: false
   parent: "eula/button_white"
   layer: ""
-  inherit_alpha: false
+  inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
-  overridden_fields: 21
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -1088,7 +901,7 @@ nodes {
 }
 nodes {
   position {
-    x: 577.0
+    x: 565.0
     y: 1088.0
     z: 0.0
     w: 1.0
@@ -1100,8 +913,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -1123,7 +936,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button_white.gui"
+  template: "/templates/button_white_small.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -1147,8 +960,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 192.0
-    y: 96.0
+    x: 96.0
+    y: 48.0
     z: 0.0
     w: 1.0
   }
@@ -1170,15 +983,16 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 12.0
-    y: 12.0
-    z: 12.0
-    w: 12.0
+    x: 24.0
+    y: 24.0
+    z: 24.0
+    w: 24.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
   clipping_inverted: false
   alpha: 1.0
+  overridden_fields: 4
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1217,7 +1031,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Login"
-  font: "default_font_large"
+  font: "main_menu_button_small"
   id: "login/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1268,7 +1082,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 600.0
+    x: 640.0
     y: 1000.0
     z: 0.0
     w: 1.0
@@ -1281,7 +1095,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_events"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1306,7 +1120,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 440.0
+    y: 426.0
     z: 0.0
     w: 1.0
   }
@@ -1317,9 +1131,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -1336,8 +1150,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Odhalen\303\255 Projektu X"
-  font: "terminal_medium"
+  text: "Odhalen\303\255\n"
+  "Projektu X"
+  font: "menu_title"
   id: "events_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1363,14 +1178,14 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
-  text_leading: 1.0
+  text_leading: 0.8
   text_tracking: 0.0
   custom_type: 0
 }
 nodes {
   position {
-    x: -271.0
-    y: 396.0
+    x: -291.0
+    y: 376.0
     z: 0.0
     w: 1.0
   }
@@ -1381,13 +1196,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 1080.0
+    x: 580.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -1401,7 +1216,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: ""
-  font: "terminal_medium"
+  font: "menu_text"
   id: "events_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1434,7 +1249,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -433.0
+    y: -419.0
     z: 0.0
     w: 1.0
   }
@@ -1563,7 +1378,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "OK"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "events_ok/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1597,7 +1412,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -194.0
+    y: -178.0
     z: 0.0
     w: 1.0
   }
@@ -1631,7 +1446,7 @@ nodes {
   layer: ""
   inherit_alpha: true
   alpha: 1.0
-  template: "/templates/button.gui"
+  template: "/templates/button_map.gui"
   template_node_child: false
   custom_type: 0
 }
@@ -1649,14 +1464,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 0.5
+    y: 0.5
     z: 1.0
     w: 1.0
   }
   size {
-    x: 803.0
-    y: 593.0
+    x: 1130.0
+    y: 744.0
     z: 0.0
     w: 1.0
   }
@@ -1668,8 +1483,8 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/mapa"
-  id: "events_map/button_box"
+  texture: "images/mapa"
+  id: "events_map/button_map"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1688,7 +1503,6 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   overridden_fields: 3
-  overridden_fields: 9
   overridden_fields: 38
   template_node_child: true
   size_mode: SIZE_MODE_AUTO
@@ -1747,991 +1561,13 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "events_map/button_box"
+  parent: "events_map/button_map"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
   template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 320.0
-    y: 568.0
-    z: 1.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 600.0
-    y: 900.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
-  id: "dialog_login"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 24.0
-    y: 24.0
-    z: 24.0
-    w: 24.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 382.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "P\305\231ihl\303\241\305\241en\303\255"
-  font: "terminal"
-  id: "login_title"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: -280.0
-    y: 320.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 560.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Nejste p\305\231ihl\303\241\305\241eni. Zadejte sv\303\251 jm\303\251no nebo zam\304\233stnaneck\303\251 \304\215\303\255slo:"
-  font: "terminal"
-  id: "login_text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_NW
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: -280.0
-    y: -4.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 560.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Nejste je\305\241t\304\233 zam\304\233stnancem AkordCorpu? Pod\303\255vejte se, jak\303\241 m\303\241me voln\303\241 m\303\255sta!"
-  font: "terminal"
-  id: "login_text_employ"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_NW
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 145.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "login_ok"
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 192.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_white"
-  id: "login_ok/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "login_ok"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  overridden_fields: 9
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.5
-    y: 0.5
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "P\305\231ihl\303\241sit se"
-  font: "default_font_large"
-  id: "login_ok/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "login_ok/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: -168.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "login_employ"
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 192.0
-    y: 128.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_white"
-  id: "login_employ/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "login_employ"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  overridden_fields: 9
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.5
-    y: 0.5
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Pracovn\303\255\n"
-  "p\305\231\303\255le\305\276itosti"
-  font: "default_font_large"
-  id: "login_employ/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "login_employ/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: -350.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "login_close"
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 192.0
-    y: 128.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_white"
-  id: "login_close/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "login_close"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  overridden_fields: 9
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Zp\304\233t"
-  font: "default_font_large"
-  id: "login_close/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "login_close/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 3
-  overridden_fields: 5
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "login_name_field_button"
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 224.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 500.0
-    y: 64.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/text_field"
-  id: "login_name_field_button/button_box"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "login_name_field_button"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 3.0
-    y: 3.0
-    z: 3.0
-    w: 3.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 1
-  overridden_fields: 9
-  overridden_fields: 38
-  template_node_child: true
-  size_mode: SIZE_MODE_AUTO
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "default_font_large"
-  id: "login_name_field_button/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "login_name_field_button/button_box"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 224.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 500.0
-    y: 62.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.4
-    y: 0.4
-    z: 0.4
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "(Zadejte jm\303\251no)"
-  font: "terminal"
-  id: "login_name_field"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
-  parent: "dialog_login"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
   custom_type: 0
@@ -2769,7 +1605,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_employ"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2805,9 +1641,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -2826,7 +1662,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "Podr\305\276te palec\n"
   "uprost\305\231ed displeje"
-  font: "terminal_medium"
+  font: "menu_title"
   id: "employ_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2988,7 +1824,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Zav\305\231\303\255t"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "employ_ok/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3108,7 +1944,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_people"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3220,7 +2056,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Jack Torrent"
-  font: "terminal_medium"
+  font: "menu_title"
   id: "people_name"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3438,7 +2274,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "OK"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "people_ok/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3601,7 +2437,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Verkant Suillus III"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_verkant/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3627,7 +2463,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -3765,7 +2600,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Arkadij"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_arkadij/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3791,7 +2626,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -3929,7 +2763,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Holkogramy"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_holkogramy/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3955,7 +2789,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4093,7 +2926,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "J3N-M450"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_fhill/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4119,7 +2952,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4257,7 +3089,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Agatha"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_agatha/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4283,7 +3115,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4421,7 +3252,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Jack"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_jack/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4447,7 +3278,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4585,7 +3415,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Emmett"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_emmett/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4611,7 +3441,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4749,7 +3578,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Claudia"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_claudia/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4775,7 +3604,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -4913,7 +3741,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Zuzka"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_zuzka/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4939,7 +3767,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -5077,7 +3904,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "\305\275an\305\276iro"
-  font: "terminal"
+  font: "menu_button_black"
   id: "people_zanziro/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5103,7 +3930,6 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   overridden_fields: 8
-  overridden_fields: 10
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
@@ -5143,7 +3969,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Jm\303\251no:"
-  font: "terminal_small"
+  font: "menu_text"
   id: "people_name_lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5207,7 +4033,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Alias:"
-  font: "terminal_small"
+  font: "menu_text"
   id: "people_alias_lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5272,7 +4098,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "Vojt\304\233ch Kyn\304\215l\n"
   "Filip Ryant"
-  font: "terminal_medium"
+  font: "menu_title"
   id: "people_alias"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5336,7 +4162,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Info:"
-  font: "terminal_small"
+  font: "menu_text"
   id: "people_text_lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5369,7 +4195,7 @@ nodes {
 nodes {
   position {
     x: -272.0
-    y: 199.0
+    y: 195.0
     z: 0.0
     w: 1.0
   }
@@ -5400,7 +4226,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Jack Torrent"
-  font: "terminal"
+  font: "menu_text"
   id: "people_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5463,7 +4289,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_credits"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5499,9 +4325,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -5519,7 +4345,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Hamba uv\303\241d\303\255: Ex"
-  font: "terminal_medium"
+  font: "menu_title"
   id: "credits_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5563,13 +4389,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 900.0
+    x: 535.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -5598,7 +4424,7 @@ nodes {
   "A mo\305\276n\303\241 to bude v\303\255c ne\305\276 jedna skladba...\n"
   "...tak\305\276e tohle je....\n"
   "...k n\303\255."
-  font: "terminal_medium"
+  font: "menu_text"
   id: "credits_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5689,8 +4515,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 84.0
+    x: 150.0
+    y: 64.0
     z: 0.0
     w: 1.0
   }
@@ -5760,7 +4586,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Zav\305\231\303\255t"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "credits_ok/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5903,8 +4729,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.8
-    y: 0.8
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -5923,7 +4749,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Hraj\303\255"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "credits_cast/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5948,7 +4774,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -5989,7 +4814,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Aplikace AkordApp"
-  font: "terminal_medium"
+  font: "menu_title"
   id: "credits_title_2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6033,13 +4858,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 900.0
+    x: 535.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -6060,7 +4885,7 @@ nodes {
   "Uvid\303\255me.\n"
   "\n"
   "Made in Defold"
-  font: "terminal_medium"
+  font: "menu_text"
   id: "credits_text_2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6104,14 +4929,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.0
-    y: 1.0
+    x: 0.25
+    y: 0.25
     z: 1.0
     w: 1.0
   }
   size {
-    x: 172.0
-    y: 191.0
+    x: 583.0
+    y: 748.0
     z: 0.0
     w: 1.0
   }
@@ -6124,7 +4949,7 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/defold_logo"
-  id: "box"
+  id: "defold_logo"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -6167,7 +4992,7 @@ nodes {
   }
   size {
     x: 560.0
-    y: 200.0
+    y: 260.0
     z: 0.0
     w: 1.0
   }
@@ -6179,7 +5004,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_exit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6204,7 +5029,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 44.0
+    y: 95.0
     z: 0.0
     w: 1.0
   }
@@ -6215,9 +5040,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -6234,12 +5059,13 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Opravdu chcete aplikaci ukon\304\215it?"
-  font: "terminal"
+  text: "Opravdu chcete\n"
+  "aplikaci ukon\304\215it?"
+  font: "menu_title"
   id: "exit_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_N
   outline {
     x: 1.0
     y: 1.0
@@ -6261,14 +5087,14 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
-  text_leading: 1.0
+  text_leading: 0.8
   text_tracking: 0.0
   custom_type: 0
 }
 nodes {
   position {
     x: 100.0
-    y: -26.0
+    y: -49.0
     z: 0.0
     w: 1.0
   }
@@ -6377,8 +5203,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.3
-    y: 0.3
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -6397,7 +5223,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Ano"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "exit_ok/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6422,7 +5248,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -6432,7 +5257,7 @@ nodes {
 nodes {
   position {
     x: -100.0
-    y: -26.0
+    y: -49.0
     z: 0.0
     w: 1.0
   }
@@ -6541,8 +5366,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.3
-    y: 0.3
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -6561,7 +5386,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Zp\304\233t"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "exit_back/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6586,7 +5411,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -6626,7 +5450,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/panel"
+  texture: "UI/panel_green"
   id: "dialog_eula"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6651,7 +5475,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 152.0
+    y: 166.0
     z: 0.0
     w: 1.0
   }
@@ -6662,9 +5486,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 1.1
-    y: 1.1
-    z: 1.1
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -6681,12 +5505,13 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Z\303\241sady ochrany osobn\303\255ch \303\272daj\305\257"
-  font: "terminal"
+  text: "Z\303\241sady ochrany\n"
+  "osobn\303\255ch \303\272daj\305\257"
+  font: "menu_title"
   id: "eula_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_N
   outline {
     x: 1.0
     y: 1.0
@@ -6708,14 +5533,14 @@ nodes {
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
-  text_leading: 1.0
+  text_leading: 0.8
   text_tracking: 0.0
   custom_type: 0
 }
 nodes {
   position {
     x: -250.0
-    y: 121.0
+    y: 61.0
     z: 0.0
     w: 1.0
   }
@@ -6726,13 +5551,13 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.6
-    y: 0.6
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 830.0
+    x: 500.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -6748,7 +5573,7 @@ nodes {
   text: "Nainstalov\303\241n\303\255m a spu\305\241t\304\233n\303\255m t\303\251to aplikace nab\303\275v\303\241 AkordCorp v\305\257\304\215i Va\305\241\303\255 osob\304\233 n\303\241sledujic\303\255 pr\303\241va:\n"
   "\n"
   "- V\305\241echna"
-  font: "terminal_medium"
+  font: "menu_text"
   id: "eula_text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6780,7 +5605,7 @@ nodes {
 }
 nodes {
   position {
-    x: 100.0
+    x: 130.0
     y: -126.0
     z: 0.0
     w: 1.0
@@ -6839,7 +5664,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 96.0
+    x: 220.0
     y: 64.0
     z: 0.0
     w: 1.0
@@ -6890,8 +5715,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.3
-    y: 0.3
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -6910,7 +5735,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "P\305\231ijmout"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "eula_accept_1/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -6935,7 +5760,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -6944,7 +5768,7 @@ nodes {
 }
 nodes {
   position {
-    x: -100.0
+    x: -130.0
     y: -126.0
     z: 0.0
     w: 1.0
@@ -7003,7 +5827,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 96.0
+    x: 220.0
     y: 64.0
     z: 0.0
     w: 1.0
@@ -7054,8 +5878,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.3
-    y: 0.3
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
@@ -7074,7 +5898,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Souhlasit"
-  font: "default_font_large"
+  font: "menu_button_black"
   id: "eula_accept_2/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -7099,7 +5923,6 @@ nodes {
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
-  overridden_fields: 3
   overridden_fields: 8
   template_node_child: true
   text_leading: 1.0
@@ -7120,26 +5943,26 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
+    x: 0.5
+    y: 0.5
     z: 2.0
     w: 1.0
   }
   size {
-    x: 100.0
-    y: 143.0
+    x: 396.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.5019608
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "loading/Triangle1"
+  texture: "images/Triangle1_white"
   id: "logo_left"
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
@@ -7175,26 +5998,26 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
+    x: 0.5
+    y: 0.5
     z: 2.0
     w: 1.0
   }
   size {
-    x: 100.0
-    y: 143.0
+    x: 396.0
+    y: 568.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.5019608
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "loading/Triangle2"
+  texture: "images/Triangle2_white"
   id: "logo_right"
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
@@ -7218,7 +6041,7 @@ nodes {
 }
 nodes {
   position {
-    x: 60.0
+    x: 70.0
     y: 1090.0
     z: 0.0
     w: 1.0
@@ -7230,9 +6053,9 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 2.0
-    y: 2.0
-    z: 2.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
@@ -7250,7 +6073,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: ""
-  font: "terminal"
+  font: "logo_welcome"
   id: "logo_text"
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
@@ -7277,6 +6100,61 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 37.5
+    y: 1090.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.5
+    y: 0.5
+    z: 2.0
+    w: 1.0
+  }
+  size {
+    x: 103.0
+    y: 73.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "UI/logo_acordcorp_small"
+  id: "logo_small"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
   custom_type: 0
 }
 material: "/builtins/materials/gui.material"
