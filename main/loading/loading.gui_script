@@ -109,7 +109,7 @@ function init(self)
 	end
 	
 	co = coroutine.create(function()
-		profiler.enable_ui(SET.profiler)
+		--profiler.enable_ui(SET.profiler)
 		if SET.debug then
 			msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
 			msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
