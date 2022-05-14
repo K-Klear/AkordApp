@@ -1,8 +1,12 @@
 local UI = require("modules/ui")
+local SET = require("modules/settings")
 local scan_timer
 
 function init(self)
 	msg.post("#scanner_sprite", hash("disable"))
+	if SET.is_desktop then
+		sprite.play_flipbook("#scanner_sprite", "iris")
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -14,6 +18,9 @@ function on_message(self, message_id, message, sender)
 		end
 		msg.post("#scanner_sprite", hash("enable"))
 		go.set("#scanner_sprite", "scan_line", vmath.vector4(1, -0.1, 0, 0))
+		if message.start then
+			msg.post("#", hash("scan"))
+		end
 	elseif message_id == hash("scan") then
 		go.animate("#scanner_sprite", "scan_line.y", go.PLAYBACK_ONCE_PINGPONG, 1, go.EASING_LINEAR, UI.SCAN_TIME, 0, function()
 			msg.post("go#main_menu", hash("scan_evaluated"))

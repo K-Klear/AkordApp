@@ -25,7 +25,7 @@ textures {
 }
 textures {
   name: "UI"
-  texture: "/assets/images/UI.atlas"
+  texture: "/assets/images/UI/UI.atlas"
 }
 background_color {
   x: 0.0
@@ -1946,6 +1946,116 @@ nodes {
 }
 nodes {
   position {
+    x: -350.0
+    y: 538.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 364.0
+    y: 516.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "images/Triangle1_white"
+  id: "logo_left_shadow"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_E
+  adjust_mode: ADJUST_MODE_FIT
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.25
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 990.0
+    y: 538.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 364.0
+    y: 516.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "images/Triangle2_white"
+  id: "logo_right_shadow"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 0.25
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
+  custom_type: 0
+}
+nodes {
+  position {
     x: -200.0
     y: 568.0
     z: 0.0
@@ -1960,12 +2070,12 @@ nodes {
   scale {
     x: 0.5
     y: 0.5
-    z: 2.0
+    z: 1.0
     w: 1.0
   }
   size {
-    x: 396.0
-    y: 568.0
+    x: 364.0
+    y: 516.0
     z: 0.0
     w: 1.0
   }
@@ -1979,9 +2089,9 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "images/Triangle1_white"
   id: "logo_left"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_E
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
@@ -2015,12 +2125,12 @@ nodes {
   scale {
     x: 0.5
     y: 0.5
-    z: 2.0
+    z: 1.0
     w: 1.0
   }
   size {
-    x: 396.0
-    y: 568.0
+    x: 364.0
+    y: 516.0
     z: 0.0
     w: 1.0
   }
@@ -2034,9 +2144,9 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "images/Triangle2_white"
   id: "logo_right"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
+  pivot: PIVOT_W
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
@@ -2052,6 +2162,69 @@ nodes {
   alpha: 1.0
   template_node_child: false
   size_mode: SIZE_MODE_AUTO
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 330.0
+    y: 323.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "V\303\255tejte v AkordCorpu!"
+  font: "logo_welcome"
+  id: "logo_text_shadow"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  layer: ""
+  inherit_alpha: true
+  alpha: 0.0
+  outline_alpha: 0.0
+  shadow_alpha: 0.0
+  template_node_child: false
+  text_leading: 1.0
+  text_tracking: 0.0
   custom_type: 0
 }
 nodes {
@@ -2094,9 +2267,9 @@ nodes {
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
     w: 1.0
   }
   shadow {
@@ -2111,7 +2284,7 @@ nodes {
   inherit_alpha: true
   alpha: 0.0
   outline_alpha: 1.0
-  shadow_alpha: 1.0
+  shadow_alpha: 0.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0

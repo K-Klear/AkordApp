@@ -68,6 +68,9 @@ function init(self)
 			left = gui.get_node("logo_left"),
 			right = gui.get_node("logo_right"),
 			text = gui.get_node("logo_text"),
+			text_shadow = gui.get_node("logo_text_shadow"),
+			left_shadow = gui.get_node("logo_left_shadow"),
+			right_shadow = gui.get_node("logo_right_shadow")
 		},
 		white = gui.get_node("fade_white")
 	}
@@ -89,14 +92,19 @@ function init(self)
 		wait(2.5)
 		gui.set_enabled(nodes.logo.left, true)
 		gui.set_enabled(nodes.logo.right, true)
-		gui.animate(nodes.logo.left, "position.x", 220, gui.EASING_OUTSINE, 2)
-		gui.animate(nodes.logo.right, "position.x", 420, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.left, "position.x", 320, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.right, "position.x", 320, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.left_shadow, "position.x", 330, gui.EASING_OUTSINE, 2)
+		gui.animate(nodes.logo.right_shadow, "position.x", 330, gui.EASING_OUTSINE, 2)
 		wait(1.5)
 		gui.set_enabled(nodes.logo.text, true)
+		gui.animate(nodes.logo.text_shadow, "color.w", 0.2, gui.EASING_INSINE, 1.5, 0.5)
 		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INBOUNCE, 2, 0, function()
-			msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
-			msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
-			msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
+			timer.delay(0.2, false, function()
+				msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
+				msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
+				msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
+			end)
 		end)
 	end
 	
@@ -243,6 +251,7 @@ function on_message(self, message_id, message, sender)
 				info_open = nil
 				check_modules()
 			elseif message.template == "accept" then
+				sound.play("#ui_open")
 				msg.post(".", "release_input_focus")
 				UI.unload_template()
 				gui.set_enabled(nodes.dialog.background, false)

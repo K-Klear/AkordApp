@@ -5,7 +5,7 @@ fonts {
 }
 textures {
   name: "UI"
-  texture: "/assets/images/UI.atlas"
+  texture: "/assets/images/UI/UI.atlas"
 }
 background_color {
   x: 0.0

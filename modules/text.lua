@@ -38,7 +38,7 @@ TEXT.people_data = {
 		portrait_2 = "torrent",
 		name = "Jack Torrent",
 		actor = "Vojtěch Kynčl\nFilip Ryant",
-		text = "Specialista na kyberinfiltraci a sociální inženýrství, poslední dobou zdánlivě neaktivní. Přiložen obrázek avataru které používá v kyberprostoru."
+		text = "Specialista na kyberinfiltraci a sociální inženýrství, poslední dobou zdánlivě neaktivní.\n\nPřiložen obrázek avataru který používá v kyberprostoru."
 	},
 	zanziro = {
 		portrait = "zanziro",
@@ -75,7 +75,7 @@ TEXT.people_data = {
 		portrait = "zuzka",
 		name = "Zuzka",
 		actor = "Zuzana Kubínová",
-		text = "Zuzka!"
+		text = "Zkušený jevištní technik, Zuzka se bude během prezentace starat o světla, zvuk, integraci VR/AR efektů a další nezbytné aspekty představení."
 	}
 }
 		

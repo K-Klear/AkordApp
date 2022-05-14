@@ -12,6 +12,7 @@ local INPUT_ENABLED = true
 local EMPTY_VECTOR = vmath.vector3()
 
 local scanner_enabled, scan_in_progress, scan_initiated
+local scanner_text_timer
 local mouse_held
 
 local PANEL = {main = {}, events = {}, people = {}, eula = {}, credits = {}, employ = {}, exit = {}}--, login = {}}
@@ -24,7 +25,6 @@ local button_settings = {
 		base_text_colour = vmath.vector4(1),
 		hover_text_colour = vmath.vector4(0, 0, 0, 1),
 		press_offset = vmath.vector3(0),
-		flash = "button_black_pressed",
 		down = "button_black_down",
 		up = "button_black_up"
 	},
@@ -35,7 +35,6 @@ local button_settings = {
 		hover_colour = vmath.vector4(0.6, 1, 0.8, 1),
 		hover_text_colour = vmath.vector4(0),
 		press_offset = vmath.vector3(0),
-		flash = "mapa",
 		down = "mapa",
 		up = "mapa"
 	},
@@ -43,23 +42,21 @@ local button_settings = {
 		suffix = "/button_white",
 		base_anim = "button_white",
 		base_text_colour = vmath.vector4(0, 0, 0, 1),
-		hover_anim = "button_white_hover_2",
+		hover_anim = "button_white_hover",
 		hover_text_colour = vmath.vector4(0, 0, 0, 1),
 		press_offset = vmath.vector3(0),
-		flash = "button_white_hover_2",
-		down = "button_white_hover_2",
-		up = "button_white_hover_2"
+		down = "button_white_down",
+		up = "button_white_up"
 	},
 	[hash("button_black")] = {
 		suffix = "/button_black",
-		base_anim = "button_black_2",
+		base_anim = "button_menu_base",
 		base_text_colour = vmath.vector4(1),
-		hover_anim = "button_black_hover_2",
+		hover_anim = "button_menu_hover",
 		hover_text_colour = vmath.vector4(1),--0, 0, 0, 1),
 		press_offset = vmath.vector3(6, -6, 0),
-		flash = "button_black_2_pressed_hover",
-		down = "button_black_down",
-		up = "button_black_up"
+		down = "button_menu_down",
+		up = "button_menu_up"
 	}
 }
 
@@ -138,6 +135,7 @@ local function close_dialog(transition, time, props, next_dialog)
 		reactivate_dialog()
 		next_dialog()
 	end
+	SND.play("#close_dialog")
 	if transition == hash("contract") then
 		gui.animate(base, "color.w", 0, gui.EASING_OUTSINE, time / 2, time / 2)
 		gui.animate(base, "scale", 0, gui.EASING_OUTSINE, time, 0, disable_panel)
@@ -228,7 +226,6 @@ function init(self)
 		logo = {
 			left = gui.get_node("logo_left"),
 			right = gui.get_node("logo_right"),
-			small = gui.get_node("logo_small"),
 			text = gui.get_node("logo_text")
 		},
 		employ = {
@@ -239,18 +236,15 @@ function init(self)
 	for key, val in pairs(PANEL) do
 		gui.set_enabled(val.base, false)
 	end
-	gui.set_enabled(nodes.logo.small, false)
 	gui.set_enabled(nodes.employ.dialog, false)
-	gui.animate(nodes.logo.left, "position", vmath.vector3(25, 1090, 0), go.EASING_OUTCUBIC, 1)
-	gui.animate(nodes.logo.right, "position", vmath.vector3(50, 1090, 0), go.EASING_OUTCUBIC, 1)
+	gui.animate(nodes.logo.left, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
+	gui.animate(nodes.logo.right, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.left, "color", vmath.vector4(0, 0, 0, 1), go.EASING_INSINE, 1)
 	gui.animate(nodes.logo.right, "color", vmath.vector4(0, 0, 0, 1), go.EASING_INSINE, 1)
 	gui.animate(nodes.logo.left, "scale", vmath.vector3(1 / 16), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.right, "scale", vmath.vector3(1 / 16), go.EASING_OUTCUBIC, 1, 0, function()
-		gui.set_enabled(nodes.logo.small, true)
-		gui.set_enabled(nodes.logo.left, false)
-		gui.set_enabled(nodes.logo.right, false)
-		TEXT.write(nodes.logo.text, "AkordCorp", 0.1)
+		SND.play("#open_app")
+		TEXT.write(nodes.logo.text, "   AkordCorp", 0.1)
 		timer.delay(0.5, false, function()
 			open_dialog("main", hash("fade_in"), 1)
 		end)
@@ -303,11 +297,23 @@ function PANEL.main.input_eval(button)
 	elseif button == "exit" then
 		open_dialog("exit", hash("expand_from_button"), nil, {button = PANEL.main.btn_exit})
 	elseif button == "login" then
-		gui.set_text(PANEL.employ.title, "Podržte palec\nuprostřed displeje")
+		if scanner_text_timer then
+			timer.cancel(scanner_text_timer)
+			scanner_text_timer = nil
+		end
+		if SET.is_desktop then
+			gui.set_text(PANEL.employ.title, "Nehýbejte se zatímco\nprobíhá sken sítnice")
+		else
+			gui.set_text(PANEL.employ.title, "Podržte palec\nuprostřed displeje")
+		end
 		open_dialog("employ", hash("expand_from_button"), nil, {button = PANEL.main.btn_login})
 		timer.delay(MENU_OPEN_TIME, false, function()
-			msg.post("scanner#scanner", hash("get_ready"))
-			scanner_enabled = true
+			if SET.is_desktop then
+				msg.post("scanner#scanner", hash("get_ready"), {start = true})
+			else
+				msg.post("scanner#scanner", hash("get_ready"))
+				scanner_enabled = true
+			end
 		end)
 	elseif button == "eula" then
 		open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
@@ -370,12 +376,17 @@ end
 
 function PANEL.exit.input_eval(button)
 	if button == "exit_ok" then
-		if SET.is_html5 then
-			local web_url = "http://www.hamba.cz/"
-			sys.open_url(web_url, {target = "_self"})
-		else
-			sys.exit(0)
-		end
+		INPUT_ENABLED = false
+		PANEL.exit.input_eval = function() end
+		SND.play("#close_app")
+		timer.delay(2.3, false, function()
+			if SET.is_html5 then
+				local web_url = "http://www.hamba.cz/"
+				sys.open_url(web_url, {target = "_self"})
+			else
+				sys.exit(0)
+			end
+		end)
 	elseif button == "exit_back" then
 		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_exit})
 	elseif button == "eula" then
@@ -423,18 +434,18 @@ function on_message(self, message_id, message, sender)
 				local text_node = gui.get_node(message.template.."/text")
 				--gui.set_color(text_node, button_settings[type].hover_text_colour)
 				gui.play_flipbook(button_data.node, button_settings[type].down)
+				timer.delay(BUTTON_PRESS_TIME, false, function()
+					gui.play_flipbook(button_data.node, button_settings[type].up, function()
+						gui.play_flipbook(button_data.node, button_settings[type].base_anim)
+					end)
+					gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
+				end)
 				local text_pos
 				if button_settings[type].press_offset then
 					gui.set_position(text_node, EMPTY_VECTOR)
 					gui.animate(text_node, "position", button_settings[type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
 				end
-				timer.delay(BUTTON_PRESS_TIME, false, function()
-					--gui.set_color(text_node, button_settings[type].base_text_colour)
-					gui.play_flipbook(button_data.node, button_settings[type].up, function()
-						gui.play_flipbook(button_data.node, button_settings[type].base_anim)
-					end)
-					gui.animate(text_node, "position", EMPTY_VECTOR, go.EASING_LINEAR, BUTTON_PRESS_TIME)
-					--gui.set_position(text_node, EMPTY_VECTOR)
+				timer.delay(BUTTON_PRESS_TIME * 4, false, function()
 					start_eval()
 				end)
 			end
@@ -500,13 +511,25 @@ function on_message(self, message_id, message, sender)
 		end
 		--]]
 	elseif message_id == hash("scan_completed") then
-		TEXT.write(PANEL.employ.title, "Zpracovávám...", UI.SCAN_TIME / 30, true)
-		INPUT_ENABLED = false
-		scan_initiated = false
-		scan_in_progress = false
-		scanner_enabled = false
+		if scanner_text_timer then
+			timer.cancel(scanner_text_timer)
+			scanner_text_timer = nil
+		end
+		scanner_text_timer = TEXT.write(PANEL.employ.title, "Zpracovávám...", UI.SCAN_TIME / 30, true)
+		if not SET.is_desktop then
+			INPUT_ENABLED = false
+			scan_initiated = false
+			scan_in_progress = false
+			scanner_enabled = false
+		end
 	elseif message_id == hash("scan_evaluated") then
-		INPUT_ENABLED = true
+		if not SET.is_desktop then
+			INPUT_ENABLED = true
+		end
+		if scanner_text_timer then
+			timer.cancel(scanner_text_timer)
+			scanner_text_timer = nil
+		end
 		gui.set_text(PANEL.employ.title, "NEZNÁMÝ UŽIVATEL!")
 	end
 end

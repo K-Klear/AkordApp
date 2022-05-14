@@ -22,7 +22,7 @@ app_icon_192x192 = /assets/images/mobile/app_icons/icon_192.png
 [project]
 dependencies = 
 title = AkordApp
-version = 1.021
+version = v0.9
 
 [physics]
 type = 3D
@@ -42,5 +42,8 @@ cssfile = /dark_theme.css
 show_fullscreen_button = 0
 show_made_with_defold = 0
 show_console_banner = 0
-splash_image = /assets/images/mobile/app_icons/splash.png
+splash_image = /assets/images/splash.png
+
+[graphics]
+texture_profiles = /assets/images/UI/UI.texture_profiles
 

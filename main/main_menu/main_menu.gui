@@ -17,7 +17,7 @@ textures {
 }
 textures {
   name: "UI"
-  texture: "/assets/images/UI.atlas"
+  texture: "/assets/images/UI/UI.atlas"
 }
 textures {
   name: "portraits"
@@ -1320,7 +1320,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "events_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1330,10 +1330,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1630,7 +1630,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 367.0
+    y: 356.0
     z: 0.0
     w: 1.0
   }
@@ -1766,7 +1766,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "employ_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -1776,10 +1776,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -1875,8 +1875,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 128.0
-    y: 256.0
+    x: 180.0
+    y: 280.0
     z: 0.0
     w: 1.0
   }
@@ -2216,7 +2216,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2226,10 +2226,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2308,7 +2308,7 @@ nodes {
 nodes {
   position {
     x: -135.0
-    y: -19.0
+    y: -20.0
     z: 0.0
     w: 1.0
   }
@@ -2379,7 +2379,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_verkant/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2389,10 +2389,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2470,334 +2470,8 @@ nodes {
 }
 nodes {
   position {
-    x: 135.0
-    y: -19.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "people_arkadij"
-  parent: "dialog_people"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button_black.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 260.0
-    y: 72.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
-  id: "people_arkadij/button_black"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "people_arkadij"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Arkadij"
-  font: "menu_button_black"
-  id: "people_arkadij/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "people_arkadij/button_black"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
     x: -135.0
-    y: -99.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "people_holkogramy"
-  parent: "dialog_people"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button_black.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 260.0
-    y: 72.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
-  id: "people_holkogramy/button_black"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "people_holkogramy"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Holkogramy"
-  font: "menu_button_black"
-  id: "people_holkogramy/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "people_holkogramy/button_black"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 135.0
-    y: -99.0
+    y: -90.0
     z: 0.0
     w: 1.0
   }
@@ -2868,7 +2542,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_fhill/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -2878,10 +2552,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -2960,7 +2634,7 @@ nodes {
 nodes {
   position {
     x: -135.0
-    y: -179.0
+    y: -160.0
     z: 0.0
     w: 1.0
   }
@@ -2989,7 +2663,7 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "people_agatha"
+  id: "people_holkogramy"
   parent: "dialog_people"
   layer: ""
   inherit_alpha: true
@@ -3031,20 +2705,20 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
-  id: "people_agatha/button_black"
+  texture: "UI/button_menu_base"
+  id: "people_holkogramy/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "people_agatha"
+  parent: "people_holkogramy"
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3088,9 +2762,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Agatha"
+  text: "Holkogramy"
   font: "menu_button_black"
-  id: "people_agatha/text"
+  id: "people_holkogramy/text"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3108,7 +2782,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "people_agatha/button_black"
+  parent: "people_holkogramy/button_black"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3122,8 +2796,8 @@ nodes {
 }
 nodes {
   position {
-    x: 135.0
-    y: -179.0
+    x: -135.0
+    y: -230.0
     z: 0.0
     w: 1.0
   }
@@ -3194,7 +2868,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_jack/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3204,10 +2878,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3286,170 +2960,7 @@ nodes {
 nodes {
   position {
     x: -135.0
-    y: -259.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEMPLATE
-  id: "people_emmett"
-  parent: "dialog_people"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  template: "/templates/button_black.gui"
-  template_node_child: false
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 260.0
-    y: 72.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
-  id: "people_emmett/button_black"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  parent: "people_emmett"
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  overridden_fields: 4
-  template_node_child: true
-  size_mode: SIZE_MODE_MANUAL
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "Emmett"
-  font: "menu_button_black"
-  id: "people_emmett/text"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  parent: "people_emmett/button_black"
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  overridden_fields: 8
-  template_node_child: true
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 135.0
-    y: -259.0
+    y: -300.0
     z: 0.0
     w: 1.0
   }
@@ -3520,7 +3031,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_claudia/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3530,10 +3041,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3611,8 +3122,171 @@ nodes {
 }
 nodes {
   position {
-    x: -135.0
-    y: -339.0
+    x: 135.0
+    y: -20.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEMPLATE
+  id: "people_arkadij"
+  parent: "dialog_people"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  template: "/templates/button_black.gui"
+  template_node_child: false
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 260.0
+    y: 72.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "UI/button_menu_base"
+  id: "people_arkadij/button_black"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "people_arkadij"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  overridden_fields: 4
+  template_node_child: true
+  size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "Arkadij"
+  font: "menu_button_black"
+  id: "people_arkadij/text"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "people_arkadij/button_black"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  overridden_fields: 8
+  template_node_child: true
+  text_leading: 1.0
+  text_tracking: 0.0
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 135.0
+    y: -90.0
     z: 0.0
     w: 1.0
   }
@@ -3683,7 +3357,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_zuzka/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3693,10 +3367,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3775,7 +3449,170 @@ nodes {
 nodes {
   position {
     x: 135.0
-    y: -339.0
+    y: -160.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEMPLATE
+  id: "people_agatha"
+  parent: "dialog_people"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  template: "/templates/button_black.gui"
+  template_node_child: false
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 260.0
+    y: 72.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "UI/button_menu_base"
+  id: "people_agatha/button_black"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "people_agatha"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  overridden_fields: 4
+  template_node_child: true
+  size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "Agatha"
+  font: "menu_button_black"
+  id: "people_agatha/text"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "people_agatha/button_black"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  overridden_fields: 8
+  template_node_child: true
+  text_leading: 1.0
+  text_tracking: 0.0
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 135.0
+    y: -230.0
     z: 0.0
     w: 1.0
   }
@@ -3846,7 +3683,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "people_zanziro/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -3856,10 +3693,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -3924,6 +3761,169 @@ nodes {
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
   parent: "people_zanziro/button_black"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  outline_alpha: 1.0
+  shadow_alpha: 1.0
+  overridden_fields: 8
+  template_node_child: true
+  text_leading: 1.0
+  text_tracking: 0.0
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 135.0
+    y: -300.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEMPLATE
+  id: "people_emmett"
+  parent: "dialog_people"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  template: "/templates/button_black.gui"
+  template_node_child: false
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 260.0
+    y: 72.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "UI/button_menu_base"
+  id: "people_emmett/button_black"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "people_emmett"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  overridden_fields: 4
+  template_node_child: true
+  size_mode: SIZE_MODE_MANUAL
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ALPHA
+  text: "Emmett"
+  font: "menu_button_black"
+  id: "people_emmett/text"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_CENTER
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  adjust_mode: ADJUST_MODE_FIT
+  line_break: false
+  parent: "people_emmett/button_black"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4277,7 +4277,7 @@ nodes {
   }
   size {
     x: 600.0
-    y: 1000.0
+    y: 600.0
     z: 0.0
     w: 1.0
   }
@@ -4314,7 +4314,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 445.0
+    y: 238.0
     z: 0.0
     w: 1.0
   }
@@ -4378,7 +4378,7 @@ nodes {
 nodes {
   position {
     x: -269.0
-    y: 409.0
+    y: 202.0
     z: 0.0
     w: 1.0
   }
@@ -4410,20 +4410,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "Sc\303\251n\303\241\305\231: Vojt\304\233ch Kyn\304\215l\n"
   "Kost\303\275my a kulisy: Anna Proch\303\241zkov\303\241\n"
-  "Technick\303\241 podpora: Zuzana Kub\303\255nov\303\241\n"
-  "\n"
-  "\n"
-  "\n"
-  "\n"
-  "Pou\305\276it\303\251 skladby: Asi Kevin MacLeod, kdo jinej\n"
-  "\n"
-  "Ten tam m\303\241 dycky...\n"
-  "...licensi na t\305\231i \305\231\303\241dky...\n"
-  "jako takhle.\n"
-  "\n"
-  "A mo\305\276n\303\241 to bude v\303\255c ne\305\276 jedna skladba...\n"
-  "...tak\305\276e tohle je....\n"
-  "...k n\303\255."
+  "Technick\303\241 podpora: Zuzana Kub\303\255nov\303\241"
   font: "menu_text"
   id: "credits_text"
   xanchor: XANCHOR_NONE
@@ -4456,8 +4443,8 @@ nodes {
 }
 nodes {
   position {
-    x: 0.0
-    y: -421.0
+    x: -60.0
+    y: -226.0
     z: 0.0
     w: 1.0
   }
@@ -4528,7 +4515,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "credits_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4538,10 +4525,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4620,7 +4607,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 276.0
+    y: 69.0
     z: 0.0
     w: 1.0
   }
@@ -4691,7 +4678,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "credits_cast/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -4701,10 +4688,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -4783,7 +4770,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -75.0
+    y: -21.0
     z: 0.0
     w: 1.0
   }
@@ -4847,7 +4834,7 @@ nodes {
 nodes {
   position {
     x: -269.0
-    y: -105.0
+    y: -75.0
     z: 0.0
     w: 1.0
   }
@@ -4864,7 +4851,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 535.0
+    x: 380.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -4877,14 +4864,9 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Zvuky z freesoundu a mo\305\276n\303\241 je sem nemus\303\255m vypisovat\n"
-  "Hudba? Asi nebude.\n"
-  "Teoreticky fonty? Uvid\303\255me\n"
-  "Valstn\304\233 je tady toho...\n"
-  "potenci\303\241ln\304\233 docela m\303\241lo?\n"
-  "Uvid\303\255me.\n"
-  "\n"
-  "Made in Defold"
+  text: "Naprogramoval Vojt\304\233ch Kyn\304\215l\n"
+  "Vytvo\305\231eno pomoc\303\255 enginu Defold\n"
+  "Zvuky z projektu freesound.org"
   font: "menu_text"
   id: "credits_text_2"
   xanchor: XANCHOR_NONE
@@ -4918,7 +4900,7 @@ nodes {
 nodes {
   position {
     x: 186.0
-    y: -272.0
+    y: -169.0
     z: 0.0
     w: 1.0
   }
@@ -5165,7 +5147,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "exit_ok/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5175,10 +5157,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5328,7 +5310,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "exit_back/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5338,10 +5320,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5677,7 +5659,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "eula_accept_1/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5687,10 +5669,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5840,7 +5822,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/button_black_2"
+  texture: "UI/button_menu_base"
   id: "eula_accept_2/button_black"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -5850,10 +5832,10 @@ nodes {
   layer: ""
   inherit_alpha: true
   slice9 {
-    x: 20.0
-    y: 20.0
-    z: 20.0
-    w: 20.0
+    x: 16.0
+    y: 16.0
+    z: 16.0
+    w: 16.0
   }
   clipping_mode: CLIPPING_MODE_NONE
   clipping_visible: true
@@ -5931,7 +5913,7 @@ nodes {
 }
 nodes {
   position {
-    x: 220.0
+    x: 320.0
     y: 568.0
     z: 0.0
     w: 1.0
@@ -5949,8 +5931,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 396.0
-    y: 568.0
+    x: 364.0
+    y: 516.0
     z: 0.0
     w: 1.0
   }
@@ -5966,8 +5948,8 @@ nodes {
   id: "logo_left"
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_STRETCH
+  pivot: PIVOT_E
+  adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -5986,7 +5968,7 @@ nodes {
 }
 nodes {
   position {
-    x: 420.0
+    x: 320.0
     y: 568.0
     z: 0.0
     w: 1.0
@@ -6004,8 +5986,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 396.0
-    y: 568.0
+    x: 364.0
+    y: 516.0
     z: 0.0
     w: 1.0
   }
@@ -6021,8 +6003,8 @@ nodes {
   id: "logo_right"
   xanchor: XANCHOR_LEFT
   yanchor: YANCHOR_TOP
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_STRETCH
+  pivot: PIVOT_W
+  adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -6041,7 +6023,7 @@ nodes {
 }
 nodes {
   position {
-    x: 70.0
+    x: 37.0
     y: 1090.0
     z: 0.0
     w: 1.0
@@ -6100,61 +6082,6 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  custom_type: 0
-}
-nodes {
-  position {
-    x: 37.5
-    y: 1090.0
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 0.5
-    y: 0.5
-    z: 2.0
-    w: 1.0
-  }
-  size {
-    x: 103.0
-    y: 73.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
-  texture: "UI/logo_acordcorp_small"
-  id: "logo_small"
-  xanchor: XANCHOR_LEFT
-  yanchor: YANCHOR_TOP
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  layer: ""
-  inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
-  size_mode: SIZE_MODE_AUTO
   custom_type: 0
 }
 material: "/builtins/materials/gui.material"
