@@ -10,7 +10,8 @@
 		font-size: 12px;
 		height: 6px;
 		color: rgb(255, 255, 255);
-		background-color: #808080;
+		/*background-color: #808080;*/
+		background-color: rgb(6, 107, 10);
 		text-align: center;
 		line-height: 20px;
 	}
@@ -75,6 +76,7 @@
 	.canvas-app-canvas {
 		background-repeat:no-repeat;
 		background-position: center center;
+		background-size: contain;
 {{#DEFOLD_SPLASH_IMAGE}}
 		background-image: url("{{DEFOLD_SPLASH_IMAGE}}");
 {{/DEFOLD_SPLASH_IMAGE}}
