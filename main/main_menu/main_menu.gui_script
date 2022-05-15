@@ -184,6 +184,8 @@ function init(self)
 		text = gui.get_node("people_text"),
 		portrait = gui.get_node("people_portrait"),
 		portrait_2 = gui.get_node("people_portrait_2"),
+		portrait_noise = gui.get_node("people_portrait_noise"),
+		portrait_noise_2 = gui.get_node("people_portrait_noise_2"),
 
 		BUTTON_LIST = {"people_ok", "people_verkant", "people_arkadij", "people_holkogramy", "people_fhill", "people_agatha",
 		"people_jack", "people_claudia", "people_emmett", "people_zanziro", "people_zuzka", "eula"},
@@ -252,7 +254,7 @@ function init(self)
 	end)
 end
 
-local person_text_timer, person_name_timer, person_alias_timer
+local person_text_timer, person_name_timer, person_alias_timer, person_noise_timer
 
 timer.cancel_better = function(handle)
 	if handle then
@@ -260,16 +262,17 @@ timer.cancel_better = function(handle)
 	end
 end
 
-local function display_person(person)
+local PEOPLE_NOISE_TIME = 0.75
+
+local function display_person(person, dialog_open)
 	person = person or "verkant"
 	local DATA = TEXT.people_data[person]
-	gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
-	if DATA.portrait_2 then
-		gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
-		gui.set_enabled(PANEL.people.portrait_2, true)
-	else
-		gui.set_enabled(PANEL.people.portrait_2, false)
-	end
+	gui.cancel_animation(PANEL.people.portrait_noise, "color.w")
+	gui.cancel_animation(PANEL.people.portrait_noise_2, "color.w")
+
+	FUXCK THIS NEEDS REWRITING
+	
+	
 	local text = DATA.name.."\n\n"..DATA.actor.."\n\n"..DATA.text
 	timer.cancel_better(person_name_timer)
 	timer.cancel_better(person_alias_timer)
@@ -290,7 +293,7 @@ function PANEL.main.input_eval(button)
 		gui.set_text(PANEL.events.text, text)
 		open_dialog("events", hash("expand_from_button"), nil, {button = PANEL.main.btn_events})
 	elseif button == "people" then
-		display_person("verkant")
+		display_person("verkant", true)
 		open_dialog("people", hash("expand_from_button"), nil, {button = PANEL.main.btn_people})
 	elseif button == "credits" then
 		open_dialog("credits", hash("expand_from_button"), nil, {button = PANEL.main.btn_credits})
@@ -365,7 +368,7 @@ function PANEL.credits.input_eval(button)
 		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_credits})
 	elseif button == "credits_cast" then
 		local next_dialog = function()
-			display_person()
+			display_person(nil, true)
 			open_dialog("people", hash("expand_from_button"), nil, {button = PANEL.main.btn_people})
 		end
 		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_credits}, next_dialog)

@@ -1,7 +1,7 @@
 font: "/assets/fonts/console.ttf"
 material: "/builtins/fonts/font-df.material"
 size: 30
-antialias: 1
+antialias: 0
 alpha: 1.0
 outline_alpha: 0.0
 outline_width: 0.0

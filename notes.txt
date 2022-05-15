@@ -1,0 +1,4 @@
+- Eula / login maybe accessible from other menus
+- Improve text/button positions and sizes
+- New map (Pavel)
+	- Floating icons!
