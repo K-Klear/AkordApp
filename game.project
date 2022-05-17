@@ -22,7 +22,7 @@ app_icon_192x192 = /assets/images/mobile/app_icons/icon_192.png
 [project]
 dependencies = 
 title = AkordApp
-version = v0.9
+version = v0.91
 
 [physics]
 type = 3D
