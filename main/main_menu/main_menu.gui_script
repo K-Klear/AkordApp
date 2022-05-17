@@ -239,6 +239,7 @@ function init(self)
 		gui.set_enabled(val.base, false)
 	end
 	gui.set_enabled(nodes.employ.dialog, false)
+	gui.set_enabled(PANEL.people.portrait_2, false)
 	gui.animate(nodes.logo.left, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.right, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
 	gui.animate(nodes.logo.left, "color", vmath.vector4(0, 0, 0, 1), go.EASING_INSINE, 1)
@@ -262,21 +263,95 @@ timer.cancel_better = function(handle)
 	end
 end
 
-local PEOPLE_NOISE_TIME = 0.75
+local PEOPLE_NOISE_TIME = 0.5
+local ALPHA = "color.w"
+
+local previous_portrait_2
 
 local function display_person(person, dialog_open)
 	person = person or "verkant"
 	local DATA = TEXT.people_data[person]
-	gui.cancel_animation(PANEL.people.portrait_noise, "color.w")
-	gui.cancel_animation(PANEL.people.portrait_noise_2, "color.w")
+	gui.cancel_animation(PANEL.people.portrait_noise, ALPHA)
+	gui.cancel_animation(PANEL.people.portrait_noise_2, ALPHA)
 
-	FUXCK THIS NEEDS REWRITING
-	
-	
+	local hide_1, hide_2, fade_2, show_portrait_2
+	if dialog_open then
+		previous_portrait_2 = false
+	end
+	if dialog_open or person_noise_timer then
+		if person_noise_timer then
+			timer.cancel(person_noise_timer)
+			person_noise_timer = nil
+		end
+		hide_1 = true
+		if previous_portrait_2 then
+			if DATA.portrait_2 then
+				hide_2 = true
+			else
+				fade_2 = true
+			end
+		end
+	end
+	if previous_portrait_2 and not DATA.portrait_2 then
+		fade_2 = true
+	end
+
+	if not DATA.portrait_2 then
+		gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+		if fade_2 then
+			--gui.set_enabled(PANEL.people.portrait_2, false)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+		else
+			gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+			gui.set_enabled(PANEL.people.portrait_2, false)
+		end
+	else
+		if hide_2 then
+			gui.set_enabled(PANEL.people.portrait_2, true)
+			gui.set_alpha(PANEL.people.portrait_noise_2, 1)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 0, gui.EASING_LINEAR, PEOPLE_NOISE_TIME)
+			gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+		else
+			gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+			show_portrait_2 = true
+		end
+	end
+
+	if hide_1 then
+		gui.set_alpha(PANEL.people.portrait_noise, 1)
+		gui.animate(PANEL.people.portrait_noise, ALPHA, 0, gui.EASING_LINEAR, PEOPLE_NOISE_TIME)
+		gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
+		person_noise_timer = timer.delay(PEOPLE_NOISE_TIME / 2, false, function()
+			if show_portrait_2 then
+				gui.set_enabled(PANEL.people.portrait_2, true)
+				gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+			end
+			if fade_2 then
+				gui.set_enabled(PANEL.people.portrait_2, false)
+			end
+			person_noise_timer = nil
+		end)
+	else
+		gui.set_alpha(PANEL.people.portrait_noise, 0)
+		gui.animate(PANEL.people.portrait_noise, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+		person_noise_timer = timer.delay(PEOPLE_NOISE_TIME / 2, false, function()
+			if show_portrait_2 then
+				gui.set_enabled(PANEL.people.portrait_2, true)
+				gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+			end
+			if fade_2 then
+				gui.set_enabled(PANEL.people.portrait_2, false)
+			end
+			gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
+			person_noise_timer = nil
+		end)
+	end
 	local text = DATA.name.."\n\n"..DATA.actor.."\n\n"..DATA.text
 	timer.cancel_better(person_name_timer)
 	timer.cancel_better(person_alias_timer)
 	timer.cancel_better(person_text_timer)
+	previous_portrait_2 = DATA.portrait_2
 	person_name_timer = TEXT.write(PANEL.people.name, DATA.name, 0.2, true)
 	person_alias_timer = TEXT.write(PANEL.people.alias, DATA.actor, 0.1, true)
 	person_text_timer = TEXT.write(PANEL.people.text, DATA.text, 0.03, true)

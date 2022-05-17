@@ -1119,8 +1119,8 @@ nodes {
 }
 nodes {
   position {
-    x: -291.0
-    y: 376.0
+    x: -281.0
+    y: 355.0
     z: 0.0
     w: 1.0
   }
@@ -1137,7 +1137,7 @@ nodes {
     w: 1.0
   }
   size {
-    x: 580.0
+    x: 560.0
     y: 100.0
     z: 0.0
     w: 1.0
@@ -1184,7 +1184,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 426.0
+    y: 420.0
     z: 0.0
     w: 1.0
   }
@@ -1249,7 +1249,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -419.0
+    y: -433.0
     z: 0.0
     w: 1.0
   }
@@ -1412,7 +1412,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -178.0
+    y: -204.0
     z: 0.0
     w: 1.0
   }
@@ -2315,8 +2315,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 140.0
-    y: 80.0
+    x: 180.0
+    y: 100.0
     z: 0.0
     w: 1.0
   }
@@ -2385,7 +2385,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "OK"
+  text: "Zav\305\231\303\255t"
   font: "menu_button_black"
   id: "people_ok/text"
   xanchor: XANCHOR_NONE
@@ -4555,8 +4555,8 @@ nodes {
 }
 nodes {
   position {
-    x: -60.0
-    y: -226.0
+    x: -73.0
+    y: -232.0
     z: 0.0
     w: 1.0
   }
@@ -4614,8 +4614,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 150.0
-    y: 64.0
+    x: 170.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -4777,8 +4777,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 150.0
-    y: 64.0
+    x: 170.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -4977,6 +4977,7 @@ nodes {
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
   text: "Naprogramoval Vojt\304\233ch Kyn\304\215l\n"
+  "QA Pavel Pipek\n"
   "Vytvo\305\231eno pomoc\303\255 enginu Defold\n"
   "Zvuky z projektu freesound.org"
   font: "menu_text"
@@ -5246,8 +5247,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 96.0
-    y: 64.0
+    x: 140.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -5409,8 +5410,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 96.0
-    y: 64.0
+    x: 140.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
