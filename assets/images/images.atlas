@@ -10,6 +10,18 @@ images {
   image: "/assets/images/mapa.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/images/hamba_logo.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/images/map_metro.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/images/UI/icon_tram.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 margin: 2
 extrude_borders: 2
 inner_padding: 2

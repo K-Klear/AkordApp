@@ -96,33 +96,65 @@ animations {
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_ONCE_BACKWARD
-  fps: 120
+  fps: 140
   flip_horizontal: 0
   flip_vertical: 0
 }
 animations {
   id: "button_white_down"
   images {
-    image: "/assets/images/UI/button_white_pressed.png"
+    image: "/assets/images/UI/button_white_press_1.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_4.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_5.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_ONCE_FORWARD
-  fps: 20
+  fps: 100
   flip_horizontal: 0
   flip_vertical: 0
 }
 animations {
   id: "button_white_up"
   images {
-    image: "/assets/images/UI/button_white_pressed.png"
-    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
-  }
-  images {
     image: "/assets/images/UI/button_white_hover.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
-  playback: PLAYBACK_ONCE_FORWARD
-  fps: 40
+  images {
+    image: "/assets/images/UI/button_white_press_1.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_4.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/UI/button_white_press_5.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_ONCE_BACKWARD
+  fps: 120
   flip_horizontal: 0
   flip_vertical: 0
 }

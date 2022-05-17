@@ -98,9 +98,9 @@ function init(self)
 		gui.animate(nodes.logo.right_shadow, "position.x", 330, gui.EASING_OUTSINE, 2)
 		wait(1.5)
 		gui.set_enabled(nodes.logo.text, true)
-		gui.animate(nodes.logo.text_shadow, "color.w", 0.2, gui.EASING_INSINE, 1.5, 0.5)
-		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INBOUNCE, 2, 0, function()
-			timer.delay(0.2, false, function()
+		gui.animate(nodes.logo.text_shadow, "color.w", 0.35, gui.EASING_INSINE, 1, 0.5)
+		gui.animate(nodes.logo.text, "color.w", 1, gui.EASING_INSINE, 1.5, 0, function()
+			timer.delay(0.4, false, function()
 				msg.post("@render:", "clear_color", {color = vmath.vector4(1, 1, 1, 1)})
 				msg.post("bootstrap:/go", hash("unload_proxy"), {proxy = "#proxy_loading"})
 				msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
@@ -229,7 +229,7 @@ function on_message(self, message_id, message, sender)
 			local info = {
 				AR_info = {lbl_size = "AR_size", lbl_text = "AR_text", title = "Podpora\nAR implantátů", text = "Umožňuje aplikaci přímý přístup k okcipitální a temporální oblasti Vašeho mozku.\n\n- Audio/vizuální integrace\n- Asistence při nákupech produktů AkordCorpu\n- Záruka soukromí\n- Blokování reklamních ploch konkurenčních společností\n\nProsím zapojte svůj kraniální implantát pomocí WSB kabelu nebo pomocí technologie BlackTooth."},
 				soma_info = {lbl_size = "soma_size", lbl_text = "soma_text", title = "Somatická\ndata", text = "Obohatí zážitek z Aplikace AkordApp o čichové, chuťové a další vjemy.\n\n- Simulace čistého ovzduší\n- Snadné rozhodování při nákupu jídel či lepidel značky AkordCorp\n- Psychosugestivní feromony\n- Intenzivní stimulace nocireceptorů\n\nProsím navlékněte si oblek Sense4U nebo zapněte AR integraci."},
-				fourd_info = {lbl_size = "fourd_size", lbl_text = "fourd_text", title = "4D videa\na obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro shlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
+				fourd_info = {lbl_size = "fourd_size", lbl_text = "fourd_text", title = "4D videa\na obrázky", text = "Obohacení multi-mediálního obsahu o čtvrtý prostorový vektor.\n\n- Šířka, výška, hloubka a asymptotická vpřeslost\n- Převod času do prostorového vjemu pro zhlédnutí videí v jednom okamžiku\n- Může způsobovat epileptické a existenciální záchvaty\n\nOvěřte prosím, že je Vaše mysl vybavena upgradem 3.06c nebo vyšším."},
 				ads_info = {lbl_size = "ads_size", lbl_text = "ads_text", title = "Personalizované\nreklamy", text = "Psychologické profilování za pomoci špičkových algoritmů pro maximální zážitek z naší reklamní činnosti.\n\n- Přenechte starosti ohledně výběru produktů nám\n- Nechte si poradit od var_favourite_celebrity\n- Až o 83 % menší pocit stresu\n- Automatické platby dříve, než se rozhodnete nakupovat\n\nProsím připojte bankovní účet se zůstatkem alespoň 500 kreditů."},
 			}
 			if info[message.template] then

@@ -44,7 +44,7 @@ local button_settings = {
 		base_text_colour = vmath.vector4(0, 0, 0, 1),
 		hover_anim = "button_white_hover",
 		hover_text_colour = vmath.vector4(0, 0, 0, 1),
-		press_offset = vmath.vector3(0),
+		press_offset = vmath.vector3(5, -5, 0),
 		down = "button_white_down",
 		up = "button_white_up"
 	},
@@ -155,7 +155,6 @@ local function close_dialog(transition, time, props, next_dialog)
 end
 
 function init(self)
-
 	PANEL.main = {
 		base = gui.get_node("panel_main"),
 		btn_events = gui.get_node("events/button_white"),
@@ -228,25 +227,59 @@ function init(self)
 		logo = {
 			left = gui.get_node("logo_left"),
 			right = gui.get_node("logo_right"),
-			text = gui.get_node("logo_text")
+			left_shadow = gui.get_node("logo_left_shadow"),
+			right_shadow = gui.get_node("logo_right_shadow"),
+			text = gui.get_node("logo_text"),
+			shadow = gui.get_node("logo_text_shadow"),
 		},
 		employ = {
 			dialog = gui.get_node("dialog_employ")
 		}
 	}
+
+	local ICON_ANIMATION_LENGTH = 3
+
+	local function get_map_icon_properties()
+		return gui.EASING_INOUTSINE, ICON_ANIMATION_LENGTH, 0, nil, gui.PLAYBACK_LOOP_PINGPONG
+	end
+
+	local function animate_map_icon(icon, shadow)
+		icon, shadow = gui.get_node(icon), gui.get_node(shadow)
+		local pos = gui.get_position(icon).y
+		gui.animate(icon, "position.y", pos + 5, get_map_icon_properties())
+		pos = gui.get_position(shadow).x
+		gui.animate(shadow, "position.x", pos + 5, get_map_icon_properties())
+		gui.animate(shadow, "color.w", 0.2, get_map_icon_properties())
+		gui.animate(icon, "scale", vmath.vector3(0.25, 0.25, 1), get_map_icon_properties())
+		gui.animate(shadow, "scale", vmath.vector3(0.25, 0.25, 1), get_map_icon_properties())
+	end
+
+	animate_map_icon("map_logo", "map_logo_shadow")
+	animate_map_icon("map_metro", "map_metro_shadow")
+	animate_map_icon("map_tram_1", "map_tram_1_shadow")
+	animate_map_icon("map_tram_2", "map_tram_2_shadow")
+	animate_map_icon("map_tram_3", "map_tram_3_shadow")
+
+
 	
 	for key, val in pairs(PANEL) do
 		gui.set_enabled(val.base, false)
 	end
 	gui.set_enabled(nodes.employ.dialog, false)
-	gui.animate(nodes.logo.left, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
-	gui.animate(nodes.logo.right, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTCUBIC, 1)
+	gui.set_enabled(PANEL.people.portrait_2, false)
+	gui.animate(nodes.logo.left, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.right, "position", vmath.vector3(37, 1090, 0), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.left_shadow, "position", vmath.vector3(37 + 5, 1090 - 5, 0), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.right_shadow, "position", vmath.vector3(37 + 5, 1090 - 5, 0), go.EASING_OUTSINE, 1)
 	gui.animate(nodes.logo.left, "color", vmath.vector4(0, 0, 0, 1), go.EASING_INSINE, 1)
 	gui.animate(nodes.logo.right, "color", vmath.vector4(0, 0, 0, 1), go.EASING_INSINE, 1)
-	gui.animate(nodes.logo.left, "scale", vmath.vector3(1 / 16), go.EASING_OUTCUBIC, 1)
-	gui.animate(nodes.logo.right, "scale", vmath.vector3(1 / 16), go.EASING_OUTCUBIC, 1, 0, function()
+	gui.animate(nodes.logo.left_shadow, "scale", vmath.vector3(1 / 16), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.right_shadow, "scale", vmath.vector3(1 / 16), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.left, "scale", vmath.vector3(1 / 16), go.EASING_OUTSINE, 1)
+	gui.animate(nodes.logo.right, "scale", vmath.vector3(1 / 16), go.EASING_OUTSINE, 1, 0, function()
 		SND.play("#open_app")
 		TEXT.write(nodes.logo.text, "   AkordCorp", 0.1)
+		TEXT.write(nodes.logo.shadow, "   AkordCorp", 0.1)
 		timer.delay(0.5, false, function()
 			open_dialog("main", hash("fade_in"), 1)
 		end)
@@ -262,21 +295,95 @@ timer.cancel_better = function(handle)
 	end
 end
 
-local PEOPLE_NOISE_TIME = 0.75
+local PEOPLE_NOISE_TIME = 0.5
+local ALPHA = "color.w"
+
+local previous_portrait_2
 
 local function display_person(person, dialog_open)
 	person = person or "verkant"
 	local DATA = TEXT.people_data[person]
-	gui.cancel_animation(PANEL.people.portrait_noise, "color.w")
-	gui.cancel_animation(PANEL.people.portrait_noise_2, "color.w")
+	gui.cancel_animation(PANEL.people.portrait_noise, ALPHA)
+	gui.cancel_animation(PANEL.people.portrait_noise_2, ALPHA)
 
-	FUXCK THIS NEEDS REWRITING
-	
-	
+	local hide_1, hide_2, fade_2, show_portrait_2
+	if dialog_open then
+		previous_portrait_2 = false
+	end
+	if dialog_open or person_noise_timer then
+		if person_noise_timer then
+			timer.cancel(person_noise_timer)
+			person_noise_timer = nil
+		end
+		hide_1 = true
+		if previous_portrait_2 then
+			if DATA.portrait_2 then
+				hide_2 = true
+			else
+				fade_2 = true
+			end
+		end
+	end
+	if previous_portrait_2 and not DATA.portrait_2 then
+		fade_2 = true
+	end
+
+	if not DATA.portrait_2 then
+		gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+		if fade_2 then
+			--gui.set_enabled(PANEL.people.portrait_2, false)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+		else
+			gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+			gui.set_enabled(PANEL.people.portrait_2, false)
+		end
+	else
+		if hide_2 then
+			gui.set_enabled(PANEL.people.portrait_2, true)
+			gui.set_alpha(PANEL.people.portrait_noise_2, 1)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 0, gui.EASING_LINEAR, PEOPLE_NOISE_TIME)
+			gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+		else
+			gui.set_alpha(PANEL.people.portrait_noise_2, 0)
+			gui.animate(PANEL.people.portrait_noise_2, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+			show_portrait_2 = true
+		end
+	end
+
+	if hide_1 then
+		gui.set_alpha(PANEL.people.portrait_noise, 1)
+		gui.animate(PANEL.people.portrait_noise, ALPHA, 0, gui.EASING_LINEAR, PEOPLE_NOISE_TIME)
+		gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
+		person_noise_timer = timer.delay(PEOPLE_NOISE_TIME / 2, false, function()
+			if show_portrait_2 then
+				gui.set_enabled(PANEL.people.portrait_2, true)
+				gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+			end
+			if fade_2 then
+				gui.set_enabled(PANEL.people.portrait_2, false)
+			end
+			person_noise_timer = nil
+		end)
+	else
+		gui.set_alpha(PANEL.people.portrait_noise, 0)
+		gui.animate(PANEL.people.portrait_noise, ALPHA, 1, gui.EASING_LINEAR, PEOPLE_NOISE_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
+		person_noise_timer = timer.delay(PEOPLE_NOISE_TIME / 2, false, function()
+			if show_portrait_2 then
+				gui.set_enabled(PANEL.people.portrait_2, true)
+				gui.play_flipbook(PANEL.people.portrait_2, DATA.portrait_2)
+			end
+			if fade_2 then
+				gui.set_enabled(PANEL.people.portrait_2, false)
+			end
+			gui.play_flipbook(PANEL.people.portrait, DATA.portrait)
+			person_noise_timer = nil
+		end)
+	end
 	local text = DATA.name.."\n\n"..DATA.actor.."\n\n"..DATA.text
 	timer.cancel_better(person_name_timer)
 	timer.cancel_better(person_alias_timer)
 	timer.cancel_better(person_text_timer)
+	previous_portrait_2 = DATA.portrait_2
 	person_name_timer = TEXT.write(PANEL.people.name, DATA.name, 0.2, true)
 	person_alias_timer = TEXT.write(PANEL.people.alias, DATA.actor, 0.1, true)
 	person_text_timer = TEXT.write(PANEL.people.text, DATA.text, 0.03, true)
