@@ -74,7 +74,7 @@ function init(self)
 		},
 		white = gui.get_node("fade_white")
 	}
-	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..sys.get_engine_info().version.." \n\nInicializace .............................................................. hotovo!\nVytvářím satelitní uplink ................................. hotovo!\nSpojení s mainframe AkordCorpu ...................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refreshDaemon\nf_getLang"
+	local full_text = "AkordApp verze "..sys.get_config("project.version").."\nVerze enginu: "..sys.get_engine_info().version.." \n\nInicializace .............................................................. hotovo!\nVytvářím satelitní uplink .................................. hotovo!\nSpojení s mainframe AkordCorpu ...................... hotovo!\nf_loadDefaults\nf_sysCheck\nf_ASecInit\nf_0Auth\nf_refreshDaemon\nf_getLang"
 
 	gui.set_enabled(nodes.info.background, false)
 	gui.set_enabled(nodes.dialog.background, false)
