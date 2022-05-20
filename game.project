@@ -18,12 +18,16 @@ app_icon_72x72 = /assets/images/mobile/app_icons/icon_72.png
 app_icon_96x96 = /assets/images/mobile/app_icons/icon_96.png
 app_icon_144x144 = /assets/images/mobile/app_icons/icon_144.png
 app_icon_192x192 = /assets/images/mobile/app_icons/icon_192.png
+push_icon_large = /assets/images/mobile/app_icons/icon_72.png
+push_icon_small = /assets/images/mobile/app_icons/icon_36.png
+immersive_mode = 1
 
 [project]
 dependencies = 
 title = AkordApp
-version = v0.92
+version = 0.95.02
 publisher = Hamba
+developer = Klear
 
 [physics]
 type = 3D

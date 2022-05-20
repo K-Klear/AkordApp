@@ -768,7 +768,6 @@ nodes {
   }
   type: TYPE_TEMPLATE
   id: "eula"
-  parent: "panel_main"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -811,8 +810,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/button_white"
   id: "eula/button_white"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "eula"
@@ -829,6 +828,8 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   overridden_fields: 4
+  overridden_fields: 12
+  overridden_fields: 13
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -932,7 +933,6 @@ nodes {
   }
   type: TYPE_TEMPLATE
   id: "login"
-  parent: "panel_main"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -975,8 +975,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/button_white"
   id: "login/button_white"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   parent: "login"
@@ -993,6 +993,8 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   overridden_fields: 4
+  overridden_fields: 12
+  overridden_fields: 13
   template_node_child: true
   size_mode: SIZE_MODE_MANUAL
   custom_type: 0
@@ -1065,7 +1067,7 @@ nodes {
 nodes {
   position {
     x: 320.0
-    y: 568.0
+    y: 560.0
     z: 1.0
     w: 1.0
   }
@@ -1097,8 +1099,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_events"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -1120,7 +1122,7 @@ nodes {
 nodes {
   position {
     x: -281.0
-    y: 355.0
+    y: 368.0
     z: 0.0
     w: 1.0
   }
@@ -1184,7 +1186,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: 420.0
+    y: 425.0
     z: 0.0
     w: 1.0
   }
@@ -1249,7 +1251,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -433.0
+    y: -431.0
     z: 0.0
     w: 1.0
   }
@@ -1307,8 +1309,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 96.0
-    y: 64.0
+    x: 130.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -1412,7 +1414,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -204.0
+    y: -189.0
     z: 0.0
     w: 1.0
   }
@@ -1464,14 +1466,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.5
-    y: 0.5
+    x: 0.71
+    y: 0.71
     z: 1.0
     w: 1.0
   }
   size {
-    x: 1130.0
-    y: 744.0
+    x: 829.0
+    y: 565.0
     z: 0.0
     w: 1.0
   }
@@ -1574,8 +1576,8 @@ nodes {
 }
 nodes {
   position {
-    x: 180.0
-    y: -64.0
+    x: 129.0
+    y: -154.0
     z: 0.0
     w: 1.0
   }
@@ -1592,8 +1594,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 255.0
+    y: 255.0
     z: 0.0
     w: 1.0
   }
@@ -1630,8 +1632,8 @@ nodes {
 }
 nodes {
   position {
-    x: 175.0
-    y: -60.0
+    x: 124.0
+    y: -150.0
     z: 0.0
     w: 1.0
   }
@@ -1648,8 +1650,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 255.0
+    y: 255.0
     z: 0.0
     w: 1.0
   }
@@ -1686,8 +1688,8 @@ nodes {
 }
 nodes {
   position {
-    x: -154.0
-    y: -57.0
+    x: -152.0
+    y: -37.0
     z: 0.0
     w: 1.0
   }
@@ -1698,8 +1700,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 0.25
+    y: 0.25
     z: 1.0
     w: 1.0
   }
@@ -1742,8 +1744,8 @@ nodes {
 }
 nodes {
   position {
-    x: -159.0
-    y: -53.0
+    x: -157.0
+    y: -33.0
     z: 0.0
     w: 1.0
   }
@@ -1754,8 +1756,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 0.25
+    y: 0.25
     z: 1.0
     w: 1.0
   }
@@ -1793,13 +1795,13 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
 }
 nodes {
   position {
-    x: -91.0
-    y: -326.0
+    x: -228.0
+    y: -137.0
     z: 0.0
     w: 1.0
   }
@@ -1810,14 +1812,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
@@ -1854,8 +1856,8 @@ nodes {
 }
 nodes {
   position {
-    x: -96.0
-    y: -322.0
+    x: -233.0
+    y: -133.0
     z: 0.0
     w: 1.0
   }
@@ -1866,19 +1868,19 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 1.0
     y: 1.0
     z: 1.0
     w: 1.0
@@ -1910,8 +1912,8 @@ nodes {
 }
 nodes {
   position {
-    x: -213.0
-    y: -217.0
+    x: -258.0
+    y: -256.0
     z: 0.0
     w: 1.0
   }
@@ -1922,14 +1924,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
@@ -1966,8 +1968,8 @@ nodes {
 }
 nodes {
   position {
-    x: -218.0
-    y: -213.0
+    x: -263.0
+    y: -252.0
     z: 0.0
     w: 1.0
   }
@@ -1978,19 +1980,19 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 1.0
     y: 1.0
     z: 1.0
     w: 1.0
@@ -2022,8 +2024,8 @@ nodes {
 }
 nodes {
   position {
-    x: -209.0
-    y: -105.0
+    x: -185.0
+    y: -301.0
     z: 0.0
     w: 1.0
   }
@@ -2034,14 +2036,14 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
@@ -2078,8 +2080,8 @@ nodes {
 }
 nodes {
   position {
-    x: -214.0
-    y: -101.0
+    x: -190.0
+    y: -297.0
     z: 0.0
     w: 1.0
   }
@@ -2090,19 +2092,19 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.2
-    y: 0.2
+    x: 1.0
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 260.0
-    y: 260.0
+    x: 34.0
+    y: 29.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 0.0
+    x: 1.0
     y: 1.0
     z: 1.0
     w: 1.0
@@ -2167,8 +2169,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_employ"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -2506,8 +2508,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_people"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -2592,7 +2594,7 @@ nodes {
 }
 nodes {
   position {
-    x: -216.0
+    x: -215.0
     y: 405.0
     z: 0.0
     w: 1.0
@@ -2704,7 +2706,7 @@ nodes {
 }
 nodes {
   position {
-    x: -216.0
+    x: -215.0
     y: 405.0
     z: 0.0
     w: 1.0
@@ -4963,8 +4965,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_credits"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -5049,7 +5051,7 @@ nodes {
 }
 nodes {
   position {
-    x: -269.0
+    x: -264.0
     y: 202.0
     z: 0.0
     w: 1.0
@@ -5505,7 +5507,7 @@ nodes {
 }
 nodes {
   position {
-    x: -269.0
+    x: -264.0
     y: -75.0
     z: 0.0
     w: 1.0
@@ -5572,7 +5574,7 @@ nodes {
 }
 nodes {
   position {
-    x: 186.0
+    x: 196.0
     y: -169.0
     z: 0.0
     w: 1.0
@@ -5661,8 +5663,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_exit"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -6107,8 +6109,8 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   texture: "UI/panel_green"
   id: "dialog_eula"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_TOP
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
   layer: ""
@@ -6928,6 +6930,102 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 10.0
+    y: 10.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEMPLATE
+  id: "sound"
+  layer: ""
+  inherit_alpha: true
+  alpha: 1.0
+  template: "/templates/button_sound.gui"
+  template_node_child: false
+  custom_type: 0
+}
+nodes {
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 0.5
+    y: 0.5
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 150.0
+    y: 150.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "UI/sound_on"
+  id: "sound/button_sound"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_BOTTOM
+  pivot: PIVOT_SW
+  adjust_mode: ADJUST_MODE_FIT
+  parent: "sound"
+  layer: ""
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: true
+  size_mode: SIZE_MODE_AUTO
   custom_type: 0
 }
 material: "/builtins/materials/gui.material"

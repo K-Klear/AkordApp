@@ -223,7 +223,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: 149.0
+    y: 170.0
     z: 0.0
     w: 1.0
   }
@@ -287,7 +287,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: 119.0
+    y: 140.0
     z: 0.0
     w: 1.0
   }
@@ -351,7 +351,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 149.0
+    y: 156.0
     z: 0.0
     w: 1.0
   }
@@ -409,8 +409,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 210.0
-    y: 52.0
+    x: 170.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -478,7 +478,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "V\303\255ce informac\303\255"
+  text: "Vy\305\231e\305\241it\n"
+  "probl\303\251m"
   font: "loading_text"
   id: "AR_info/text"
   xanchor: XANCHOR_NONE
@@ -512,7 +513,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: 49.0
+    y: 70.0
     z: 0.0
     w: 1.0
   }
@@ -576,7 +577,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: 19.0
+    y: 40.0
     z: 0.0
     w: 1.0
   }
@@ -640,7 +641,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: 49.0
+    y: 56.0
     z: 0.0
     w: 1.0
   }
@@ -698,8 +699,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 210.0
-    y: 52.0
+    x: 170.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -767,7 +768,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "V\303\255ce informac\303\255"
+  text: "Vy\305\231e\305\241it\n"
+  "probl\303\251m"
   font: "loading_text"
   id: "soma_info/text"
   xanchor: XANCHOR_NONE
@@ -801,7 +803,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: -51.0
+    y: -30.0
     z: 0.0
     w: 1.0
   }
@@ -865,7 +867,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: -81.0
+    y: -60.0
     z: 0.0
     w: 1.0
   }
@@ -929,7 +931,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: -51.0
+    y: -44.0
     z: 0.0
     w: 1.0
   }
@@ -987,8 +989,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 210.0
-    y: 52.0
+    x: 170.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -1056,7 +1058,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "V\303\255ce informac\303\255"
+  text: "Vy\305\231e\305\241it\n"
+  "probl\303\251m"
   font: "loading_text"
   id: "fourd_info/text"
   xanchor: XANCHOR_NONE
@@ -1090,7 +1093,7 @@ nodes {
 nodes {
   position {
     x: -274.0
-    y: -151.0
+    y: -130.0
     z: 0.0
     w: 1.0
   }
@@ -1155,7 +1158,7 @@ nodes {
 nodes {
   position {
     x: -255.0
-    y: -197.0
+    y: -176.0
     z: 0.0
     w: 1.0
   }
@@ -1219,7 +1222,7 @@ nodes {
 nodes {
   position {
     x: 172.0
-    y: -151.0
+    y: -144.0
     z: 0.0
     w: 1.0
   }
@@ -1277,8 +1280,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 210.0
-    y: 52.0
+    x: 170.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -1346,7 +1349,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "V\303\255ce informac\303\255"
+  text: "Vy\305\231e\305\241it\n"
+  "probl\303\251m"
   font: "loading_text"
   id: "ads_info/text"
   xanchor: XANCHOR_NONE
@@ -1380,7 +1384,7 @@ nodes {
 nodes {
   position {
     x: 0.0
-    y: -306.0
+    y: -297.0
     z: 0.0
     w: 1.0
   }
@@ -1438,8 +1442,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 240.0
-    y: 120.0
+    x: 260.0
+    y: 140.0
     z: 0.0
     w: 1.0
   }
@@ -2257,7 +2261,7 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.5019608
+    x: 0.6784314
     y: 0.0
     z: 0.0
     w: 1.0

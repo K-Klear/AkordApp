@@ -95,6 +95,7 @@ local function open_dialog(dialog, transition, time, props)
 	table.insert(current_dialogs, dialog)
 	local function enable_panel()
 		UI.load_template(PANEL[dialog].BUTTON_LIST)
+		UI.load_template("sound")
 	end
 	if transition == hash("fade_in") then
 		gui.set_alpha(base, 0)
@@ -121,6 +122,7 @@ local function reactivate_dialog()
 	gui.set_enabled(PANEL[current_dialogs[#current_dialogs]].base, false)
 	table.remove(current_dialogs, #current_dialogs)
 	UI.load_template(PANEL[current_dialogs[#current_dialogs]].BUTTON_LIST)
+	UI.load_template("sound")
 end
 
 local function close_dialog(transition, time, props, next_dialog)
@@ -172,7 +174,7 @@ function init(self)
 		base = gui.get_node("dialog_events"),
 		text = gui.get_node("events_text"),
 
-		BUTTON_LIST = {"events_ok", "eula", "events_map"},
+		BUTTON_LIST = {"events_ok", "events_map"},
 		input_eval = PANEL.events.input_eval
 	}
 
@@ -237,28 +239,35 @@ function init(self)
 		}
 	}
 
-	local ICON_ANIMATION_LENGTH = 3
+	local ICON_ANIMATION_LENGTH = 4
 
 	local function get_map_icon_properties()
 		return gui.EASING_INOUTSINE, ICON_ANIMATION_LENGTH, 0, nil, gui.PLAYBACK_LOOP_PINGPONG
 	end
 
-	local function animate_map_icon(icon, shadow)
+	local function animate_map_icon(icon, shadow, scale_factor)
+		scale_factor = scale_factor or 1.25
 		icon, shadow = gui.get_node(icon), gui.get_node(shadow)
+		local base_scale = gui.get_scale(icon)
+		local new_scale = base_scale * scale_factor
+		local position_offset = 20 * (scale_factor - 1)
+		local shadow_fade = 0.4 - 0.8 * (scale_factor - 1)
 		local pos = gui.get_position(icon).y
-		gui.animate(icon, "position.y", pos + 5, get_map_icon_properties())
+		gui.animate(icon, "position.y", pos + position_offset, get_map_icon_properties())
 		pos = gui.get_position(shadow).x
-		gui.animate(shadow, "position.x", pos + 5, get_map_icon_properties())
-		gui.animate(shadow, "color.w", 0.2, get_map_icon_properties())
-		gui.animate(icon, "scale", vmath.vector3(0.25, 0.25, 1), get_map_icon_properties())
-		gui.animate(shadow, "scale", vmath.vector3(0.25, 0.25, 1), get_map_icon_properties())
+		gui.animate(shadow, "position.x", pos + position_offset, get_map_icon_properties())
+		gui.animate(shadow, "color.w", shadow_fade, get_map_icon_properties())
+		gui.set_scale(icon, base_scale)
+		gui.set_scale(shadow, base_scale)
+		gui.animate(icon, "scale", new_scale, get_map_icon_properties())
+		gui.animate(shadow, "scale", new_scale, get_map_icon_properties())
 	end
 
 	animate_map_icon("map_logo", "map_logo_shadow")
-	animate_map_icon("map_metro", "map_metro_shadow")
-	animate_map_icon("map_tram_1", "map_tram_1_shadow")
-	animate_map_icon("map_tram_2", "map_tram_2_shadow")
-	animate_map_icon("map_tram_3", "map_tram_3_shadow")
+	animate_map_icon("map_metro", "map_metro_shadow", 1.10)
+	animate_map_icon("map_tram_1", "map_tram_1_shadow", 1.10)
+	animate_map_icon("map_tram_2", "map_tram_2_shadow", 1.10)
+	animate_map_icon("map_tram_3", "map_tram_3_shadow", 1.10)
 
 
 	
@@ -435,10 +444,15 @@ function PANEL.events.input_eval(button)
 		close_dialog(hash("contract_to_button"), nil, {button = PANEL.main.btn_events})
 		--close_dialog(hash("contract"))
 	elseif button == "events_map" then
-		local web_url = "https://www.google.com/maps/place/P%C5%99%C3%ADrodov%C4%9Bdeck%C3%A1+fakulta+UK/@50.0677658,14.4220166,17z/data=!4m5!3m4!1s0x470b948a8298e12d:0xc34671cecfa94ef1!8m2!3d50.0689086!4d14.4245388"
+		local web_url
+		if math.random() > 0.5 then
+			web_url = "https://www.google.com/maps/place/P%C5%99%C3%ADrodov%C4%9Bdeck%C3%A1+fakulta+UK/@50.0677658,14.4220166,17z/data=!4m5!3m4!1s0x470b948a8298e12d:0xc34671cecfa94ef1!8m2!3d50.0689086!4d14.4245388"
+		else
+			web_url = "https://mapy.cz/zakladni?x=14.4237025&y=50.0681681&z=18&q=albertov%206&source=addr&id=8940826&ds=1"
+		end
 		sys.open_url(web_url, {target = "_blank"})
-	elseif button == "eula" then
-		open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
+	--elseif button == "eula" then
+		--open_dialog("eula", hash("expand_from_button"), nil, {button = PANEL.main.btn_eula})
 	end
 end
 
@@ -528,10 +542,17 @@ function on_message(self, message_id, message, sender)
 		local button_data = UI.active[message.button]
 		local type = button_data.type
 
-		SND.play("#beep")
-		
 		if type == hash("button") then
 			start_eval()
+		elseif type == hash("button_sound") then
+			SET.sound_on = not SET.sound_on
+			if SET.sound_on then
+				sound.set_group_gain("master", 1)
+				gui.play_flipbook(button_data.node, "sound_on")
+			else
+				sound.set_group_gain("master", 0)
+				gui.play_flipbook(button_data.node, "sound_off")
+			end
 		else
 			if SET.is_desktop then
 				gui.play_flipbook(button_data.node, button_settings[type].up)
@@ -559,67 +580,8 @@ function on_message(self, message_id, message, sender)
 					start_eval()
 				end)
 			end
+			SND.play("#beep")
 		end
-		--[[
-
-		elseif button_data.type == hash("button_white") then
-			INPUT_ENABLED = false
-			local node = gui.get_node(message.template.."/button_white")
-			local node_text = gui.get_node(message.template.."/text")
-			gui.set_color(node, UI.COLOUR_WHITE)
-			gui.set_color(node_text, UI.COLOUR_BLACK)
-			gui.animate(node, "color", UI.COLOUR_BLACK, go.EASING_LINEAR, BUTTON_FLASH_TIME, 0, nil, gui.PLAYBACK_ONCE_PINGPONG)
-			gui.animate(node_text, "color", UI.COLOUR_WHITE, go.EASING_LINEAR, BUTTON_FLASH_TIME, 0, start_eval, gui.PLAYBACK_ONCE_PINGPONG)
-		elseif button_data.type == hash("button_black") then
-			INPUT_ENABLED = false
-			local node = gui.get_node(message.template.."/button_black")
-			local node_text = gui.get_node(message.template.."/text")
-			gui.set_color(node_text, UI.COLOUR_BLACK)
-			gui.play_flipbook(node, "button_black_pressed")
-			timer.delay(BUTTON_FLASH_TIME, false, function()
-				gui.set_color(node_text, UI.COLOUR_WHITE)
-				gui.play_flipbook(node, "button_black")
-				start_eval()
-			end)
-
-			
-			elseif message.template == "employ" then
-				UI.unload_template()
-				gui.set_enabled(nodes.employ.dialog, true)
-				msg.post("scanner#scanner", hash("get_ready"))
-				scanner_enabled = true
-				UI.load_template({"employ_ok"})
-			elseif message.template == "employ_ok" then
-				UI.unload_template()
-				gui.set_enabled(nodes.employ.dialog, false)
-				UI.load_template(MAIN_MENU_BUTTONS)
-				scan_initiated = false
-				scan_in_progress = false
-				scanner_enabled = false
-				msg.post("scanner#scanner", hash("hide"))
-			
-			elseif message.template == "login" then
-				UI.unload_template()
-				gui.set_enabled(nodes.login.dialog, true)
-				UI.load_template({"login_close", "login_employ", "login_name_field_button"})
-			elseif message.template == "login_name_field_button" then
-				UI.enable_text_field(nodes.login.name_field, true, 24, "(Zadejte jméno)")
-			elseif message.template == "login_employ" then
-				UI.unload_template()
-				gui.set_enabled(nodes.login.dialog, false)
-				UI.reset_text_field(nodes.login.name_field)
-				gui.set_enabled(nodes.employ.dialog, true)
-				UI.load_template({"employ_ok"})
-				msg.post("scanner#scanner", hash("get_ready"))
-				scanner_enabled = true
-			elseif message.template == "login_close" then
-				UI.unload_template()
-				gui.set_enabled(nodes.login.dialog, false)
-				UI.load_template(MAIN_MENU_BUTTONS)
-				UI.reset_text_field(nodes.login.name_field)
-			end
-		end
-		--]]
 	elseif message_id == hash("scan_completed") then
 		if scanner_text_timer then
 			timer.cancel(scanner_text_timer)
@@ -654,18 +616,15 @@ function on_input(self, action_id, action)
 					break
 				end
 			end
-			UI.check_text_field(action.x, action.y)
-		--elseif SET.is_desktop and not action.released then
 		elseif SET.is_desktop and action.pressed then
 			for key, val in ipairs(UI.active) do
-				if gui.pick_node(val.node, action.x, action.y) then
+				if gui.pick_node(val.node, action.x, action.y) and button_settings[val.type] then
 					gui.play_flipbook(val.node, button_settings[val.type].down)
 					local text_node = gui.get_node(val.template.."/text")
 					gui.set_color(text_node, button_settings[val.type].base_text_colour)
 					if button_settings[val.type].press_offset then
 						gui.set_position(text_node, EMPTY_VECTOR)
 						gui.animate(text_node, "position", button_settings[val.type].press_offset, go.EASING_LINEAR, BUTTON_PRESS_TIME)
-						--gui.set_position(text_node, button_settings[val.type].press_offset)
 					end
 					break
 				end
@@ -674,10 +633,12 @@ function on_input(self, action_id, action)
 	elseif not action_id and SET.is_desktop then
 		local new_hover
 		for key, val in ipairs(UI.active) do
-			local node = gui.get_node(val.template..button_settings[val.type].suffix)
-			if gui.pick_node(node, action.x, action.y) then
-				new_hover = key
-				break
+			if button_settings[val.type] then
+				local node = gui.get_node(val.template..button_settings[val.type].suffix)
+				if gui.pick_node(node, action.x, action.y) then
+					new_hover = key
+					break
+				end
 			end
 		end
 		if new_hover then

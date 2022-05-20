@@ -19,7 +19,7 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/UI/icon_tram.png"
+  image: "/assets/images/icon_tram.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 margin: 2

@@ -30,5 +30,7 @@ profiles {
       compression_type: COMPRESSION_TYPE_DEFAULT
     }
     mipmaps: false
+    max_texture_size: 0
+    premultiply_alpha: true
   }
 }

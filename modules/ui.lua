@@ -1,8 +1,8 @@
 local UI = {active = {}}
 
-UI.COLOUR_DEFAULT = vmath.vector4(0.05, 0.45, 0.05, 1)
-UI.COLOUR_DISABLED = vmath.vector4(0.2, 0.2, 0.2, 1)
-UI.COLOUR_ERROR = vmath.vector4(0.35, 0.75, 0.15, 1)
+UI.COLOUR_DEFAULT = vmath.vector4(0.35, 0.75, 0.15, 1)
+UI.COLOUR_DISABLED = vmath.vector4(0.1, 0.1, 0.1, 1)
+UI.COLOUR_ERROR = vmath.vector4(0.05, 0.45, 0.05, 1)
 UI.COLOUR_WHITE = vmath.vector4(1)
 UI.COLOUR_BLACK = vmath.vector4(0, 0, 0, 1)
 
@@ -16,7 +16,7 @@ function UI.load_template(template)
 		end
 		return
 	end
-	local state, type = true
+	local state, type
 	if pcall(gui.get_node, template.."/button_box") then
 		node = gui.get_node(template.."/button_box")
 		type = hash("button")
@@ -29,6 +29,10 @@ function UI.load_template(template)
 	elseif pcall(gui.get_node, template.."/button_white") then
 		node = gui.get_node(template.."/button_white")
 		type = hash("button_white")
+	elseif pcall(gui.get_node, template.."/button_sound") then
+		node = gui.get_node(template.."/button_sound")
+		type = hash("button_sound")
+		state = true
 	end
 	table.insert(UI.active, {template = template, type = type, state = state, node = node})
 end

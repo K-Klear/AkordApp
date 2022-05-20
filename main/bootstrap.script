@@ -1,9 +1,10 @@
+math.randomseed(os.time())
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	msg.post("#proxy_loading", "load")
 	msg.post("@render:", hash("use_fixed_fit_projection"))
 end
-
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("proxy_loaded") then

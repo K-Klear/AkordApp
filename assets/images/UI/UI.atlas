@@ -34,6 +34,14 @@ images {
   image: "/assets/images/UI/button_menu/button_menu_hover.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/images/UI/sound_on.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/assets/images/UI/sound_off.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "button_menu_down"
   images {

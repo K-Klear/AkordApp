@@ -33,8 +33,8 @@ nodes {
     w: 1.0
   }
   size {
-    x: 210.0
-    y: 52.0
+    x: 170.0
+    y: 80.0
     z: 0.0
     w: 1.0
   }
@@ -101,7 +101,8 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "V\303\255ce informac\303\255"
+  text: "Vy\305\231e\305\241it\n"
+  "probl\303\251m"
   font: "loading_text"
   id: "text"
   xanchor: XANCHOR_NONE

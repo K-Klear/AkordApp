@@ -83,6 +83,7 @@ function init(self)
 	gui.set_enabled(nodes.logo.text, false)
 	gui.set_color(nodes.console, UI.COLOUR_DEFAULT)
 	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DISABLED)
+	gui.set_color(gui.get_node("accept/button_box"), UI.COLOUR_DISABLED)
 	
 	local function start_app()
 		new_line();	new_line();	new_line()
@@ -116,7 +117,9 @@ function init(self)
 			msg.post("bootstrap:/go", hash("load_proxy"), {proxy = "#proxy_main_menu"})
 		elseif SET.skip_loading then
 			local click_text = "klepněte"
-			if SET.is_desktop then click_text = "klikněte" end
+			if SET.is_desktop then
+				click_text = "klikněte"
+			end
 			write(nodes.console, "\n\n(Pro pokračování "..click_text.." kamkoliv)", 0.05)
 			msg.post(".", "acquire_input_focus")
 			coroutine.yield(co)
@@ -194,7 +197,9 @@ function init(self)
 			wait(0.3)
 			new_line();	new_line()
 			local click_text = "klepněte"
-			if SET.is_desktop then click_text = "klikněte" end
+			if SET.is_desktop then
+				click_text = "klikněte"
+			end
 			write(nodes.console, "\n\n(Pro pokračování "..click_text.." kamkoliv)", 0.05)
 			msg.post(".", "acquire_input_focus")
 			coroutine.yield(co)
@@ -214,12 +219,14 @@ local function check_modules()
 	for key, val in pairs(plugins) do
 		if val then
 			gui.set_color(gui.get_node("accept/text"), UI.COLOUR_DISABLED)
+			gui.set_color(gui.get_node("accept/button_box"), UI.COLOUR_DISABLED)
 			UI.unload_template("accept")
 			return false
 		end
 	end
 	UI.load_template({"accept"})
 	gui.set_color(gui.get_node("accept/text"), UI.COLOUR_WHITE)
+	gui.set_color(gui.get_node("accept/button_box"), UI.COLOUR_WHITE)
 	return true
 end
 
@@ -263,11 +270,12 @@ end
 
 
 function on_input(self, action_id, action)
-	if action_id == hash("touch") and action.pressed then
+	--if action_id == hash("touch") and action.pressed then
+	if action_id and action.pressed then
 		if not self.dialog then
 			coroutine.resume(co)
 			self.dialog = true
-		else
+		elseif action_id == hash("touch") then
 			for key, val in ipairs(UI.active) do
 				local node = gui.get_node(val.template.."/button_box")
 				if gui.pick_node(node, action.x, action.y) then
