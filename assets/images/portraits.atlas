@@ -1,45 +1,45 @@
 images {
-  image: "/assets/images/portraits/agatha.jpg"
+  image: "/assets/images/portraits/agatha.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/arkadij.jpg"
+  image: "/assets/images/portraits/arkadij.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/claudia.jpg"
+  image: "/assets/images/portraits/claudia.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/emmett.jpg"
+  image: "/assets/images/portraits/emmett.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/fhill.jpg"
+  image: "/assets/images/portraits/fhill.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/holkogram_1.jpg"
+  image: "/assets/images/portraits/holkogram_1.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/holkogram_2.jpg"
+  image: "/assets/images/portraits/holkogram_2.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/jack.jpg"
+  image: "/assets/images/portraits/jack.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/torrent.jpg"
+  image: "/assets/images/portraits/torrent.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/verkant.jpg"
+  image: "/assets/images/portraits/verkant.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/portraits/zuzka.jpg"
+  image: "/assets/images/portraits/zuzka.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {

@@ -21,11 +21,12 @@ app_icon_192x192 = /assets/images/mobile/app_icons/icon_192.png
 push_icon_large = /assets/images/mobile/app_icons/icon_72.png
 push_icon_small = /assets/images/mobile/app_icons/icon_36.png
 immersive_mode = 1
+version_code = 3
 
 [project]
 dependencies = 
 title = AkordApp
-version = 0.95.02
+version = 0.95.06
 publisher = Hamba
 developer = Klear
 
