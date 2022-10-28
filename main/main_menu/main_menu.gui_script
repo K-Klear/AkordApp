@@ -405,7 +405,7 @@ function PANEL.main.input_eval(button)
 		text = text.."Vybraným hostům bude Projekt X představen na exkluzivní kyberprostorové prezentaci.\n\n"
 		text = text.."Nejste mezi nimi? Nevadí! Vše potřebné se můžete dozvědět i na zvláštních akcích, které se budou konat"
 		text = text.." ve fyzickém prostoru, a to konkrétně v prostorech Přírodovědecké fakulty UK, posluchárna VG, Albertov 6, Praha 2\n\n"
-		text = text.."První termín - 17. 6. 2022, 18:00\nDruhý termín - 19. 6. 2022, 18:00\n"
+		text = text.."První termín - 22. 11. 2022, 19:30\nDruhý termín - upřesníme později\n"
 		gui.set_text(PANEL.events.text, text)
 		open_dialog("events", hash("expand_from_button"), nil, {button = PANEL.main.btn_events})
 	elseif button == "people" then

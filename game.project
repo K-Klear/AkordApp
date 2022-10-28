@@ -26,7 +26,7 @@ version_code = 3
 [project]
 dependencies = 
 title = AkordApp
-version = 0.95.06
+version = 0.95.07
 publisher = Hamba
 developer = Klear
 
